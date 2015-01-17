@@ -24,6 +24,8 @@
 class Drive: public Command {
 public:
 	Drive();
+	float delinearize(float, float);
+	float deadband(float, float);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

@@ -44,5 +44,10 @@ void DriveTrain::drive(float x, float y, float z) {
 	robotDrive->MecanumDrive_Cartesian(x,y,z);
 }
 
+//float DriveTrain:: GetGyroAngle()
+//{
+	//return driveGyro -> GetAngle();
+//}
+
 // here. Call these from Commands.
 
