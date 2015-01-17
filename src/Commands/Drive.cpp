@@ -62,6 +62,8 @@ void Drive::Execute() {
 		y = delinearize(y,alpha);
 		z = delinearize(z,alpha);
 
+
+
 		x = deadband(x,db);
 		y = deadband(y,db);
 		z = deadband(z, db);
