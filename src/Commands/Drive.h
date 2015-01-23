@@ -30,9 +30,17 @@ class Drive: public Command {
 	const double DELINEARIZATION_POWER_DEFAULT=5;
 	const double JOYSTICK_DEADBAND_DEFAULT=.2;
 
+	const std:: string SCALEFACTOR_GYRO-DASHBOARD_KEY, SCALEFACTOR_DEFAULT;  // not right...
+	SmartDashboard std::string GAINFACTOR_GYRO_DASHBOARD_KEY, GAINFACTOR_DEFAULT;  //not right...
+
+
+
 	double joystickDeadband;
 	double delinearizationPower;
 	double delinearizationAlpha;
+	float GainFactor;
+	float ScaleFAcotr;
+
 public:
 	Drive();
 	//float delinearize(float, float);
