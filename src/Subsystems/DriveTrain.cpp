@@ -55,9 +55,4 @@ float DriveTrain:: GetTheGyroRate()
 	return driveGyro -> GetRate();
 }
 
-// here. Call these from Commands.
 
-float DriveTrain::GetTheGyroRate()
-{
-	return driveGyro -> GetRate();
-}
