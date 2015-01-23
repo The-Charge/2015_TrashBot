@@ -32,8 +32,8 @@ Drive::Drive() {
 void Drive::Initialize() {
 	joystickDeadband = SmartDashboard::GetNumber(JOYSTICK_DEADBAND_DASHBOARD_KEY, JOYSTICK_DEADBAND_DEFAULT);
 
-	//ScaleFactor = SmartDashboard::GetNumber();
-	//GainFactor = SmartDashboard::GetNumber();
+	ScaleFactor = SmartDashboard::GetNumber(SCALEFACTOR_GYRO_DASHBOARD_KEY, SCALEFACTOR_DEFAULT);
+	GainFactor = SmartDashboard::GetNumber(GAINFACTOR_GYRO_DASHBOARD_KEY, GAINFACTOR_DEFAULT);
 
 	delinearizationPower = SmartDashboard::GetNumber(DELINEARIZATION_POWER_DASHBOARD_KEY, DELINEARIZATION_POWER_DEFAULT);
 	delinearizationAlpha = SmartDashboard::GetNumber(DELINEARIZATION_ALPHA_DASHBOARD_KEY, DELINEARIZATION_ALPHA_DEFAULT);
@@ -64,9 +64,9 @@ void Drive::Execute() {
 		float z = Robot::oi->getJoystick1()->GetZ();
 
 
-	// creats a smartdashboard value to see what the gyro value for its angle and rate
+	// creates a smartdashboard value to see what the gyro value for its angle and rate
 		float GetTheGyroAngle = Robot::driveTrain -> GetGyroAngle(); //gets the value from the float in the driveTrain.cpp
-			double GetTheGyroRate = Robot::driveTrain -> GetGyroRate(); //gets the value from the double in the driveTrain.cpp
+		double GetTheGyroRate = Robot::driveTrain -> GetGyroRate(); //gets the value from the double in the driveTrain.cpp
 	// Puts values on the smartdashboard
 
 		SmartDashboard::PutNumber("The Gyro Rate", GetTheGyroRate);
@@ -88,6 +88,8 @@ void Drive::Execute() {
 
 
 			// delinearizes the analog input so it isn't as sensitive when the driver is driving
+			// allows for testing different powers to see smoothest performance
+
 			x = RobotMath::delinearize(x,delinearizationAlpha ,(int)delinearizationPower);
 			y = RobotMath::delinearize(y,delinearizationAlpha ,(int)delinearizationPower);
 			z = RobotMath::delinearize(z,delinearizationAlpha ,(int)delinearizationPower);
@@ -96,7 +98,7 @@ void Drive::Execute() {
 			{ y = 0; z = 0; } // allows only the x value to pass
 
 
-			float Gyro_Correction = -1 * GetTheGyroRate ;
+			float Gyro_Correction = -1 * GetTheGyroRate;
 
 		Robot::driveTrain->drive(x, y, z/3); // z/3 to reduce the speed for more precision while driving
 }
