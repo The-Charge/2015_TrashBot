@@ -10,7 +10,6 @@
 
 
 #include "Drive.h"
-
 #include "c:/workspace/2015_trashbot/Util/RobotMath.h"
 
 Drive::Drive() {
@@ -24,16 +23,11 @@ Drive::Drive() {
 	SmartDashboard::PutNumber(DELINEARIZATION_ALPHA_DASHBOARD_KEY, DELINEARIZATION_ALPHA_DEFAULT);
 	SmartDashboard::PutNumber(JOYSTICK_DEADBAND_DASHBOARD_KEY, JOYSTICK_DEADBAND_DEFAULT);
 
-	SmartDashboard::PutNumber(SCALEFACTOR_GYRO_DASHBOARD_KEY, SCALEFACTOR_DEFAULT);
-	SmartDashboard::PutNumber(GAINFACTOR_GYRO_DASHBOARD_KEY, GAINFACTOR_DEFAULT);
 }
 
 // Called just before this Command runs the first time
 void Drive::Initialize() {
 	joystickDeadband = SmartDashboard::GetNumber(JOYSTICK_DEADBAND_DASHBOARD_KEY, JOYSTICK_DEADBAND_DEFAULT);
-
-	//ScaleFactor = SmartDashboard::GetNumber();
-	//GainFactor = SmartDashboard::GetNumber();
 
 	delinearizationPower = SmartDashboard::GetNumber(DELINEARIZATION_POWER_DASHBOARD_KEY, DELINEARIZATION_POWER_DEFAULT);
 	delinearizationAlpha = SmartDashboard::GetNumber(DELINEARIZATION_ALPHA_DASHBOARD_KEY, DELINEARIZATION_ALPHA_DEFAULT);
@@ -65,12 +59,11 @@ void Drive::Execute() {
 
 
 	// creats a smartdashboard value to see what the gyro value for its angle and rate
-		float GetTheGyroAngle = Robot::driveTrain -> GetGyroAngle(); //gets the value from the float in the driveTrain.cpp
-			double GetTheGyroRate = Robot::driveTrain -> GetGyroRate(); //gets the value from the double in the driveTrain.cpp
+		//float GetTheGyroAngle = Robot::driveTrain->GetGyroAngle(); //gets the value from the float in the driveTrain.cpp
+		//double GetTheGyroRate = Robot::driveTrain->GetGyroRate(); //gets the value from the double in the driveTrain.cpp
 	// Puts values on the smartdashboard
-
-		SmartDashboard::PutNumber("The Gyro Rate", GetTheGyroRate);
-		SmartDashboard::PutNumber("The Gyro Angle", GetTheGyroAngle);
+		//SmartDashboard::PutNumber("The Gyro Rate", GetTheGyroRate);
+		//SmartDashboard::PutNumber("The Gyro Angle",GetTheGyroAngle);
 /*
 		x = delinearize(x,alpha);
 		y = delinearize(y,alpha);
@@ -86,19 +79,18 @@ void Drive::Execute() {
 			y = RobotMath::deadband(y,joystickDeadband);
 			z = RobotMath::deadband(z,joystickDeadband);
 
+//float GettheGyroAngle = Robot::driveTrain -> GettheGyroAngle();
+//float GettheGyroRate = Robot :: driveTrain -> GettheGyroRate();
 
-			// delinearizes the analog input so it isn't as sensitive when the driver is driving
 			x = RobotMath::delinearize(x,delinearizationAlpha ,(int)delinearizationPower);
 			y = RobotMath::delinearize(y,delinearizationAlpha ,(int)delinearizationPower);
 			z = RobotMath::delinearize(z,delinearizationAlpha ,(int)delinearizationPower);
 
-			if (Robot:: oi -> getJoystick1() -> GetRawButton(4)) // if the button is held
-			{ y = 0; z = 0; } // allows only the x value to pass
+			if (Robot:: oi -> getJoystick1() -> GetRawButton(4))
+			{ y = 0; z = 0; }
 
 
-			float Gyro_Correction = -1 * GetTheGyroRate ;
-
-		Robot::driveTrain->drive(x, y, z/3); // z/3 to reduce the speed for more precision while driving
+		Robot::driveTrain->drive(x,y,z/3);
 }
 
 // Make this return true when this Command no longer needs to run execute()
