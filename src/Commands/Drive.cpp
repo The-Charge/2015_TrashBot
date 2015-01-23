@@ -87,10 +87,10 @@ void Drive::Execute() {
 			z = RobotMath::delinearize(z,delinearizationAlpha ,(int)delinearizationPower);
 
 			if (Robot:: oi -> getJoystick1() -> GetRawButton(4))
-			{ y = 0; x = 0; }
+			{ y = 0; z = 0; }
 
 
-		Robot::driveTrain->drive(x,y,z);
+		Robot::driveTrain->drive(x,y,z/3);
 }
 
 // Make this return true when this Command no longer needs to run execute()
