@@ -100,11 +100,7 @@ Children:
           validators: [AnalogInput]
           value: '0'
       Base: Gyro
-<<<<<<< HEAD
       Name: DriveGyro
-=======
-      Name: Gyro 1
->>>>>>> origin/develop
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: Drive}
