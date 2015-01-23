@@ -22,13 +22,16 @@ Drive::Drive() {
 	SmartDashboard::PutNumber(DELINEARIZATION_POWER_DASHBOARD_KEY, DELINEARIZATION_POWER_DEFAULT);
 	SmartDashboard::PutNumber(DELINEARIZATION_ALPHA_DASHBOARD_KEY, DELINEARIZATION_ALPHA_DEFAULT);
 	SmartDashboard::PutNumber(JOYSTICK_DEADBAND_DASHBOARD_KEY, JOYSTICK_DEADBAND_DEFAULT);
+	SmartDashboard:: PutNumber(SCALEFACTOR_GYRO_DASHBOARD_KEY, SCALEFACTOR_DEFAULT);
+	SmartDashboard::PutNumber(GAINFACTOR_GYRO_DASHBOARD_KEY, GAINFACTOR_DEFAULT);
 
 }
 
 // Called just before this Command runs the first time
 void Drive::Initialize() {
 	joystickDeadband = SmartDashboard::GetNumber(JOYSTICK_DEADBAND_DASHBOARD_KEY, JOYSTICK_DEADBAND_DEFAULT);
-
+	ScaleFactor = SmartDashboard:: GetNumber(SCALEFACTOR_GYRO_DASHBOARD_KEY, SCALEFACTOR_DEFAULT);
+	GainFactor = SmartDashboard:: GetNumber(GAINFACTOR_GYRO_DASHBOARD_KEY, GAINFACTOR_DEFAULT);
 	delinearizationPower = SmartDashboard::GetNumber(DELINEARIZATION_POWER_DASHBOARD_KEY, DELINEARIZATION_POWER_DEFAULT);
 	delinearizationAlpha = SmartDashboard::GetNumber(DELINEARIZATION_ALPHA_DASHBOARD_KEY, DELINEARIZATION_ALPHA_DEFAULT);
 }
@@ -79,8 +82,8 @@ void Drive::Execute() {
 			y = RobotMath::deadband(y,joystickDeadband);
 			z = RobotMath::deadband(z,joystickDeadband);
 
-		float GettheGyroAngle = Robot::driveTrain -> GetTheGyroAngle();
-		float GettheGyroRate = Robot :: driveTrain -> GetTheGyroRate();
+		float GyroAngle = Robot::driveTrain -> GetTheGyroAngle();
+		float GyroRate = Robot :: driveTrain -> GetTheGyroRate();
 
 			x = RobotMath::delinearize(x,delinearizationAlpha ,(int)delinearizationPower);
 			y = RobotMath::delinearize(y,delinearizationAlpha ,(int)delinearizationPower);
@@ -89,6 +92,7 @@ void Drive::Execute() {
 			if (Robot:: oi -> getJoystick1() -> GetRawButton(4))
 			{ y = 0; z = 0; }
 
+			float Gryo_Correction = -1 * GainFactor * ScaleFactor;
 
 		Robot::driveTrain->drive(x,y,z/3);
 }
