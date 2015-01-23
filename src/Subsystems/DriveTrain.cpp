@@ -49,9 +49,15 @@ float DriveTrain:: GetTheGyroAngle()
 {
 	return driveGyro -> GetAngle();
 }
+
 float DriveTrain:: GetTheGyroRate()
 {
 	return driveGyro -> GetRate();
 }
+
 // here. Call these from Commands.
 
+float DriveTrain::GetTheGyroRate()
+{
+	return driveGyro -> GetRate();
+}

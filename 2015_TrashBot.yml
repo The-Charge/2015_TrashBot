@@ -100,7 +100,11 @@ Children:
           validators: [AnalogInput]
           value: '0'
       Base: Gyro
+<<<<<<< HEAD
       Name: DriveGyro
+=======
+      Name: Gyro 1
+>>>>>>> origin/develop
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: Drive}
@@ -144,7 +148,11 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
+<<<<<<< HEAD
   Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\2619\workspace',
+=======
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics\workspace',
+>>>>>>> origin/develop
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
