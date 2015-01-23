@@ -62,8 +62,8 @@ void Drive::Execute() {
 		//float GetTheGyroAngle = Robot::driveTrain->GetGyroAngle(); //gets the value from the float in the driveTrain.cpp
 		//double GetTheGyroRate = Robot::driveTrain->GetGyroRate(); //gets the value from the double in the driveTrain.cpp
 	// Puts values on the smartdashboard
-		SmartDashboard::PutNumber("The Gyro Rate", Robot:: driveTrain -> GetTheGyroRate());
-		SmartDashboard::PutNumber("The Gyro Angle",Robot:: driveTrain -> GetTheGyroAngle());
+		//SmartDashboard::PutNumber("The Gyro Rate", GetTheGyroRate);
+		//SmartDashboard::PutNumber("The Gyro Angle",GetTheGyroAngle);
 /*
 		x = delinearize(x,alpha);
 		y = delinearize(y,alpha);
@@ -79,8 +79,8 @@ void Drive::Execute() {
 			y = RobotMath::deadband(y,joystickDeadband);
 			z = RobotMath::deadband(z,joystickDeadband);
 
-		float GettheGyroAngle = Robot::driveTrain -> GetTheGyroAngle();
-		float GettheGyroRate = Robot :: driveTrain -> GetTheGyroRate();
+//float GettheGyroAngle = Robot::driveTrain -> GettheGyroAngle();
+//float GettheGyroRate = Robot :: driveTrain -> GettheGyroRate();
 
 			x = RobotMath::delinearize(x,delinearizationAlpha ,(int)delinearizationPower);
 			y = RobotMath::delinearize(y,delinearizationAlpha ,(int)delinearizationPower);
