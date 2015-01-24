@@ -28,17 +28,17 @@ void RobotMap::init() {
 	LiveWindow* lw = LiveWindow::GetInstance();
 
 	driveTrainCANTalonLeftFront = new CANTalon(2);
-	// trashbot id number 8
-	// Plybot id number 11
+	
+	
 	driveTrainCANTalonLeftRear = new CANTalon(3);
-	// trashbot id number 9
-	// Plybot id number 2
+	
+	
 	driveTrainCANTalonRightFront = new CANTalon(4);
-	// trashbot id number 10
-	// Plybot id number 3
+	
+	
 	driveTrainCANTalonRightRear = new CANTalon(5);
-	// trashbot id number 7
-	// Plybot id number 5
+	
+	
 	driveTrainRobotDrive = new RobotDrive(driveTrainCANTalonLeftFront, driveTrainCANTalonLeftRear,
               driveTrainCANTalonRightFront, driveTrainCANTalonRightRear);
 	
