@@ -59,9 +59,10 @@ float Drive::deadband(float input, float db){
 }*/
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
+
 	float x = Robot::oi->getJoystick1()->GetX();
-		float y = Robot::oi->getJoystick1()->GetY();
-		float z = Robot::oi->getJoystick1()->GetZ();
+	float y = Robot::oi->getJoystick1()->GetY();
+	float z = Robot::oi->getJoystick1()->GetZ();
 
 
 	// creates a smartdashboard value to see what the gyro value for its angle and rate
@@ -71,6 +72,7 @@ void Drive::Execute() {
 
 		SmartDashboard::PutNumber("The Gyro Rate", GetTheGyroRate);
 		SmartDashboard::PutNumber("The Gyro Angle", GetTheGyroAngle);
+
 /*
 		x = delinearize(x,alpha);
 		y = delinearize(y,alpha);
