@@ -41,14 +41,29 @@ void DriveTrain::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 
-void DriveTrain::drive(float x, float y, float z) {
+void DriveTrain::drive(float x, float y, float z)
+{
 	robotDrive->MecanumDrive_Cartesian(x,y,z);
 }
 
-//float DriveTrain:: GetGyroAngle()
-//{
-	//return driveGyro -> GetAngle();
-//}
+float DriveTrain::GetGyroRate()
+{
+	return driveGyro->GetRate();
+}
+
+float DriveTrain::GetGyroAngle()
+{
+	return driveGyro -> GetAngle();
+}
+
+void DriveTrain::ResetEncoders()
+{
+	RobotMap::driveTrainCANTalonLeftRear -> SetPosition(0);
+	RobotMap::driveTrainCANTalonRightRear -> SetPosition(0);
+	RobotMap::driveTrainCANTalonLeftFront -> SetPosition(0);
+	RobotMap::driveTrainCANTalonRightFront -> SetPosition(0);
+}
+
 
 // here. Call these from Commands.
 

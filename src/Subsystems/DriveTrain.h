@@ -40,6 +40,8 @@ public:
 
 	// drive command drives the mecanum and parameters: x,y z as rotation
 		void drive(float, float, float);
+
+		void ResetEncoders();
 		float GetTheGyroRate();
 		float GetTheGyroAngle();
 

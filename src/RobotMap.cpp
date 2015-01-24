@@ -39,6 +39,7 @@ void RobotMap::init() {
 	driveTrainCANTalonRightRear = new CANTalon(5);
 	//Trashbot - 7
 	//Plybot - 5
+
 	driveTrainRobotDrive = new RobotDrive(driveTrainCANTalonLeftFront, driveTrainCANTalonLeftRear,
               driveTrainCANTalonRightFront, driveTrainCANTalonRightRear);
 	

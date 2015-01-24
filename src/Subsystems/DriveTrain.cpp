@@ -55,4 +55,14 @@ float DriveTrain:: GetTheGyroRate()
 	return driveGyro -> GetRate();
 }
 
+void DriveTrain::ResetEncoders()
+{
+	RobotMap::driveTrainCANTalonLeftRear -> SetPosition(0);
+	RobotMap::driveTrainCANTalonRightRear -> SetPosition(0);
+	RobotMap::driveTrainCANTalonLeftFront -> SetPosition(0);
+	RobotMap::driveTrainCANTalonRightFront -> SetPosition(0);
+}
+
+
+// here. Call these from Commands.
 
