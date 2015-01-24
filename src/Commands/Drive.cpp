@@ -68,8 +68,8 @@ void Drive::Execute() {
 
 
 	// creates a smartdashboard value to see what the gyro value for its angle and rate
-		float GetTheGyroAngle = Robot::driveTrain -> GetGyroAngle(); //gets the value from the float in the driveTrain.cpp
-		double GetTheGyroRate = Robot::driveTrain -> GetGyroRate(); //gets the value from the double in the driveTrain.cpp
+	float GetTheGyroAngle = Robot::driveTrain -> GetGyroAngle(); //gets the value from the float in the driveTrain.cpp
+	double GetTheGyroRate = Robot::driveTrain -> GetGyroRate(); //gets the value from the double in the driveTrain.cpp
 	// Puts values on the smartdashboard
 
 		SmartDashboard::PutNumber("The Gyro Rate", GetTheGyroRate);
@@ -110,7 +110,7 @@ void Drive::Execute() {
 			//these must be sent to the smart dashboard
 			//these should go into the drive command
 
-
+			//These Get the velocity and the position of the encoders to be able to present them on the smartDashboard
 			//Left Side
 			int LeftFrontEncPos = RobotMap::driveTrainCANTalonLeftFront -> GetEncPosition();
 			int LeftFrontEncVel = RobotMap::driveTrainCANTalonLeftFront -> GetEncVel();
