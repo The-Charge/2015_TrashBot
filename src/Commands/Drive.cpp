@@ -102,8 +102,10 @@ void Drive::Execute() {
 			{ y = 0; z = 0; } // allows only the x value to pass
 
 
-			float Gyro_Correction = -1 * GetTheGyroRate;
+			float GyroCorrection = -1 * GetTheGyroRate;
 
+
+			//----------------------------------------------------------------------------------------
 			//both of these methods return an integer
 			//these must be sent to the smart dashboard
 			//these should go into the drive command
@@ -123,17 +125,23 @@ void Drive::Execute() {
 			int RightRearEncPos = RobotMap::driveTrainCANTalonRightRear -> GetEncPosition();
 			int RightRearEncVel = RobotMap::driveTrainCANTalonRightRear -> GetEncVel();
 
+
+			//SmartDashboard setup for the front left Encoders
 			SmartDashboard::PutNumber("Left Front Encoder Postition", LeftFrontEncPos);
 			SmartDashboard::PutNumber("Left Front Encoder Velocity", LeftFrontEncVel);
 
+			//SmartDashboard setup for the rear left Encoders
 			SmartDashboard::PutNumber("Left Rear Encoder Postition", LeftRearEncPos);
 			SmartDashboard::PutNumber("Left Rear Encoder Velocity", LeftRearEncVel);
 
+			//SmartDashboard setup for the front right Encoders
 			SmartDashboard::PutNumber("Right Front Encoder Postition", RightFrontEncPos);
 			SmartDashboard::PutNumber("Right Front Encoder Velocity", RightFrontEncVel);
 
+			//SmartDashboard setup for the rear right Encoders
 			SmartDashboard::PutNumber("Right Rear Encoder Postition", RightRearEncPos);
 			SmartDashboard::PutNumber("Right Rear Encoder Velocity", RightRearEncVel);
+			//---------------------------------------------------------------------------------------
 
 		Robot::driveTrain->drive(x, y, z/3); // z/3 to reduce the speed for more precision while driving
 }
