@@ -102,6 +102,14 @@ void Drive::Execute() {
 
 			float Gryo_Correction = -1 * GainFactor * ScaleFactor * GyroRate;
 		Robot::driveTrain->drive(x,y,z/3);
+
+		//THese should go in the drive command,
+			//send these to the smart dashboard
+		//Hint: both methods return int
+			Robot::driveTrain -> CANTalonLeftFront ->GetEncPosition();
+			Robot::driveTrain -> CANTalonLeftFront ->GetEncVel();
+
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
