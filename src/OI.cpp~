@@ -26,6 +26,8 @@ OI::OI() {
 
 	joystick1 = new Joystick(0);
 	
+	resetEncoderButtons = new JoystickButton(joystick1, 8);
+	resetEncoderButtons->WhenPressed(new ResetEncoders());
      
 
         // SmartDashboard Buttons

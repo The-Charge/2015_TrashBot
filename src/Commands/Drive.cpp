@@ -102,7 +102,7 @@ void Drive::Execute() {
 			{ y = 0; z = 0; } // allows only the x value to pass
 
 
-			float GyroCorrection = -1 * GetTheGyroRate;
+			float GyroCorrection = -1 * GainFactor * ScaleFactor * GetTheGyroRate;
 
 
 			//----------------------------------------------------------------------------------------

@@ -102,7 +102,7 @@ void Drive::Execute() {
 			{ y = 0; z = 0; } // allows only the x value to pass
 
 
-			float GyroCorrection = -1 * GetTheGyroRate;
+			float GyroCorrection = -1 * GainFactor * ScaleFactor * GyroRate;;
 
 
 			//----------------------------------------------------------------------------------------
@@ -127,19 +127,19 @@ void Drive::Execute() {
 
 
 			//SmartDashboard setup for the front left Encoders
-			SmartDashboard::PutNumber("Left Front Encoder Postition", LeftFrontEncPos);
+			SmartDashboard::PutNumber("Left Front Encoder Position", LeftFrontEncPos);
 			SmartDashboard::PutNumber("Left Front Encoder Velocity", LeftFrontEncVel);
 
 			//SmartDashboard setup for the rear left Encoders
-			SmartDashboard::PutNumber("Left Rear Encoder Postition", LeftRearEncPos);
+			SmartDashboard::PutNumber("Left Rear Encoder Position", LeftRearEncPos);
 			SmartDashboard::PutNumber("Left Rear Encoder Velocity", LeftRearEncVel);
 
 			//SmartDashboard setup for the front right Encoders
-			SmartDashboard::PutNumber("Right Front Encoder Postition", RightFrontEncPos);
+			SmartDashboard::PutNumber("Right Front Encoder Position", RightFrontEncPos);
 			SmartDashboard::PutNumber("Right Front Encoder Velocity", RightFrontEncVel);
 
 			//SmartDashboard setup for the rear right Encoders
-			SmartDashboard::PutNumber("Right Rear Encoder Postition", RightRearEncPos);
+			SmartDashboard::PutNumber("Right Rear Encoder Position", RightRearEncPos);
 			SmartDashboard::PutNumber("Right Rear Encoder Velocity", RightRearEncVel);
 			//---------------------------------------------------------------------------------------
 
