@@ -56,5 +56,15 @@ float DriveTrain::GetGyroAngle()
 	return driveGyro -> GetAngle();
 }
 
+void DriveTrain::EncoderReset()
+{
+	RobotMap::driveTrainCANTalonLeftFront -> SetPosition(0);
+	RobotMap::driveTrainCANTalonLeftRear -> SetPosition(0);
+	RobotMap::driveTrainCANTalonRightRear -> SetPosition(0);
+	RobotMap::driveTrainCANTalonRightFront -> SetPosition(0);
+
+}
+
+
 // here. Call these from Commands.
 
