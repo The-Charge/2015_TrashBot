@@ -144,11 +144,7 @@ Children:
   Base: Commands
   Name: Commands
 Properties:
-<<<<<<< HEAD
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\2619\workspace',
-=======
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Robotics\workspace',
->>>>>>> origin/develop
+  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\workspace',
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
