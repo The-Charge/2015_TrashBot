@@ -27,10 +27,16 @@ Drive2Feet::Drive2Feet() {
 void Drive2Feet::Initialize() {
 	p = SmartDashboard::GetNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY , p_default);
 	this -> SetTimeout(10);
+	//Change the mode to position instead of percent:
 	Robot:: driveTrain -> CANTalonLeftFront -> SetControlMode(CANTalon::kPosition);
 	Robot::driveTrain -> CANTalonLeftRear -> SetControlMode(CANTalon::kPosition);
 	Robot:: driveTrain -> CANTalonRightFront -> SetControlMode(CANTalon::kPosition);
 	Robot::driveTrain -> CANTalonRightRear -> SetControlMode(CANTalon::kPosition);
+	//You need to immediately set the position to 0:
+	Robot::driveTrain->CANTalonLeftFront->Set(0);
+	Robot::driveTrain->CANTalonLeftRear->Set(0);
+	Robot::driveTrain->CANTalonRightFront->Set(0);
+	Robot::driveTrain->CANTalonRightRear->Set(0);
 
 	Robot::driveTrain -> EncoderReset();
 
