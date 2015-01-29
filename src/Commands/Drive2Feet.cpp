@@ -79,6 +79,7 @@ void Drive2Feet::Initialize() {
 	frontLeftPIDController = new PIDController(p,i,0,PIDCanTalon, Robot::driveTrain->CANTalonLeftFront);
 	frontLeftPIDController->SetOutputRange(-.5, .5);
 	frontLeftPIDController->SetSetpoint(TICKS_NEEDED);
+	frontLeftPIDController->SetAbsoluteTolerance(100);
 }
 
 // Called repeatedly when this Command is scheduled to run
