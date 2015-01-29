@@ -10,6 +10,7 @@
 
 
 #include "Drive2Feet.h"
+#include "../Util/PIDCanTalon.h"
 
 Drive2Feet::Drive2Feet() {
 	// Use requires() here to declare subsystem dependencies
@@ -24,6 +25,7 @@ Drive2Feet::Drive2Feet() {
 	SmartDashboard::PutNumber("Max Voltage", 6);
 	SmartDashboard::PutNumber("Integral constant" , .00);
 	SmartDashboard::PutNumber("Closed loop ramp rate" , .00);
+
 }
 
 // Called just before this Command runs the first time
@@ -36,6 +38,7 @@ void Drive2Feet::Initialize() {
 
 	Robot::driveTrain -> EncoderReset();
 
+	/*
 	//Change the mode to position instead of percent:
 	Robot:: driveTrain -> CANTalonLeftFront -> SetControlMode(CANTalon::kPosition);
 	Robot::driveTrain -> CANTalonLeftRear -> SetControlMode(CANTalon::kPosition);
@@ -69,6 +72,13 @@ void Drive2Feet::Initialize() {
 	Robot:: driveTrain -> CANTalonLeftRear -> Set(TICKS_NEEDED);
 	Robot:: driveTrain -> CANTalonRightFront -> Set(-TICKS_NEEDED);
 	Robot:: driveTrain -> CANTalonRightRear -> Set(-TICKS_NEEDED);
+	*/
+
+	PIDCanTalon *frontLeftPIDCanTalon;
+	frontLeftPIDCanTalon = = new PIDCanTalon(Robot::driveTrain->CANTalonLeftFront);
+	frontLeftPIDController = new PIDController(p,i,0,PIDCanTalon, Robot::driveTrain->CANTalonLeftFront);
+	frontLeftPIDController->SetOutputRange(-.5, .5);
+	frontLeftPIDController->SetSetpoint(TICKS_NEEDED);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -90,28 +100,29 @@ bool Drive2Feet::IsFinished() {
 	//float average_ticks = (ticksrf + ticksrr + tickslf + tickslr )/4;
 	//if (ticksrf >= TICKS_NEEDED || this -> IsTimedOut()) return true;
 	//return this->IsTimedOut();
-	return false;
+	return frontLeftPIDController->OnTarget();
 	//else return false;
 }
 
 // Called once after isFinished returns true
 void Drive2Feet::End() {
+	Robot:: driveTrain -> CANTalonLeftFront -> Set(0);
+	Robot::driveTrain -> CANTalonLeftRear -> Set(0);
+	Robot:: driveTrain -> CANTalonRightFront -> Set(0);
+	Robot::driveTrain -> CANTalonRightRear -> Set(0);
+	/*
 		Robot:: driveTrain -> CANTalonLeftFront -> SetControlMode(CANTalon::kPercentVbus);
 		Robot::driveTrain -> CANTalonLeftRear -> SetControlMode(CANTalon::kPercentVbus);
 		Robot:: driveTrain -> CANTalonRightFront -> SetControlMode(CANTalon::kPercentVbus);
 		Robot::driveTrain -> CANTalonRightRear -> SetControlMode(CANTalon::kPercentVbus);
 
-		Robot:: driveTrain -> CANTalonLeftFront -> Set(0);
-		Robot::driveTrain -> CANTalonLeftRear -> Set(0);
-		Robot:: driveTrain -> CANTalonRightFront -> Set(0);
-		Robot::driveTrain -> CANTalonRightRear -> Set(0);
 
 		Robot:: driveTrain -> CANTalonLeftFront -> ConfigMaxOutputVoltage(0);
 				Robot:: driveTrain -> CANTalonLeftRear -> ConfigMaxOutputVoltage(0);
 				Robot:: driveTrain -> CANTalonRightFront -> ConfigMaxOutputVoltage(0);
 				Robot:: driveTrain -> CANTalonRightRear -> ConfigMaxOutputVoltage(0);
 
-
+	*/
 }
 
 // Called when another command which requires one or more of the same
