@@ -10,6 +10,7 @@
 
 
 #include "Drive2Feet.h"
+#include "../Util/PIDCanTalon.h"
 
 Drive2Feet::Drive2Feet() {
 	// Use requires() here to declare subsystem dependencies
@@ -69,6 +70,13 @@ void Drive2Feet::Initialize() {
 	Robot:: driveTrain -> CANTalonLeftRear -> Set(TICKS_NEEDED);
 	Robot:: driveTrain -> CANTalonRightFront -> Set(-TICKS_NEEDED);
 	Robot:: driveTrain -> CANTalonRightRear -> Set(-TICKS_NEEDED);
+
+	PIDCanTalon *frontLeftPIDCanTalon;
+	frontLeftPIDCanTalon = new PIDCanTalon(Robot::driveTrain -> CANTalonLeftFront);
+	frontLeftPIDController = new PIDController(p, 0, 0, frontLeftPIDCanTalon, Robot::driveTrain -> CANTalonLeftFront);
+	frontLeftPIDController -> SetOutputRange(-.5, .5);
+	frontLeftPIDController -> SetSetpoint(TICKS_NEEDED);
+	frontLeftPIDController -> SetAbsoluteTolerance(100);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -81,10 +89,11 @@ void Drive2Feet::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool Drive2Feet::IsFinished() {
-	float ticksrf = Robot:: driveTrain -> CANTalonRightFront -> GetEncPosition();
+	/*float ticksrf = Robot:: driveTrain -> CANTalonRightFront -> GetEncPosition();
 	float ticksrr = Robot:: driveTrain -> CANTalonRightRear -> GetEncPosition();
-	float tickslf = Robot:: driveTrain -> CANTalonLeftFront -> GetEncPosition();
+
 	float tickslr = Robot:: driveTrain -> CANTalonLeftRear -> GetEncPosition();
+	float tickslf = Robot:: driveTrain -> CANTalonLeftFront -> GetEncPosition();
 
 
 	//float average_ticks = (ticksrf + ticksrr + tickslf + tickslr )/4;
@@ -92,6 +101,9 @@ bool Drive2Feet::IsFinished() {
 	//return this->IsTimedOut();
 	return false;
 	//else return false;
+	 * */
+
+	 return frontLeftPIDController->OnTarget();
 }
 
 // Called once after isFinished returns true
