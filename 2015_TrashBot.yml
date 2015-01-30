@@ -136,12 +136,29 @@ Children:
           validators: [Solenoid]
           value: '0'
       Base: Double Solenoid
-      Name: BrakeSolenoid
+      Name: Solenoid1
     Properties:
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Default Command, type: Command, validators: null, value: None}
     Base: Subsystem
     Name: Brake
+  - Children:
+    - Children: []
+      Properties:
+        PCM ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11',
+            '12', '13', '14', '15', '16', '17', '18', '19', '20']
+          default: '0'
+          name: PCM ID
+          validators: [PCMCompID]
+          value: '1'
+      Base: Compressor
+      Name: AirCompressor
+    Properties:
+      Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Default Command, type: Command, validators: null, value: None}
+    Base: Subsystem
+    Name: Compressor1
   Properties: {}
   Base: Subsystems
   Name: Subsystems
