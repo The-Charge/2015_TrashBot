@@ -31,10 +31,14 @@ DriveTrain::DriveTrain() : Subsystem("DriveTrain") {
 	//Need to reverse encoder direction for the right hand motors:
 	CANTalonRightFront->SetSensorDirection(true);
 	CANTalonRightRear->SetSensorDirection(true);
+	CANTalonLeftFront->SetSensorDirection(true);
+	CANTalonLeftRear->SetSensorDirection(true);
 
+	CANTalonLeftFront->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
 	CANTalonRightFront->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+	CANTalonLeftRear->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+	CANTalonRightRear->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
 }
-    
 void DriveTrain::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());

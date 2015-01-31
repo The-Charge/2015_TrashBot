@@ -9,8 +9,8 @@
 // it from being updated in the future.
 
 
-#ifndef DRIVE2FEET_H
-#define DRIVE2FEET_H
+#ifndef BRAKEON_H
+#define BRAKEON_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,9 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class Drive2Feet: public Command {
+class BrakeOn: public Command {
 public:
-	Drive2Feet();
+	BrakeOn();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
