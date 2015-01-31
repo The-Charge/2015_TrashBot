@@ -31,13 +31,28 @@ public:
 	virtual void Interrupted();
 	float TICKS_NEEDED;
 	float p;
-	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY = "Proportional Constant";
+	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY = "Drive2Feet::Proportional Constant";
+	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet::Ticks Needed";
+	const std::string MAX_PERCENT_DASHBOARD_KEY = "Drive2Feet::Max Percent";
+	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY = "Drive2Feet::Integral Constant";
+	const std::string CLOSED_LOOP_RAMP_RATE_DASHBOARD_KEY = "Drive2Feet::Closed Loop Ramp Rate";
+	const std::string CLOSED_LOOP_ERROR_DASHBOARD_KEY = "Drive2Feet::Closed Loop Error";
+	const std::string ENCODER_POSITION_DASHBOARD_KEY = "Drive2Feet::Encoder Position";
 
 	PIDController*frontLeftPIDController;
 	PIDController*frontRightPIDController;
 	PIDController*rearLeftPIDController;
 	PIDController*rearRightPIDController;
-	const double p_default = 1;
+
+	const double PROPORTIONAL_CONSTANT_DEFAULT = 1;
+	const double MAX_PERCENT_DEFAULT = 6;
+	const double INTEGRAL_CONSTANT_DEFAULT = 0;
+	const double CLOSED_LOOP_RAMP_RATE_DEFAULT = 0;
+	const double CLOSED_LOOP_ERROR_DEFAULT = 0;
+	const double ENCODER_POSITION_DEFAULT = 0;
+
+
+
 };
 
 #endif
