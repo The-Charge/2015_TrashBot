@@ -47,6 +47,7 @@ public:
 	bool AtDestination();
 	void Init();
 	void DisablePIDControllers();
+	void ReadDashboardValues();
 
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
@@ -92,17 +93,18 @@ public:
 	const double MAX_PERCENT_DEFAULT = 6;
 	const double INTEGRAL_CONSTANT_DEFAULT = 0;
 	const double TICKS_NEEDED_DEFAULT = 0;
-
+	const double ABSOLUTE_TOLERANCE_DEFAULT = 100;
 	float p;
 	float maxpercent;
 	float i;
-	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Ticks Needed:";
+	float absolutetolerance;
+	const std::string ABSOLUTE_TOLERANCE_DASHBOARD_KEY = "DriveTrain: Absolute Tolerance";
+	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
 			"Drive2Feet::Proportional Constant";
 	const std::string MAX_PERCENT_DASHBOARD_KEY = "Drive2Feet::Max Percent";
 	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
 			"Drive2Feet::Integral Constant";
-
 
 
 };

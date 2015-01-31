@@ -54,43 +54,56 @@ void DriveTrain::drive(float x, float y, float z) {
 	robotDrive->MecanumDrive_Cartesian(x, y, z);
 }
 
+void DriveTrain::ReadDashboardValues() {
+	p = SmartDashboard::GetNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,
+			PROPORTIONAL_CONSTANT_DEFAULT);
+	i = SmartDashboard::GetNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,
+			INTEGRAL_CONSTANT_DEFAULT);
+	maxpercent = SmartDashboard::GetNumber(MAX_PERCENT_DASHBOARD_KEY,
+			MAX_PERCENT_DEFAULT);
+	absolutetolerance = SmartDashboard::GetNumber(
+			ABSOLUTE_TOLERANCE_DASHBOARD_KEY, ABSOLUTE_TOLERANCE_DEFAULT);
+	leftFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+	rightFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+	leftRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+	rightRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+	leftFrontPIDController->SetAbsoluteTolerance(absolutetolerance);
+	rightFrontPIDController->SetAbsoluteTolerance(absolutetolerance);
+	leftRearPIDController->SetAbsoluteTolerance(absolutetolerance);
+	rightRearPIDController->SetAbsoluteTolerance(absolutetolerance);
+
+	leftFrontPIDController -> SetPID(p, i, 0);
+	rightFrontPIDController -> SetPID(p, i, 0);
+	leftRearPIDController -> SetPID(p, i, 0);
+	rightRearPIDController -> SetPID(p, i, 0);
+
+
+}
+
 void DriveTrain::Init() {
 
-	p = SmartDashboard::GetNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY, PROPORTIONAL_CONSTANT_DEFAULT);
-	i = SmartDashboard::GetNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,INTEGRAL_CONSTANT_DEFAULT);
-	maxpercent = SmartDashboard::GetNumber(MAX_PERCENT_DASHBOARD_KEY,MAX_PERCENT_DEFAULT);
 
 	leftFrontPIDCanTalon = new PIDCanTalon(CANTalonLeftFront);
 	Robot::driveTrain->CANTalonLeftFront->SetSensorDirection(true);
-	leftFrontPIDController = new PIDController(p, i, 0, leftFrontPIDCanTalon,
+	leftFrontPIDController = new PIDController(0, 0, 0, leftFrontPIDCanTalon,
 			Robot::driveTrain->CANTalonLeftFront);
-	leftFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	leftFrontPIDController->SetAbsoluteTolerance(100);
-
 
 	rightFrontPIDCanTalon = new PIDCanTalon(CANTalonRightFront);
 	Robot::driveTrain->CANTalonRightFront->SetSensorDirection(true);
-	rightFrontPIDController = new PIDController(p, i, 0, rightFrontPIDCanTalon,
+	rightFrontPIDController = new PIDController(0, 0, 0, rightFrontPIDCanTalon,
 			Robot::driveTrain->CANTalonLeftFront);
-	rightFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	rightFrontPIDController->SetAbsoluteTolerance(100);
-
-
 
 	leftRearPIDCanTalon = new PIDCanTalon(CANTalonLeftRear);
 	Robot::driveTrain->CANTalonLeftRear->SetSensorDirection(true);
-	leftRearPIDController = new PIDController(p, i, 0, leftRearPIDCanTalon,
+	leftRearPIDController = new PIDController(0, 0, 0, leftRearPIDCanTalon,
 			Robot::driveTrain->CANTalonLeftRear);
-	leftRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	leftRearPIDController->SetAbsoluteTolerance(100);
-
 
 	rightRearPIDCanTalon = new PIDCanTalon(CANTalonRightRear);
 	Robot::driveTrain->CANTalonRightRear->SetSensorDirection(true);
-	rightRearPIDController = new PIDController(p, i, 0, rightRearPIDCanTalon,
+	rightRearPIDController = new PIDController(0, 0, 0, rightRearPIDCanTalon,
 			Robot::driveTrain->CANTalonRightRear);
-	rightRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	rightRearPIDController->SetAbsoluteTolerance(100);
+
+	ReadDashboardValues();
 
 	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
 			Robot::driveTrain->leftFrontPIDController->GetError());
