@@ -80,50 +80,58 @@ void DriveTrain::ReadDashboardValues() {
 
 }
 
+void DriveTrain::PutEncoderValuesToDashboard() {
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
+			leftFrontPIDController->GetError());
+	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY,
+			CANTalonLeftFront->GetEncPosition());
+	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY, CANTalonLeftFront -> GetEncVel());
+
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
+			leftRearPIDController->GetError());
+	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY,
+			CANTalonLeftRear->GetEncPosition());
+	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY, CANTalonLeftFront -> GetEncVel());
+
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
+			rightRearPIDController->GetError());
+	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY,
+			CANTalonRightRear->GetEncPosition());
+	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY, CANTalonRightRear -> GetEncVel());
+
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY,
+			rightFrontPIDController->GetError());
+	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_FRONT_DASHBOARD_KEY,
+			CANTalonRightFront->GetEncPosition());
+	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY, CANTalonRightFront -> GetEncVel());
+}
+
 void DriveTrain::Init() {
 
 
 	leftFrontPIDCanTalon = new PIDCanTalon(CANTalonLeftFront);
-	Robot::driveTrain->CANTalonLeftFront->SetSensorDirection(true);
+	CANTalonLeftFront->SetSensorDirection(true);
 	leftFrontPIDController = new PIDController(0, 0, 0, leftFrontPIDCanTalon,
-			Robot::driveTrain->CANTalonLeftFront);
+			CANTalonLeftFront);
 
 	rightFrontPIDCanTalon = new PIDCanTalon(CANTalonRightFront);
-	Robot::driveTrain->CANTalonRightFront->SetSensorDirection(true);
+	CANTalonRightFront->SetSensorDirection(true);
 	rightFrontPIDController = new PIDController(0, 0, 0, rightFrontPIDCanTalon,
-			Robot::driveTrain->CANTalonLeftFront);
+			CANTalonLeftFront);
 
 	leftRearPIDCanTalon = new PIDCanTalon(CANTalonLeftRear);
-	Robot::driveTrain->CANTalonLeftRear->SetSensorDirection(true);
+	CANTalonLeftRear->SetSensorDirection(true);
 	leftRearPIDController = new PIDController(0, 0, 0, leftRearPIDCanTalon,
-			Robot::driveTrain->CANTalonLeftRear);
+			CANTalonLeftRear);
 
 	rightRearPIDCanTalon = new PIDCanTalon(CANTalonRightRear);
-	Robot::driveTrain->CANTalonRightRear->SetSensorDirection(true);
+	CANTalonRightRear->SetSensorDirection(true);
 	rightRearPIDController = new PIDController(0, 0, 0, rightRearPIDCanTalon,
-			Robot::driveTrain->CANTalonRightRear);
+			CANTalonRightRear);
 
 	ReadDashboardValues();
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
-			Robot::driveTrain->leftFrontPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY,
-			Robot::driveTrain->CANTalonLeftFront->GetEncPosition());
-
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
-			Robot::driveTrain->leftRearPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY,
-			Robot::driveTrain->CANTalonLeftRear->GetEncPosition());
-
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
-			Robot::driveTrain->rightRearPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY,
-			Robot::driveTrain->CANTalonRightRear->GetEncPosition());
-
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY,
-			Robot::driveTrain->rightFrontPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_FRONT_DASHBOARD_KEY,
-			Robot::driveTrain->CANTalonRightFront->GetEncPosition());
+	PutEncoderValuesToDashboard();
 }
 
 float DriveTrain::GetGyroRate() {
@@ -135,23 +143,23 @@ float DriveTrain::GetGyroAngle() {
 }
 
 void DriveTrain::EncoderReset() {
-	RobotMap::driveTrainCANTalonLeftFront->SetPosition(0);
-	RobotMap::driveTrainCANTalonLeftRear->SetPosition(0);
-	RobotMap::driveTrainCANTalonRightRear->SetPosition(0);
-	RobotMap::driveTrainCANTalonRightFront->SetPosition(0);
+	CANTalonLeftFront->SetPosition(0);
+	CANTalonLeftRear->SetPosition(0);
+	CANTalonRightFront->SetPosition(0);
+	CANTalonRightRear->SetPosition(0);
 }
 
 void DriveTrain::ResetDistance() {
-	RobotMap::driveTrainCANTalonLeftFront->SetPosition(0);
-	RobotMap::driveTrainCANTalonLeftRear->SetPosition(0);
-	RobotMap::driveTrainCANTalonRightRear->SetPosition(0);
-	RobotMap::driveTrainCANTalonRightFront->SetPosition(0);
+	CANTalonLeftFront->SetPosition(0);
+	CANTalonLeftRear->SetPosition(0);
+	CANTalonRightFront->SetPosition(0);
+	CANTalonRightRear->SetPosition(0);
 }
 
 void DriveTrain::SetDistanceInFeet(int x) {
 
-	TICKS_NEEDED = Robot::driveTrain->WHEELROTATIONS_PER_FOOT
-			* Robot::driveTrain->ENCODER_TICKS_PER_REVOLUTION * x;
+	TICKS_NEEDED = WHEELROTATIONS_PER_FOOT
+			* ENCODER_TICKS_PER_REVOLUTION * x;
 	SmartDashboard:: PutNumber (TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED_DEFAULT);
 	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
 	rightRearPIDController->SetSetpoint(TICKS_NEEDED);
@@ -172,10 +180,10 @@ bool DriveTrain::AtDestination() {
 }
 
 void DriveTrain::DisablePIDControllers(){
-	Robot:: driveTrain -> leftFrontPIDController->Disable();
-	Robot:: driveTrain -> rightFrontPIDController->Disable();
-	Robot:: driveTrain -> leftRearPIDController->Disable();
-	Robot:: driveTrain -> rightRearPIDController->Disable();
+	leftFrontPIDController->Disable();
+	rightFrontPIDController->Disable();
+	leftRearPIDController->Disable();
+	rightRearPIDController->Disable();
 }
 
 // here. Call these from Commands.

@@ -48,6 +48,7 @@ public:
 	void Init();
 	void DisablePIDControllers();
 	void ReadDashboardValues();
+	void PutEncoderValuesToDashboard();
 
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
@@ -102,11 +103,14 @@ public:
 	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
 			"Drive2Feet::Proportional Constant";
-	const std::string MAX_PERCENT_DASHBOARD_KEY = "Drive2Feet::Max Percent";
+	const std::string MAX_PERCENT_DASHBOARD_KEY = "Drive2Feet:Max Percent";
 	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
 			"Drive2Feet::Integral Constant";
 
-
+	const std::string ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY = "DriveTrain:Left Front Encoder Velocity:";
+	const std::string ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY = "DriveTrain:Right Front Encoder Velocity:";
+	const std::string ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY = "DriveTrain:Right Rear Encoder Velocity:";
+	const std::string ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY = "DriveTrain:Left Rear Encoder Velocity:";
 };
 
 #endif

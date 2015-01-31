@@ -32,7 +32,7 @@ void Drive2Feet::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Drive2Feet::Execute() {
-
+	Robot::driveTrain -> PutEncoderValuesToDashboard();
 }
 
 // Make this return true when this Command no longer needs to run execute()
