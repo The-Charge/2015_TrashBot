@@ -46,6 +46,7 @@ public:
 	void SetDistanceInFeet(int);
 	bool AtDestination();
 	void Init();
+	void DisablePIDControllers();
 
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
@@ -64,24 +65,45 @@ public:
 	PIDCanTalon*rightFrontPIDCanTalon;
 	PIDCanTalon*rightRearPIDCanTalon;
 
-	const std::string CLOSED_LOOP_ERROR_DASHBOARD_KEY = "Drive2Feet::Closed Loop Error";
-		const std::string ENCODER_POSITION_DASHBOARD_KEY = "Drive2Feet::Encoder Position";
+	const std::string CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY =
+			"Drive2Feet::Closed Loop Error Right Front";
+	const std::string ENCODER_POSITION_RIGHT_FRONT_DASHBOARD_KEY =
+			"Drive2Feet::Encoder Position Right Front";
 
-		const double CLOSED_LOOP_ERROR_DEFAULT = 0;
-		const double ENCODER_POSITION_DEFAULT = 0;
+	const std::string CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY =
+			"Drive2Feet::Closed Loop Error Right Rear";
+	const std::string ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY =
+			"Drive2Feet::Encoder Position Right Rear";
 
+	const std::string CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY =
+			"Drive2Feet::Closed Loop Error Left Front";
+	const std::string ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY =
+			"Drive2Feet::Encoder Position Left Front";
+
+	const std::string CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY =
+			"Drive2Feet::Closed Loop Error Left Rear";
+	const std::string ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY =
+			"Drive2Feet::Encoder Position Left Rear";
+
+	const double CLOSED_LOOP_ERROR_DEFAULT = 0;
+	const double ENCODER_POSITION_DEFAULT = 0;
 
 	const double PROPORTIONAL_CONSTANT_DEFAULT = 1;
 	const double MAX_PERCENT_DEFAULT = 6;
 	const double INTEGRAL_CONSTANT_DEFAULT = 0;
+	const double TICKS_NEEDED_DEFAULT = 0;
 
 	float p;
 	float maxpercent;
 	float i;
-
-	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY = "Drive2Feet::Proportional Constant";
+	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Ticks Needed:";
+	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
+			"Drive2Feet::Proportional Constant";
 	const std::string MAX_PERCENT_DASHBOARD_KEY = "Drive2Feet::Max Percent";
-	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY = "Drive2Feet::Integral Constant";
+	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
+			"Drive2Feet::Integral Constant";
+
+
 
 };
 

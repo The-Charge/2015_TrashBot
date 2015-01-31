@@ -65,9 +65,7 @@ void DriveTrain::Init() {
 	leftFrontPIDController = new PIDController(p, i, 0, leftFrontPIDCanTalon,
 			Robot::driveTrain->CANTalonLeftFront);
 	leftFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
 	leftFrontPIDController->SetAbsoluteTolerance(100);
-	leftFrontPIDController->Enable();
 
 
 	rightFrontPIDCanTalon = new PIDCanTalon(CANTalonRightFront);
@@ -75,9 +73,8 @@ void DriveTrain::Init() {
 	rightFrontPIDController = new PIDController(p, i, 0, rightFrontPIDCanTalon,
 			Robot::driveTrain->CANTalonLeftFront);
 	rightFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	rightFrontPIDController->SetSetpoint(TICKS_NEEDED);
 	rightFrontPIDController->SetAbsoluteTolerance(100);
-	rightFrontPIDController->Enable();
+
 
 
 	leftRearPIDCanTalon = new PIDCanTalon(CANTalonLeftRear);
@@ -85,9 +82,7 @@ void DriveTrain::Init() {
 	leftRearPIDController = new PIDController(p, i, 0, leftRearPIDCanTalon,
 			Robot::driveTrain->CANTalonLeftRear);
 	leftRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
 	leftRearPIDController->SetAbsoluteTolerance(100);
-	leftRearPIDController->Enable();
 
 
 	rightRearPIDCanTalon = new PIDCanTalon(CANTalonRightRear);
@@ -95,28 +90,26 @@ void DriveTrain::Init() {
 	rightRearPIDController = new PIDController(p, i, 0, rightRearPIDCanTalon,
 			Robot::driveTrain->CANTalonRightRear);
 	rightRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
-	rightRearPIDController->SetSetpoint(TICKS_NEEDED);
 	rightRearPIDController->SetAbsoluteTolerance(100);
-	rightRearPIDController->Enable();
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
 			Robot::driveTrain->leftFrontPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY,
 			Robot::driveTrain->CANTalonLeftFront->GetEncPosition());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
 			Robot::driveTrain->leftRearPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY,
 			Robot::driveTrain->CANTalonLeftRear->GetEncPosition());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
 			Robot::driveTrain->rightRearPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY,
 			Robot::driveTrain->CANTalonRightRear->GetEncPosition());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY,
 			Robot::driveTrain->rightFrontPIDController->GetError());
-	SmartDashboard::PutNumber(ENCODER_POSITION_DASHBOARD_KEY,
+	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_FRONT_DASHBOARD_KEY,
 			Robot::driveTrain->CANTalonRightFront->GetEncPosition());
 }
 
@@ -140,17 +133,36 @@ void DriveTrain::ResetDistance() {
 	RobotMap::driveTrainCANTalonLeftRear->SetPosition(0);
 	RobotMap::driveTrainCANTalonRightRear->SetPosition(0);
 	RobotMap::driveTrainCANTalonRightFront->SetPosition(0);
-	// **************  do we want to do this or not because Currie mentioned not touching the "item" itself...???
 }
 
 void DriveTrain::SetDistanceInFeet(int x) {
+
 	TICKS_NEEDED = Robot::driveTrain->WHEELROTATIONS_PER_FOOT
 			* Robot::driveTrain->ENCODER_TICKS_PER_REVOLUTION * x;
+	SmartDashboard:: PutNumber (TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED_DEFAULT);
+	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
+	rightRearPIDController->SetSetpoint(TICKS_NEEDED);
+	leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
+	rightFrontPIDController->SetSetpoint(TICKS_NEEDED);
+	leftFrontPIDController->Enable();
+	rightFrontPIDController -> Enable();
+	rightRearPIDController -> Enable();
+	leftRearPIDController->Enable();
 }
 
 bool DriveTrain::AtDestination() {
 	// return frontLeftPIDController->OnTarget();
-	return true;
+	return (rightFrontPIDController -> OnTarget()
+			&&leftFrontPIDController -> OnTarget()
+			&& rightRearPIDController-> OnTarget()
+			&& leftRearPIDController -> OnTarget());
+}
+
+void DriveTrain::DisablePIDControllers(){
+	Robot:: driveTrain -> leftFrontPIDController->Disable();
+	Robot:: driveTrain -> rightFrontPIDController->Disable();
+	Robot:: driveTrain -> leftRearPIDController->Disable();
+	Robot:: driveTrain -> rightRearPIDController->Disable();
 }
 
 // here. Call these from Commands.
