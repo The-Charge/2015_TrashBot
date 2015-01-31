@@ -9,10 +9,10 @@
 
 PIDCanTalon::PIDCanTalon(CANTalon * talon) {
 	// TODO Auto-generated constructor stub
-this ->talon = talon;
+	_talon = talon;
 }
 
 double PIDCanTalon::PIDGet()
 {
-	return talon -> GetEncPosition();
+	return -1 * _talon -> GetEncPosition();
 }
