@@ -38,6 +38,7 @@ DriveTrain::DriveTrain() :
 	CANTalonRightFront->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
 	CANTalonLeftRear->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
 	CANTalonRightRear->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+
 }
 void DriveTrain::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
@@ -55,18 +56,17 @@ void DriveTrain::drive(float x, float y, float z) {
 }
 
 void DriveTrain::ReadDashboardValues() {
-	p = SmartDashboard::GetNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,
-			PROPORTIONAL_CONSTANT_DEFAULT);
-	i = SmartDashboard::GetNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,
-			INTEGRAL_CONSTANT_DEFAULT);
-	maxpercent = SmartDashboard::GetNumber(MAX_PERCENT_DASHBOARD_KEY,
-			MAX_PERCENT_DEFAULT);
-	absolutetolerance = SmartDashboard::GetNumber(
-			ABSOLUTE_TOLERANCE_DASHBOARD_KEY, ABSOLUTE_TOLERANCE_DEFAULT);
+
+	p = SmartDashboard::GetNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,PROPORTIONAL_CONSTANT_DEFAULT);
+	i = SmartDashboard::GetNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,INTEGRAL_CONSTANT_DEFAULT);
+	maxpercent = SmartDashboard::GetNumber(MAX_PERCENT_DASHBOARD_KEY,MAX_PERCENT_DEFAULT);
+	absolutetolerance = SmartDashboard::GetNumber(ABSOLUTE_TOLERANCE_DASHBOARD_KEY, ABSOLUTE_TOLERANCE_DEFAULT);
+
 	leftFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
 	rightFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
 	leftRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
 	rightRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+
 	leftFrontPIDController->SetAbsoluteTolerance(absolutetolerance);
 	rightFrontPIDController->SetAbsoluteTolerance(absolutetolerance);
 	leftRearPIDController->SetAbsoluteTolerance(absolutetolerance);
@@ -81,29 +81,30 @@ void DriveTrain::ReadDashboardValues() {
 }
 
 void DriveTrain::PutEncoderValuesToDashboard() {
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
-			leftFrontPIDController->GetError());
+
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,leftFrontPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY,
 			CANTalonLeftFront->GetEncPosition());
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY, CANTalonLeftFront -> GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
-			leftRearPIDController->GetError());
+
+	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,leftRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY,
 			CANTalonLeftRear->GetEncPosition());
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY, CANTalonLeftFront -> GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
-			rightRearPIDController->GetError());
+
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,rightRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY,
 			CANTalonRightRear->GetEncPosition());
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY, CANTalonRightRear -> GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY,
-			rightFrontPIDController->GetError());
+
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY,rightFrontPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_FRONT_DASHBOARD_KEY,
 			CANTalonRightFront->GetEncPosition());
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY, CANTalonRightFront -> GetEncVel());
+
 }
 
 void DriveTrain::Init() {
