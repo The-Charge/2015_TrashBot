@@ -34,6 +34,9 @@ public:
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY = "Proportional Constant";
 
 	PIDController*frontLeftPIDController;
+	PIDController*frontRightPIDController;
+	PIDController*rearLeftPIDController;
+	PIDController*rearRightPIDController;
 	const double p_default = 1;
 };
 

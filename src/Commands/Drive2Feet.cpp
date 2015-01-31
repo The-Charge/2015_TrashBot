@@ -85,6 +85,32 @@ void Drive2Feet::Initialize() {
 	frontLeftPIDController -> SetAbsoluteTolerance(100);
 	frontLeftPIDController -> Enable();
 
+	PIDCanTalon *frontRightPIDCanTalon;
+	frontRightPIDCanTalon = new PIDCanTalon(Robot::driveTrain -> CANTalonRightFront);
+	Robot::driveTrain->CANTalonRightFront->SetSensorDirection(true);
+	frontRightPIDController = new PIDController(p, i, 0, frontRightPIDCanTalon, Robot::driveTrain -> CANTalonLeftFront);
+	frontRightPIDController -> SetOutputRange(-1 * maxvoltage, maxvoltage);
+	frontRightPIDController -> SetSetpoint(TICKS_NEEDED);
+	frontRightPIDController -> SetAbsoluteTolerance(100);
+	frontRightPIDController -> Enable();
+
+	PIDCanTalon *rearLeftPIDCanTalon;
+	rearLeftPIDCanTalon = new PIDCanTalon(Robot::driveTrain -> CANTalonLeftRear);
+	Robot::driveTrain->CANTalonLeftRear->SetSensorDirection(true);
+	rearLeftPIDController = new PIDController(p, i, 0, rearLeftPIDCanTalon, Robot::driveTrain -> CANTalonLeftRear);
+	rearLeftPIDController -> SetOutputRange(-1 * maxvoltage, maxvoltage);
+	rearLeftPIDController -> SetSetpoint(TICKS_NEEDED);
+	rearLeftPIDController -> SetAbsoluteTolerance(100);
+	rearLeftPIDController -> Enable();
+
+	PIDCanTalon *rearRightPIDCanTalon;
+	rearRightPIDCanTalon = new PIDCanTalon(Robot::driveTrain -> CANTalonRightRear);
+	Robot::driveTrain->CANTalonRightRear->SetSensorDirection(true);
+	rearRightPIDController = new PIDController(p, i, 0, rearRightPIDCanTalon, Robot::driveTrain -> CANTalonRightRear);
+	rearRightPIDController -> SetOutputRange(-1 * maxvoltage, maxvoltage);
+	rearRightPIDController -> SetSetpoint(TICKS_NEEDED);
+	rearRightPIDController -> SetAbsoluteTolerance(100);
+	rearRightPIDController -> Enable();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -115,7 +141,6 @@ bool Drive2Feet::IsFinished() {
 // Called once after isFinished returns true
 void Drive2Feet::End() {
 		frontLeftPIDController->Disable();
-
 }
 
 // Called when another command which requires one or more of the same
