@@ -112,37 +112,7 @@ void Drive::Execute() {
 			//these should go into the drive command
 
 
-			//Left Side
-			int LeftFrontEncPos = RobotMap::driveTrainCANTalonLeftFront -> GetEncPosition();
-			int LeftFrontEncVel = RobotMap::driveTrainCANTalonLeftFront -> GetEncVel();
-
-			int LeftRearEncPos =  RobotMap::driveTrainCANTalonLeftRear -> GetEncPosition();
-			int LeftRearEncVel = RobotMap::driveTrainCANTalonLeftRear -> GetEncVel();
-
-			//Right Side
-			int RightFrontEncPos = RobotMap::driveTrainCANTalonRightFront -> GetEncPosition();
-			int RightFrontEncVel = RobotMap::driveTrainCANTalonRightFront -> GetEncVel();
-
-			int RightRearEncPos = RobotMap::driveTrainCANTalonRightRear -> GetEncPosition();
-			int RightRearEncVel = RobotMap::driveTrainCANTalonRightRear -> GetEncVel();
-
-
-			//SmartDashboard setup for the front left Encoders
-			SmartDashboard::PutNumber("Left Front Encoder Position", LeftFrontEncPos);
-			SmartDashboard::PutNumber("Left Front Encoder Velocity", LeftFrontEncVel);
-
-			//SmartDashboard setup for the rear left Encoders
-			SmartDashboard::PutNumber("Left Rear Encoder Position", LeftRearEncPos);
-			SmartDashboard::PutNumber("Left Rear Encoder Velocity", LeftRearEncVel);
-
-			//SmartDashboard setup for the front right Encoders
-			SmartDashboard::PutNumber("Right Front Encoder Position", RightFrontEncPos);
-			SmartDashboard::PutNumber("Right Front Encoder Velocity", RightFrontEncVel);
-
-			//SmartDashboard setup for the rear right Encoders
-			SmartDashboard::PutNumber("Right Rear Encoder Position", RightRearEncPos);
-			SmartDashboard::PutNumber("Right Rear Encoder Velocity", RightRearEncVel);
-			//---------------------------------------------------------------------------------------
+			Robot::driveTrain->PutEncoderValuesToDashboard();
 
 		Robot::driveTrain->drive(x, y, z/3); // z/3 to reduce the speed for more precision while driving
 }
