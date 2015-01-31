@@ -14,7 +14,7 @@
 class PIDCanTalon: public PIDSource
 {
 private:
-	CANTalon * talon;
+	CANTalon * _talon;
 public:
 	PIDCanTalon(CANTalon * talon);
 	virtual double PIDGet();
