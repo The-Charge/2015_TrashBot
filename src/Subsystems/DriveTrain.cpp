@@ -67,6 +67,13 @@ void DriveTrain::drive(float x, float y, float z) {
 	robotDrive->MecanumDrive_Cartesian(x, y, z);
 }
 
+void DriveTrain::PutDashboardValues(){
+	SmartDashboard::PutNumber(ABSOLUTE_TOLERANCE_DASHBOARD_KEY, ABSOLUTE_TOLERANCE_DEFAULT);
+	SmartDashboard::PutNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY, INTEGRAL_CONSTANT_DEFAULT);
+	SmartDashboard::PutNumber(MAX_PERCENT_DASHBOARD_KEY, MAX_PERCENT_DEFAULT);
+	SmartDashboard::PutNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY, PROPORTIONAL_CONSTANT_DEFAULT);
+}
+
 void DriveTrain::ReadDashboardValues() {
 
 	p = SmartDashboard::GetNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,PROPORTIONAL_CONSTANT_DEFAULT);
@@ -154,13 +161,13 @@ void DriveTrain::ResetDistance() {
 
 void DriveTrain::SetDistanceInFeet(int x) {
 
-	TICKS_NEEDED = WHEELROTATIONS_PER_FOOT
-			* ENCODER_TICKS_PER_REVOLUTION * x;
-	SmartDashboard:: PutNumber (TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED_DEFAULT);
+	TICKS_NEEDED = WHEELROTATIONS_PER_FOOT * ENCODER_TICKS_PER_REVOLUTION * x;
+	SmartDashboard:: PutNumber (TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
 	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
 	rightRearPIDController->SetSetpoint(TICKS_NEEDED);
 	leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
 	rightFrontPIDController->SetSetpoint(TICKS_NEEDED);
+
 	leftFrontPIDController->Enable();
 	rightFrontPIDController -> Enable();
 	rightRearPIDController -> Enable();
@@ -169,8 +176,8 @@ void DriveTrain::SetDistanceInFeet(int x) {
 
 bool DriveTrain::AtDestination() {
 	// return frontLeftPIDController->OnTarget();
-	return (rightFrontPIDController -> OnTarget()
-			&&leftFrontPIDController -> OnTarget()
+	//rightFrontPIDController -> OnTarget() &&
+	return (leftFrontPIDController -> OnTarget()
 			&& rightRearPIDController-> OnTarget()
 			&& leftRearPIDController -> OnTarget());
 }
