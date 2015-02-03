@@ -23,7 +23,7 @@
  */
 class DriveXFeet: public Command {
 public:
-	DriveXFeet();
+	DriveXFeet(float = -1);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
