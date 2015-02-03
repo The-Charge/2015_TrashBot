@@ -31,8 +31,8 @@ DriveTrain::DriveTrain() :
 	//Need to reverse encoder direction for the right hand motors:
 	CANTalonRightFront->SetSensorDirection(true);
 	CANTalonRightRear->SetSensorDirection(true);
-	CANTalonLeftFront->SetSensorDirection(true);
-	CANTalonLeftRear->SetSensorDirection(true);
+	CANTalonLeftFront->SetSensorDirection(false);
+	CANTalonLeftRear->SetSensorDirection(false);
 
 	CANTalonLeftFront->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
 	CANTalonRightFront->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
@@ -43,7 +43,7 @@ DriveTrain::DriveTrain() :
 	leftFrontPIDController = new PIDController(0, 0, 0, leftFrontPIDCanTalon,CANTalonLeftFront);
 
 	rightFrontPIDCanTalon = new PIDCanTalon(CANTalonRightFront);
-	rightFrontPIDController = new PIDController(0, 0, 0, rightFrontPIDCanTalon,CANTalonLeftFront);
+	rightFrontPIDController = new PIDController(0, 0, 0, rightFrontPIDCanTalon,CANTalonRightFront);
 
 	leftRearPIDCanTalon = new PIDCanTalon(CANTalonLeftRear);
 	leftRearPIDController = new PIDController(0, 0, 0, leftRearPIDCanTalon,CANTalonLeftRear);
@@ -51,6 +51,7 @@ DriveTrain::DriveTrain() :
 	rightRearPIDCanTalon = new PIDCanTalon(CANTalonRightRear);
 	rightRearPIDController = new PIDController(0, 0, 0, rightRearPIDCanTalon,CANTalonRightRear);
 
+	PutDashboardValues();
 }
 void DriveTrain::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
@@ -164,9 +165,9 @@ void DriveTrain::SetDistanceInFeet(int x) {
 	TICKS_NEEDED = WHEELROTATIONS_PER_FOOT * ENCODER_TICKS_PER_REVOLUTION * x;
 	SmartDashboard:: PutNumber (TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
 	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
-	rightRearPIDController->SetSetpoint(TICKS_NEEDED);
+	rightRearPIDController->SetSetpoint(-1 * TICKS_NEEDED);
 	leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
-	rightFrontPIDController->SetSetpoint(TICKS_NEEDED);
+	rightFrontPIDController->SetSetpoint(-1 * TICKS_NEEDED);
 
 	leftFrontPIDController->Enable();
 	rightFrontPIDController -> Enable();
@@ -177,9 +178,9 @@ void DriveTrain::SetDistanceInFeet(int x) {
 bool DriveTrain::AtDestination() {
 	// return frontLeftPIDController->OnTarget();
 	//rightFrontPIDController -> OnTarget() &&
-	return (leftFrontPIDController -> OnTarget()
-			&& rightRearPIDController-> OnTarget()
-			&& leftRearPIDController -> OnTarget());
+	return (leftFrontPIDController -> OnTarget() );
+		//	&& rightRearPIDController-> OnTarget()
+			//&& leftRearPIDController -> OnTarget());
 }
 
 void DriveTrain::DisablePIDControllers(){

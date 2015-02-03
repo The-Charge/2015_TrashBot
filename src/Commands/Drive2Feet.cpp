@@ -23,8 +23,7 @@ Drive2Feet::Drive2Feet() {
 
 // Called just before this Command runs the first time
 void Drive2Feet::Initialize() {
-	this -> SetTimeout(10);
-	Robot::driveTrain -> PutDashboardValues();
+	this -> SetTimeout(4);
 	Robot::driveTrain -> ResetDistance();
 	Robot::driveTrain -> ReadDashboardValues();
 	Robot::driveTrain -> SetDistanceInFeet(2);

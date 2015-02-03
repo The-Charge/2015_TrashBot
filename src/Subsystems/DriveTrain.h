@@ -90,11 +90,11 @@ public:
 	const double CLOSED_LOOP_ERROR_DEFAULT = 0;
 	const double ENCODER_POSITION_DEFAULT = 0;
 
-	const double PROPORTIONAL_CONSTANT_DEFAULT = 1;
-	const double MAX_PERCENT_DEFAULT = 6;
+	const double PROPORTIONAL_CONSTANT_DEFAULT = .1;
+	const double MAX_PERCENT_DEFAULT = .5;
 	const double INTEGRAL_CONSTANT_DEFAULT = 0;
 	const double TICKS_NEEDED_DEFAULT = 0;
-	const double ABSOLUTE_TOLERANCE_DEFAULT = 100;
+	const double ABSOLUTE_TOLERANCE_DEFAULT = 75;
 	float p;
 	float maxpercent;
 	float i;
