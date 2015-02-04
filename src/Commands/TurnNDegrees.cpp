@@ -37,7 +37,7 @@ void TurnNDegrees::Initialize() {
 			degreesturning = SmartDashboard:: GetNumber(ANGLE_TO_TURN, TURNING_DEFAULT);
 			speed = SmartDashboard::GetNumber(TURNING_SPEED, TURNING_SPEED_DEFAULT);
 
-			speed = abs(speed);
+			speed = abs(speed); // makes sure that speed is a positive value
 
 			// degreesturing can take a negative or a positive value, speed cannot
 		}
