@@ -50,3 +50,9 @@ void Lift::LiftDownSlow()
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
+//----------------------Smart Dashboard-----------------------------------------
+void Lift::PutDashboardValues()
+{
+
+}
+

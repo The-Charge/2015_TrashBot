@@ -36,7 +36,7 @@ public:
 	void LiftUpSlow();
 	void LiftDownSlow();
 
-
+	void PutDashboardValues();
 
 
 };
