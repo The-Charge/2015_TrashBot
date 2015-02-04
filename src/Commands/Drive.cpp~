@@ -11,7 +11,8 @@
 
 #include "Drive.h"
 
-#include "c:/workspace/2015_trashbot/Util/RobotMath.h"
+//#include "c:/workspace/2015_trashbot/Util/RobotMath.h"
+#include "../Util/RobotMath.h"
 
 Drive::Drive() {
 	// Use requires() here to declare subsystem dependencies
@@ -102,38 +103,16 @@ void Drive::Execute() {
 			{ y = 0; z = 0; } // allows only the x value to pass
 
 
-			float Gyro_Correction = -1 * GetTheGyroRate;
+			float GyroCorrection = -1 * GainFactor * ScaleFactor * GetTheGyroRate;
 
+
+			//----------------------------------------------------------------------------------------
 			//both of these methods return an integer
 			//these must be sent to the smart dashboard
 			//these should go into the drive command
 
 
-			//Left Side
-			int LeftFrontEncPos = RobotMap::driveTrainCANTalonLeftFront -> GetEncPosition();
-			int LeftFrontEncVel = RobotMap::driveTrainCANTalonLeftFront -> GetEncVel();
-
-			int LeftRearEncPos =  RobotMap::driveTrainCANTalonLeftRear -> GetEncPosition();
-			int LeftRearEncVel = RobotMap::driveTrainCANTalonLeftRear -> GetEncVel();
-
-			//Right Side
-			int RightFrontEncPos = RobotMap::driveTrainCANTalonRightFront -> GetEncPosition();
-			int RightFrontEncVel = RobotMap::driveTrainCANTalonRightFront -> GetEncVel();
-
-			int RightRearEncPos = RobotMap::driveTrainCANTalonRightRear -> GetEncPosition();
-			int RightRearEncVel = RobotMap::driveTrainCANTalonRightRear -> GetEncVel();
-
-			SmartDashboard::PutNumber("Left Front Encoder Postition", LeftFrontEncPos);
-			SmartDashboard::PutNumber("Left Front Encoder Velocity", LeftFrontEncVel);
-
-			SmartDashboard::PutNumber("Left Rear Encoder Postition", LeftRearEncPos);
-			SmartDashboard::PutNumber("Left Rear Encoder Velocity", LeftRearEncVel);
-
-			SmartDashboard::PutNumber("Right Front Encoder Postition", RightFrontEncPos);
-			SmartDashboard::PutNumber("Right Front Encoder Velocity", RightFrontEncVel);
-
-			SmartDashboard::PutNumber("Right Rear Encoder Postition", RightRearEncPos);
-			SmartDashboard::PutNumber("Right Rear Encoder Velocity", RightRearEncVel);
+			Robot::driveTrain->PutEncoderValuesToDashboard();
 
 		Robot::driveTrain->drive(x, y, z/3); // z/3 to reduce the speed for more precision while driving
 }
