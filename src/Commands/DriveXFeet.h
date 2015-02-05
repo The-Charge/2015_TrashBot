@@ -23,17 +23,18 @@
  */
 class DriveXFeet: public Command {
 public:
-	DriveXFeet(float = -1);
+	DriveXFeet(float = -1, float = 0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
-
+	float maxpercent;
 	float feet;
 	const float FEET_DEFAULT = 2;
 	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
-
+	const float MAXPERCENT_DEFAULT = 0;
+	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveXFeet::Max Percent:";
 };
 
 #endif

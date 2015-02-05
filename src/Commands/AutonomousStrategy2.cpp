@@ -8,11 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #include "DriveXFeet.h"
-#include "AutonomousStrategyPush.h"
+#include "AutonomousStrategy2.h"
 
-AutonomousStrategyPush::AutonomousStrategyPush() {
+AutonomousStrategy2::AutonomousStrategy2() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -30,11 +29,7 @@ AutonomousStrategyPush::AutonomousStrategyPush() {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-
-	//drives robot and possibly another robot into auto zone
-	AddSequential(new DriveXFeet(5));
-	//TODO: need to add speed
-	//TODO: need an exact measurement of how far to drive both robots
-	// Need a extact measurement of how far we need to push the other robot.
-	// Need to pass a lower max percent value because we are pushing and don't want to go fast
+	// TODO: Figure Out what autonomous strategy 2 is..
+	//
+	AddSequential(new DriveXFeet(1));
 }

@@ -75,6 +75,15 @@ void DriveTrain::PutDashboardValues(){
 	SmartDashboard::PutNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY, PROPORTIONAL_CONSTANT_DEFAULT);
 }
 
+void DriveTrain::SetPIDControllerOutputRange(float maxpercent)
+{
+	leftFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+	rightFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+	leftRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+	rightRearPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
+
+}
+
 void DriveTrain::ReadDashboardValues() {
 
 	p = SmartDashboard::GetNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,PROPORTIONAL_CONSTANT_DEFAULT);
