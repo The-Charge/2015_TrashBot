@@ -114,6 +114,12 @@ public:
 
 	void PutDashboardValues();
 
+	//Fixing no passing parameters
+	void SetFeet(float);
+		//Call this method when you want to use DriveXFeet with parameters in the drive train
+		//Call right before and pass the number of feet you want to go
+	float xFeet = 0; //feet to drive
+	float GetFeet();
 };
 
 #endif

@@ -30,6 +30,10 @@ void DriveXFeet::Initialize() {
 	this -> SetTimeout(10);
 	Robot::driveTrain-> ReadDashboardValues();
 	Robot::driveTrain -> ResetDistance();
+
+	//Get feet from DriveTrain
+	feet = Robot::driveTrain-> GetFeet();
+
 	if (feet == 0)
 		{
 			feet = SmartDashboard:: GetNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);

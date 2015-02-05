@@ -190,5 +190,18 @@ void DriveTrain::DisablePIDControllers(){
 	rightRearPIDController->Disable();
 }
 
+//---------------Fixing Constructor Parameter Problems-----------
+void DriveTrain::SetFeet(float x)
+{
+	xFeet = x;
+}
+
+float DriveTrain::GetFeet()
+{
+	float temp = xFeet;
+	xFeet = 0;
+	return temp;
+}
+
 // here. Call these from Commands.
 
