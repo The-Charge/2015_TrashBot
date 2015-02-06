@@ -35,9 +35,11 @@ public:
 
 	const float TURNING_DEFAULT = 90;
 	const float TURNING_SPEED_DEFAULT = .25;
+	const float DEADTURN_DEFAULT = 5;
 
 	const std::string ANGLE_TO_TURN = "Degrees Wanted to Turn: ";
 	const std::string TURNING_SPEED = "Speed to turn (Positive): ";
+	const std::string DEADTURN_STRING = "Turning deadband: ";
 
 	TurnNDegrees(float = 0);
 	virtual void Initialize();

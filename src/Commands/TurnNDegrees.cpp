@@ -21,6 +21,7 @@ TurnNDegrees::TurnNDegrees(float d) {
 
 	SmartDashboard::PutNumber(ANGLE_TO_TURN, TURNING_DEFAULT);
 	SmartDashboard::PutNumber(TURNING_SPEED, TURNING_SPEED_DEFAULT);
+	SmartDashboard::PutNumber(DEADTURN_STRING, DEADTURN_DEFAULT);
 
 
 }
@@ -36,12 +37,17 @@ void TurnNDegrees::Initialize() {
 		{
 			degreesturning = SmartDashboard:: GetNumber(ANGLE_TO_TURN, TURNING_DEFAULT);
 			speed = SmartDashboard::GetNumber(TURNING_SPEED, TURNING_SPEED_DEFAULT);
+			SmartDashboard::PutNumber(DEADTURN_STRING, DEADTURN_DEFAULT);
 
-			speed = abs(speed); // makes sure that speed is a positive value
+			//speed = abs(speed); // makes sure that speed is a positive value
 
 			// degreesturing can take a negative or a positive value, speed cannot
 		}
 	startAngle = Robot::driveTrain -> driveGyro -> GetAngle(); // gets the starting angle for the command
+
+	finalAngle = degreesturning + startAngle;
+	SmartDashboard::PutNumber("Final angle: ", finalAngle); // tells us the ending program
+
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -55,16 +61,20 @@ void TurnNDegrees::Execute() {
 
 	angleAt = Robot::driveTrain->driveGyro->GetAngle(); // angle the robot is currently at
 
+	SmartDashboard::PutNumber("Current angle: ", angleAt); // current angle we are at
+	SmartDashboard::PutNumber("Active speed: ", speed);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool TurnNDegrees::IsFinished() {
 
-	if ((angleAt <= finalAngle + 10 && angleAt >= finalAngle - 10)) // checks to see if the angle turned is withing the desired angle
+	if (((angleAt <= finalAngle + DEADTURN && angleAt >= finalAngle - DEADTURN)  || this -> IsTimedOut()))
+		// when timer is done it will end the command
+			// checks to see if the angle turned is withing the desired angle range
 		return true;
 
 	else
-	return false || this -> IsTimedOut(); // when timer is done it will end the command
+	return false;
 }
 
 // Called once after isFinished returns true
