@@ -29,6 +29,15 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+
+	float feet;
+	const float FEET_DEFAULT = 2;
+	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
+
+
 };
+
+
+
 
 #endif

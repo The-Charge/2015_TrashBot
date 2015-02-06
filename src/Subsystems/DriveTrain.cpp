@@ -152,6 +152,15 @@ void DriveTrain::EncoderReset() {
 	CANTalonRightFront->SetPosition(0);
 	CANTalonRightRear->SetPosition(0);
 }
+//this may not go here...
+
+void DriveTrain::DriveSDBFeet(){
+
+
+
+
+}
+
 
 void DriveTrain::ResetDistance() {
 	CANTalonLeftFront->SetPosition(0);

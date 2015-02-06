@@ -34,8 +34,8 @@ void DriveXFeet::Initialize() {
 
 	//Get feet from DriveTrain
 	//feet = Robot::driveTrain-> GetFeet();
-	feet = Robot::DriveSBDFeet->GetFeet();
-	//????????????????
+	feet = Robot::driveTrain->GetFeet();
+
 
 	//if (feet == 0)
 		//{
