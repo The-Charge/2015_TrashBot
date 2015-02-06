@@ -35,8 +35,8 @@ void TurnNDegrees::Initialize() {
 
 	degreesturning = d;
 
-	if (degreesturning == 0) // if the command accually sends a value and is needed to be changed
-		{
+	//if (degreesturning == 0) // if the command accually sends a value and is needed to be changed
+		//{
 			degreesturning = SmartDashboard:: GetNumber(ANGLE_TO_TURN, TURNING_DEFAULT);
 			speed = SmartDashboard::GetNumber(TURNING_SPEED, TURNING_SPEED_DEFAULT);
 			deadturn = SmartDashboard::GetNumber(DEADTURN_STRING, DEADTURN_DEFAULT); // gives deadturn a value from the smartdashboard
@@ -44,7 +44,7 @@ void TurnNDegrees::Initialize() {
 			//speed = abs(speed); // makes sure that speed is a positive value
 
 			// degreesturing can take a negative or a positive value, speed cannot
-		}
+		//}
 	startAngle = Robot::driveTrain -> driveGyro -> GetAngle(); // gets the starting angle for the command
 
 	finalAngle = degreesturning + startAngle; // gives finalangle a value
