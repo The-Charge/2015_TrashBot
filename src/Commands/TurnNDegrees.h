@@ -32,6 +32,7 @@ public:
 	float speed;
 
 	float angleAt;
+	float deadturn;
 
 	const float TURNING_DEFAULT = 90;
 	const float TURNING_SPEED_DEFAULT = .25;
