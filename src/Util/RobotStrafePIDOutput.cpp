@@ -6,8 +6,9 @@
  */
 
 #include "RobotStrafePIDOutput.h"
+#include "../Subsystems/DriveTrain.h"
 
-RobotStrafePIDOutput::RobotStrafePIDOutput(Robot::driveTrain)
+RobotStrafePIDOutput::RobotStrafePIDOutput()
 {
 	// TODO Auto-generated constructor stub
 
@@ -15,5 +16,8 @@ RobotStrafePIDOutput::RobotStrafePIDOutput(Robot::driveTrain)
 
 void RobotStrafePIDOutput::PIDWrite(double output)
 {
-	Robot::driveTrain ->
+	Robot::driveTrain -> rightRearPIDController -> SetTolerance(output);
+	Robot::driveTrain -> leftRearPIDController -> SetTolerance(output);
+	Robot::driveTrain -> leftFrontPIDController -> SetTolerance(output);
+	Robot::driveTrain -> rightFrontPIDController -> SetTolerance(output);
 }

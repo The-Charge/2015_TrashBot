@@ -51,6 +51,8 @@ DriveTrain::DriveTrain() :
 	rightRearPIDCanTalon = new PIDCanTalon(CANTalonRightRear);
 	rightRearPIDController = new PIDController(0, 0, 0, rightRearPIDCanTalon,CANTalonRightRear);
 
+	SmartDashboard::PutNumber(STRAFE_SDB_FEET_DASHBOARD_KEY, STRAFE_SBD_FEET_DEFAULT);
+
 	PutDashboardValues();
 }
 void DriveTrain::InitDefaultCommand() {
@@ -193,32 +195,19 @@ void DriveTrain::DisablePIDControllers(){
 void DriveTrain::StrafeSDBFeet()
 {
 	float x = SmartDashboard::GetNumber(STRAFE_SDB_FEET_DASHBOARD_KEY, STRAFE_SBD_FEET_DEFAULT);
-	ReadDashboardValues();
-	TICKS_NEEDED = SetStrafeDist(x);
-	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
-		rightRearPIDController->SetSetpoint(-1 * TICKS_NEEDED);
-		leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
-		rightFrontPIDController->SetSetpoint(-1 * TICKS_NEEDED);
-
-		leftFrontPIDController->Enable();
-		rightFrontPIDController -> Enable();
-		rightRearPIDController -> Enable();
-		leftRearPIDController->Enable();
+	StrafeXFt(x);
 }
 
-float DriveTrain::SetStrafeDist(float x)
-{
-return TICKS_PER_1_FOOT_STRAFE * x;
-}
 
 void DriveTrain::StrafeXFt(float f)
 {
-	TICKS_NEEDED = SetStrafeDist(f);
+	//TODO: max percent?
+	TICKS_NEEDED = TICKS_PER_1_FOOT_STRAFE * f;
 	ReadDashboardValues();
-	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
+	leftRearPIDController-> SetSetpoint(-1 * TICKS_NEEDED);
 	rightRearPIDController->SetSetpoint(-1 * TICKS_NEEDED);
 	leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
-	rightFrontPIDController->SetSetpoint(-1 * TICKS_NEEDED);
+	rightFrontPIDController->SetSetpoint(TICKS_NEEDED);
 
 	leftFrontPIDController->Enable();
 	rightFrontPIDController -> Enable();

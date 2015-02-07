@@ -50,7 +50,6 @@ public:
 	void ReadDashboardValues();
 	void PutEncoderValuesToDashboard();
 	void StrafeSDBFeet();
-	float SetStrafeDist(float);
 	void StrafeXFt(float);
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
