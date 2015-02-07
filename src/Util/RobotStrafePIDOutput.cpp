@@ -7,12 +7,13 @@
 
 #include "RobotStrafePIDOutput.h"
 
-RobotStrafePIDOutput::RobotStrafePIDOutput() {
+RobotStrafePIDOutput::RobotStrafePIDOutput(CANTalon * talon)
+{
 	// TODO Auto-generated constructor stub
-
+	_talon = talon;
 }
 
-RobotStrafePIDOutput::~RobotStrafePIDOutput() {
-	// TODO Auto-generated destructor stub
+double RobotStrafePIDOutput::PIDGet()
+{
+	return _talon -> GetEncPosition();
 }
-

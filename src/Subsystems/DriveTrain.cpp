@@ -190,5 +190,17 @@ void DriveTrain::DisablePIDControllers(){
 	rightRearPIDController->Disable();
 }
 
+void DriveTrain::StrafeSDBFeet()
+{
+	float x = SmartDashboard::GetNumber(STRAFE_SDB_FEET_DASHBOARD_KEY, STRAFE_SBD_FEET_DEFAULT);
+	ReadDashboardValues();
+	SetStrafeDist(x);
+}
+
+void DriveTrain::SetStrafeDist(float x)
+{
+//TODO: Math;
+}
+
 // here. Call these from Commands.
 

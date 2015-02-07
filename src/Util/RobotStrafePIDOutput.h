@@ -7,12 +7,16 @@
 
 #ifndef SRC_UTIL_ROBOTSTRAFEPIDOUTPUT_H_
 #define SRC_UTIL_ROBOTSTRAFEPIDOUTPUT_H_
-#include "PIDOutput.h"
+#include <PIDOutput.h>
+#include <CANTalon.h>
 
 class RobotStrafePIDOutput: public PIDOutput{
+private:
+	CANTalon * _talon;
 public:
-	RobotStrafePIDOutput();
+	RobotStrafePIDOutput(CANTalon * talon);
 	virtual ~RobotStrafePIDOutput();
+	virtual double PIDGet();
 };
 
 #endif /* SRC_UTIL_ROBOTSTRAFEPIDOUTPUT_H_ */

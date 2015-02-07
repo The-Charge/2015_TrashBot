@@ -49,6 +49,8 @@ public:
 	void DisablePIDControllers();
 	void ReadDashboardValues();
 	void PutEncoderValuesToDashboard();
+	void StrafeSDBFeet();
+	void SetStrafeDist(float);
 
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
@@ -56,6 +58,7 @@ public:
 	const float WHEELROTATIONS_PER_FOOT = 1 / WHEELCIRCUMFERENCE_IN_FEET;
 	const int ENCODER_TICKS_PER_REVOLUTION = 300 * 4; //250; //2048
 	float TICKS_NEEDED = 0;
+
 
 	PIDController*leftFrontPIDController;
 	PIDController*rightFrontPIDController;
@@ -112,6 +115,11 @@ public:
 	const std::string ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY = "DriveTrain:Right Rear Encoder Velocity:";
 	const std::string ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY = "DriveTrain:Left Rear Encoder Velocity:";
 
+	const std::string STRAFE_SDB_FEET_DASHBOARD_KEY = "StrafeSDBFeet:Distance to Strafe:";
+	const int STRAFE_SBD_FEET_DEFAULT = 0;
+
+	const std::string STRAFE_SDB_FEET_MAX_PERCENT_DASHBOARD_KEY = "StrafeXFeet: Max Percent:";
+	const int STRAFE_SDB_FEET_MAX_PERCENT_DEFAULT = .5;
 	void PutDashboardValues();
 
 };

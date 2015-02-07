@@ -21,26 +21,26 @@ StrafeSBDFeet::StrafeSBDFeet() {
 
 // Called just before this Command runs the first time
 void StrafeSBDFeet::Initialize() {
-	
+	Robot::driveTrain -> StrafeSDBFeet();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void StrafeSBDFeet::Execute() {
-	
+	Robot::driveTrain -> PutEncoderValuesToDashboard();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool StrafeSBDFeet::IsFinished() {
-	return false;
+	return Robot::driveTrain -> AtDestination();
 }
 
 // Called once after isFinished returns true
 void StrafeSBDFeet::End() {
-	
+	Drive(0, 0, 0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void StrafeSBDFeet::Interrupted() {
-
+	End();
 }
