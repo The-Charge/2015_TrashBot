@@ -27,6 +27,15 @@ Drive::Drive() {
 
 	SmartDashboard::PutNumber(SCALEFACTOR_GYRO_DASHBOARD_KEY, SCALEFACTOR_DEFAULT);
 	SmartDashboard::PutNumber(GAINFACTOR_GYRO_DASHBOARD_KEY, GAINFACTOR_DEFAULT);
+
+	sc = new SendableChooser();
+	jDrive = new std::string("j");
+	xDrive = new std::string ("x");
+
+	sc -> AddDefault("JoyStick", jDrive);
+	sc -> AddObject("X-box Drive", xDrive);
+
+	SmartDashboard::PutData("Drive Mode Chooser", sc);
 }
 
 // Called just before this Command runs the first time
@@ -63,9 +72,27 @@ float Drive::deadband(float input, float db){
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
 
-	float x = Robot::oi->getJoystick1()->GetX();
-	float y = Robot::oi->getJoystick1()->GetY();
-	float z = Robot::oi->getJoystick1()->GetZ();
+	//sends the speeds to the drive-train
+	std::string*selected = (std::string*) sc -> GetSelected();
+
+	float x;
+	float y;
+	float z;
+
+
+	if (selected -> compare(*jDrive) == 0)
+	{
+		x = Robot::oi->getJoystick1()->GetX();
+		y = Robot::oi->getJoystick1()->GetY();
+		z = Robot::oi->getJoystick1()->GetZ();
+	}
+	else if (selected -> compare(*xDrive) == 0)
+	{
+		x = Robot::oi->getJoystick1()->GetY();
+		y = Robot::oi->getJoystick1()->GetY();
+		z = Robot::oi ->getJoystick1()-> GetRawAxis(4);
+	}
+
 
 
 	// creates a smartdashboard value to see what the gyro value for its angle and rate
@@ -76,17 +103,6 @@ void Drive::Execute() {
 		SmartDashboard::PutNumber("The Gyro Rate", GetTheGyroRate);
 		SmartDashboard::PutNumber("The Gyro Angle", GetTheGyroAngle);
 
-/*
-		x = delinearize(x,alpha);
-		y = delinearize(y,alpha);
-		z = delinearize(z,alpha);
-
-
-
-		x = deadband(x,db);
-		y = deadband(y,db);
-		z = deadband(z, db);
-*/
 		x = RobotMath::deadband(x,joystickDeadband);
 			y = RobotMath::deadband(y,joystickDeadband);
 			z = RobotMath::deadband(z,joystickDeadband);
@@ -99,9 +115,15 @@ void Drive::Execute() {
 			y = RobotMath::delinearize(y,delinearizationAlpha ,(int)delinearizationPower);
 			z = RobotMath::delinearize(z,delinearizationAlpha ,(int)delinearizationPower);
 
+		if (selected -> compare(*jDrive) == 0 ){
 			if (Robot:: oi -> getJoystick1() -> GetRawButton(4)) // if the button is held
 			{ y = 0; z = 0; } // allows only the x value to pass
-
+		}
+		else if (selected -> compare(*xDrive) == 0)
+		{
+			if (Robot::oi -> getJoystick1() -> GetRawButton(2))
+			{ y = 0; z = 0; }
+		}
 
 			float GyroCorrection = -1 * GainFactor * ScaleFactor * GetTheGyroRate;
 
