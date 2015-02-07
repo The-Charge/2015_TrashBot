@@ -52,6 +52,10 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+private:
+	SendableChooser*sc;
+	std::string*xDrive;
+	std::string*jDrive;
 };
 
 #endif
