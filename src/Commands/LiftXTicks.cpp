@@ -41,18 +41,15 @@ void LiftXTicks::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LiftXTicks::Execute() {
-	 LIFT_ENCODER_TICKS = Robot::lift-> encoder->Get();
+	 LIFT_ENCODER_TICKS = Robot::driveTrain->CANTalonLeftFront ->GetEncPosition();
 	 SmartDashboard::PutNumber(LIFT_ENCODER_VALUE, LIFT_ENCODER_TICKS);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool LiftXTicks::IsFinished() {
-	if (this-> IsTimedOut() || (LIFT_ENCODER_TICKS <= MAXLIFTTICKS - deadbandlift
-			&& LIFT_ENCODER_TICKS >= 0 + deadbandlift)
-			&&	((LIFT_ENCODER_TICKS <= ticks + deadbandlift)
-			&& (LIFT_ENCODER_TICKS >= ticks - deadbandlift)) )
+	if (this-> IsTimedOut() || (LIFT_ENCODER_TICKS <= ticks + (deadbandlift/2) && LIFT_ENCODER_TICKS >= ticks - (deadbandlift/2))
+			|| (LIFT_ENCODER_TICKS >= MAXLIFTTICKS - deadbandlift || LIFT_ENCODER_TICKS <= 0 + deadbandlift))
 				return true;
-
 	return false;
 }
 
