@@ -96,15 +96,18 @@ public:
 	const double INTEGRAL_CONSTANT_DEFAULT = 0;
 	const double TICKS_NEEDED_DEFAULT = 0;
 	const double ABSOLUTE_TOLERANCE_DEFAULT = 75;
+	const double FEET_DEFAULT = 2;
 	float p;
 	float maxpercent;
 	float i;
+	float feet;
+	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
 	float absolutetolerance;
 	const std::string ABSOLUTE_TOLERANCE_DASHBOARD_KEY = "DriveTrain: Absolute Tolerance";
 	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
 			"Drive2Feet::Proportional Constant";
-	const std::string MAX_PERCENT_DASHBOARD_KEY = "Drive2Feet:Max Percent";
+	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveTrain:Max Percent";
 	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
 			"Drive2Feet::Integral Constant";
 

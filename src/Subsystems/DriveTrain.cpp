@@ -81,6 +81,8 @@ void DriveTrain::ReadDashboardValues() {
 	i = SmartDashboard::GetNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,INTEGRAL_CONSTANT_DEFAULT);
 	maxpercent = SmartDashboard::GetNumber(MAX_PERCENT_DASHBOARD_KEY,MAX_PERCENT_DEFAULT);
 	absolutetolerance = SmartDashboard::GetNumber(ABSOLUTE_TOLERANCE_DASHBOARD_KEY, ABSOLUTE_TOLERANCE_DEFAULT);
+	feet = SmartDashboard::GetNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);
+
 
 	leftFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
 	rightFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
@@ -156,7 +158,8 @@ void DriveTrain::EncoderReset() {
 
 void DriveTrain::DriveSDBFeet(){
 
-
+	feet = SmartDashboard::GetNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);
+	SetDistanceInFeet(feet);
 
 
 }
@@ -171,6 +174,7 @@ void DriveTrain::ResetDistance() {
 
 void DriveTrain::SetDistanceInFeet(int x) {
 
+	ReadDashboardValues();
 	TICKS_NEEDED = WHEELROTATIONS_PER_FOOT * ENCODER_TICKS_PER_REVOLUTION * x;
 	SmartDashboard:: PutNumber (TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
 	leftRearPIDController->SetSetpoint(TICKS_NEEDED);

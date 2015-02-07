@@ -26,30 +26,36 @@ DriveSBDFeet::DriveSBDFeet() {
 
 // Called just before this Command runs the first time
 void DriveSBDFeet::Initialize() {
-	
+	// here there needs to be a SetOut(ft) command...
+	this -> SetTimeout(10);
+	Robot::driveTrain -> DriveSDBFeet();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveSBDFeet::Execute() {
-	feet = SmartDashboard::GetNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);
+	// took out the feet command that
 	Robot::driveTrain ->PutEncoderValuesToDashboard();
 	
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DriveSBDFeet::IsFinished() {
 	//return false;
+
 	return Robot::driveTrain->AtDestination() || this -> IsTimedOut();
 
 }
 
 // Called once after isFinished returns true
 void DriveSBDFeet::End() {
+	Robot::driveTrain->DisablePIDControllers();
+		Robot::driveTrain -> drive(0,0,0);
 	
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void DriveSBDFeet::Interrupted() {
-
+	End();
 }
