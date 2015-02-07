@@ -43,7 +43,7 @@ void TurnNDegrees::Initialize() {
 
 			//speed = abs(speed); // makes sure that speed is a positive value
 
-			// degreesturing can take a negative or a positive value, speed cannot
+			// degreesturing can take a negative or a positive value, speed cannot for desired results
 		//}
 	startAngle = Robot::driveTrain -> driveGyro -> GetAngle(); // gets the starting angle for the command
 

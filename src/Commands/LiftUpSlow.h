@@ -23,6 +23,23 @@
  */
 class LiftUpSlow: public Command {
 public:
+
+	const std::string LIFT_ENCODER_MAX_STRING = "Lift Encoder Allowed Max: ";
+	const int LIFT_ENCODER_MAX = 2000;
+	int maxHeight = 0;
+
+	const std::string OFFSET_LIFT_MAX = "Lift offset max: ";
+	const int OFFSET_LIFT_DEFAULT_MAX = 50;
+
+	const std::string OFFSET_LIFT_MIN = "Lift offset min: ";
+	const int OFFSET_LIFT_DEFAULT_MIN = 50;
+
+	float encoderLiftvalue = 0;
+
+	int offsetmin = 0;
+	int offsetmax = 0;
+
+
 	LiftUpSlow();
 	virtual void Initialize();
 	virtual void Execute();
