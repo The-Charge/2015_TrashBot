@@ -8,6 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
+//Amanda is making changes here! <---
+
 
 #include "DriveXFeet.h"
 #include "../RobotMap.h"
@@ -31,7 +33,7 @@ void DriveXFeet::Initialize() {
 	Robot::driveTrain-> ReadDashboardValues();
 	//TODO: Richard - If i have readdashboardvalues will that overwrite my float that I'm passing in???
 	Robot::driveTrain -> ResetDistance();
-	if (feet == -1)
+	if (feet == 0)
 		{
 			feet = SmartDashboard:: GetNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);
 		}
