@@ -30,7 +30,7 @@ public:
 	const int LIFT_ENCODER_MAX = encoder_lift_ticks * total_lift_turns;
 	int maxHeight = 0;
 
-	const std::string DEADBAND_String = "Deadband: ";
+	const std::string DEADBAND_STRING = "Deadband: ";
 	const int DEADBAND_VALUE = 1024;
 
 	float encoderLiftvalue = 0;

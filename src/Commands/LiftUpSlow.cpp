@@ -24,14 +24,13 @@ LiftUpSlow::LiftUpSlow() {
 
 	SmartDashboard::PutNumber(LIFT_ENCODER_MAX_STRING, LIFT_ENCODER_MAX); // to set a maximum on the robot
 
-	SmartDashboard::PutNumber(DEADBAND_String, DEADBAND_VALUE); // for the maximum lift offset
+	SmartDashboard::PutNumber(DEADBAND_STRING, DEADBAND_VALUE); // for the maximum lift offset
 }
 
 // Called just before this Command runs the first time
 void LiftUpSlow::Initialize() {
 
-	deadband  = SmartDashboard::GetNumber(DEADBAND_String, DEADBAND_VALUE);
-
+	deadband  = SmartDashboard::GetNumber(DEADBAND_STRING, DEADBAND_VALUE);
 
 	maxHeight = SmartDashboard::GetNumber(LIFT_ENCODER_MAX_STRING, LIFT_ENCODER_MAX); // gets value from smartdashboard
 
