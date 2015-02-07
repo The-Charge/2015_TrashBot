@@ -12,11 +12,11 @@
 
 class RobotStrafePIDOutput: public PIDOutput{
 private:
-	CANTalon * _talon;
+	Robot::driveTrain;
 public:
 	RobotStrafePIDOutput(CANTalon * talon);
 	virtual ~RobotStrafePIDOutput();
-	virtual double PIDGet();
+	virtual void PIDWrite(double);
 };
 
 #endif /* SRC_UTIL_ROBOTSTRAFEPIDOUTPUT_H_ */

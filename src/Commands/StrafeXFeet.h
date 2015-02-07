@@ -23,12 +23,13 @@
  */
 class StrafeXFeet: public Command {
 public:
-	StrafeXFeet();
+	StrafeXFeet(float);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+	float feet;
 };
 
 #endif

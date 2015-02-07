@@ -50,8 +50,8 @@ public:
 	void ReadDashboardValues();
 	void PutEncoderValuesToDashboard();
 	void StrafeSDBFeet();
-	void SetStrafeDist(float);
-
+	float SetStrafeDist(float);
+	void StrafeXFt(float);
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
 	const float WHEELCIRCUMFERENCE_IN_FEET = WHEELCIRCUMFERENCE_IN_INCHES / 12;
@@ -121,6 +121,10 @@ public:
 	const std::string STRAFE_SDB_FEET_MAX_PERCENT_DASHBOARD_KEY = "StrafeXFeet: Max Percent:";
 	const int STRAFE_SDB_FEET_MAX_PERCENT_DEFAULT = .5;
 	void PutDashboardValues();
+
+	const float TICKS_PER_1_FOOT_STRAFE = 1232;
+	float TICKS_TO_STrAFE_IN_FEET;
+
 
 };
 

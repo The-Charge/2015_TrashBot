@@ -21,6 +21,8 @@ StrafeSBDFeet::StrafeSBDFeet() {
 
 // Called just before this Command runs the first time
 void StrafeSBDFeet::Initialize() {
+	this -> SetTimeout(10);
+	Robot::driveTrain -> ResetDistance();
 	Robot::driveTrain -> StrafeSDBFeet();
 }
 
@@ -31,12 +33,13 @@ void StrafeSBDFeet::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool StrafeSBDFeet::IsFinished() {
-	return Robot::driveTrain -> AtDestination();
+	return Robot::driveTrain -> AtDestination() || this -> IsTimedOut();
 }
 
 // Called once after isFinished returns true
 void StrafeSBDFeet::End() {
-	Drive(0, 0, 0);
+	Robot::driveTrain -> drive(0, 0, 0);
+	Robot:: driveTrain -> DisablePIDControllers();
 }
 
 // Called when another command which requires one or more of the same

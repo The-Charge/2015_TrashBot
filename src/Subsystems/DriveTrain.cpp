@@ -194,13 +194,36 @@ void DriveTrain::StrafeSDBFeet()
 {
 	float x = SmartDashboard::GetNumber(STRAFE_SDB_FEET_DASHBOARD_KEY, STRAFE_SBD_FEET_DEFAULT);
 	ReadDashboardValues();
-	SetStrafeDist(x);
+	TICKS_NEEDED = SetStrafeDist(x);
+	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
+		rightRearPIDController->SetSetpoint(-1 * TICKS_NEEDED);
+		leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
+		rightFrontPIDController->SetSetpoint(-1 * TICKS_NEEDED);
+
+		leftFrontPIDController->Enable();
+		rightFrontPIDController -> Enable();
+		rightRearPIDController -> Enable();
+		leftRearPIDController->Enable();
 }
 
-void DriveTrain::SetStrafeDist(float x)
+float DriveTrain::SetStrafeDist(float x)
 {
-//TODO: Math;
+return TICKS_PER_1_FOOT_STRAFE * x;
 }
 
+void DriveTrain::StrafeXFt(float f)
+{
+	TICKS_NEEDED = SetStrafeDist(f);
+	ReadDashboardValues();
+	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
+	rightRearPIDController->SetSetpoint(-1 * TICKS_NEEDED);
+	leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
+	rightFrontPIDController->SetSetpoint(-1 * TICKS_NEEDED);
+
+	leftFrontPIDController->Enable();
+	rightFrontPIDController -> Enable();
+	rightRearPIDController -> Enable();
+	leftRearPIDController->Enable();
+}
 // here. Call these from Commands.
 
