@@ -24,13 +24,12 @@ StrafeXFeet::StrafeXFeet(float f) {
 // Called just before this Command runs the first time
 void StrafeXFeet::Initialize() {
 	this -> SetTimeout(10);
-	Robot::driveTrain -> ResetDistance();
 	Robot::driveTrain -> StrafeXFt(feet);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void StrafeXFeet::Execute() {
-	Robot::driveTrain -> PutEncoderValuesToDashboard();
+	Robot::driveTrain -> UpdateDashboard();
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -9,8 +9,8 @@
 // it from being updated in the future.
 
 
-#ifndef DRIVE2FEET_H
-#define DRIVE2FEET_H
+#ifndef DRIVESDBFEET_H
+#define DRIVESDBFEET_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,23 +21,21 @@
  *
  * @author ExampleAuthor
  */
-class Drive2Feet: public Command {
+class DriveSDBFeet: public Command {
 public:
-	Drive2Feet();
+	DriveSDBFeet();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
 
-	float TICKS_NEEDED;
-
-
-	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet::Ticks Needed";
-
-
+	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
 
 
 };
+
+
+
 
 #endif

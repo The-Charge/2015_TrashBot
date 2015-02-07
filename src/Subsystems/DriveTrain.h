@@ -39,18 +39,22 @@ public:
 	// drive command drives the mecanum and parameters: x,y z as rotation
 	void drive(float, float, float);
 	void EncoderReset();
-
 	float GetGyroRate();
 	float GetGyroAngle();
 	void ResetDistance();
-	void SetDistanceInFeet(int);
+	void SetDistanceInFeet(float);
 	bool AtDestination();
 	void Init();
 	void DisablePIDControllers();
+
 	void ReadDashboardValues();
-	void PutEncoderValuesToDashboard();
 	void StrafeSDBFeet();
 	void StrafeXFt(float);
+	void DriveFtInit();
+	void UpdateDashboard();
+	void DriveSDBFeet();
+
+
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
 	const float WHEELCIRCUMFERENCE_IN_FEET = WHEELCIRCUMFERENCE_IN_INCHES / 12;
@@ -97,15 +101,18 @@ public:
 	const double INTEGRAL_CONSTANT_DEFAULT = 0;
 	const double TICKS_NEEDED_DEFAULT = 0;
 	const double ABSOLUTE_TOLERANCE_DEFAULT = 75;
+	const double FEET_DEFAULT = 2;
 	float p;
 	float maxpercent;
 	float i;
+	float feet;
+	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
 	float absolutetolerance;
 	const std::string ABSOLUTE_TOLERANCE_DASHBOARD_KEY = "DriveTrain: Absolute Tolerance";
 	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
 			"Drive2Feet::Proportional Constant";
-	const std::string MAX_PERCENT_DASHBOARD_KEY = "Drive2Feet:Max Percent";
+	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveTrain:Max Percent";
 	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
 			"Drive2Feet::Integral Constant";
 
@@ -113,6 +120,7 @@ public:
 	const std::string ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY = "DriveTrain:Right Front Encoder Velocity:";
 	const std::string ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY = "DriveTrain:Right Rear Encoder Velocity:";
 	const std::string ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY = "DriveTrain:Left Rear Encoder Velocity:";
+
 
 	const std::string STRAFE_SDB_FEET_DASHBOARD_KEY = "StrafeSDBFeet:Distance to Strafe:";
 	const int STRAFE_SBD_FEET_DEFAULT = 0;

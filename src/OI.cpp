@@ -17,7 +17,7 @@
 #include "Commands/BrakeOff.h"
 #include "Commands/BrakeOn.h"
 #include "Commands/Drive.h"
-#include "Commands/Drive2Feet.h"
+#include "Commands/DriveSDBFeet.h"
 #include "Commands/DriveXFeet.h"
 #include "Commands/LeftArmIn.h"
 #include "Commands/LeftArmOut.h"
@@ -58,8 +58,8 @@ OI::OI() {
 	liftUpFastBtn->WhileHeld(new LiftUpFast());
 	joystick1 = new Joystick(0);
 	
-	drive2FeetButton = new JoystickButton(joystick1, 11);
-	drive2FeetButton->WhenPressed(new Drive2Feet());
+	driveSDBFeetButton = new JoystickButton(joystick1, 11);
+	driveSDBFeetButton->WhenPressed(new DriveSDBFeet());
 	resetEncodersButton = new JoystickButton(joystick1, 8);
 	resetEncodersButton->WhenPressed(new ResetEncoders());
      
@@ -71,7 +71,7 @@ OI::OI() {
 
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());
 
-	SmartDashboard::PutData("Drive2Feet", new Drive2Feet());
+	SmartDashboard::PutData("DriveSDBFeet", new DriveSDBFeet());
 
 	SmartDashboard::PutData("BrakeOn", new BrakeOn());
 
