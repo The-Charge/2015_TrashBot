@@ -62,6 +62,8 @@ DriveTrain::DriveTrain() :
 	SmartDashboard::PutNumber(MAX_PERCENT_DASHBOARD_KEY, MAX_PERCENT_DEFAULT);
 	SmartDashboard::PutNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,
 			PROPORTIONAL_CONSTANT_DEFAULT);
+	SmartDashboard::PutNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY,
+				FEET_DEFAULT);
 
 }
 void DriveTrain::InitDefaultCommand() {
@@ -126,8 +128,6 @@ float DriveTrain::GetGyroAngle() {
 	return driveGyro->GetAngle();
 }
 
-
-//this may not go here...
 
 void DriveTrain::DriveSDBFeet() {
 

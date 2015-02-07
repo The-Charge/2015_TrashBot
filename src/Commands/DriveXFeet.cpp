@@ -8,9 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-//Amanda is making changes here! <---
-
-
 #include "DriveXFeet.h"
 
 DriveXFeet::DriveXFeet(float f) {
