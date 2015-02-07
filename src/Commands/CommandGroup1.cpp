@@ -11,6 +11,8 @@
 
 
 #include "CommandGroup1.h"
+#include "DriveXFeet.h"
+//#include "TurnNDegrees.h"
 
 CommandGroup1::CommandGroup1() {
 	// Add Commands here:
@@ -29,4 +31,16 @@ CommandGroup1::CommandGroup1() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+
+	AddSequential(new DriveXFeet(3));
+
+	//AddSequential(new TurnNDegrees(-90));
+
+	AddSequential(new DriveXFeet(3));
+
+		//AddSequential(new TurnNDegrees(-90));
+
+		//AddSequential(new LiftDownSlow());
+
+	//AddSequential(new DriveXFeet(2));
 }
