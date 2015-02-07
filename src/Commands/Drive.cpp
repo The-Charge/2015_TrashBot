@@ -88,7 +88,7 @@ void Drive::Execute() {
 	}
 	else if (selected -> compare(*xDrive) == 0)
 	{
-		x = Robot::oi->getJoystick1()->GetY();
+		x = Robot::oi->getJoystick1()->GetX();
 		y = Robot::oi->getJoystick1()->GetY();
 		z = Robot::oi ->getJoystick1()-> GetRawAxis(4);
 	}

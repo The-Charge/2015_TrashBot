@@ -31,8 +31,8 @@ LiftXTicks::LiftXTicks(int t, float s) {
 
 // Called just before this Command runs the first time
 void LiftXTicks::Initialize() {
-	Robot::brake->BrakeOff();
-	this -> SetTimeout(2);
+	Robot::brake->BrakeOff(); // turns brakes off of the lift
+	this -> SetTimeout(2); // sets timeout for safety
 	
 	deadbandlift = SmartDashboard::GetNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT); // sets deadband value
 	Robot::lift -> speedController-> Set(speed); // sets the speed wanted to drive at from auton
@@ -59,7 +59,7 @@ bool LiftXTicks::IsFinished() {
 // Called once after isFinished returns true
 void LiftXTicks::End() {
 	Robot::lift-> speedController-> Set(0);
-	Robot::brake-> BrakeOn();
+	Robot::brake-> BrakeOn(); // turns break on
 }
 
 // Called when another command which requires one or more of the same
