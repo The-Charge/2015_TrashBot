@@ -43,6 +43,9 @@ class Drive: public Command {
 	float ScaleFactor;
 	float GainFactor;
 
+	const float CORRECTION_DEFAULT = 4;
+	const std::string GYRO_CORRECTION_DASHBOARD_KEY = "Drive::Gyro Correction";
+
 public:
 	Drive();
 	//float delinearize(float, float);

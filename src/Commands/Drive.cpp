@@ -47,6 +47,7 @@ void Drive::Initialize() {
 			DELINEARIZATION_POWER_DASHBOARD_KEY, DELINEARIZATION_POWER_DEFAULT);
 	delinearizationAlpha = SmartDashboard::GetNumber(
 			DELINEARIZATION_ALPHA_DASHBOARD_KEY, DELINEARIZATION_ALPHA_DEFAULT);
+	SmartDashboard::PutNumber(GYRO_CORRECTION_DASHBOARD_KEY, CORRECTION_DEFAULT);
 
 }
 /*
@@ -101,6 +102,10 @@ void Drive::Execute() {
 			{
 		y = 0;
 		z = 0;
+		float rate = Robot::driveTrain -> GetGyroRate();
+		float correction = SmartDashboard::GetNumber(GYRO_CORRECTION_DASHBOARD_KEY, CORRECTION_DEFAULT);
+		rate = -1 * rate * correction;
+		Robot:: driveTrain -> robotDrive-> MecanumDrive_Cartesian(x, 0, 0, rate);
 	} // allows only the x value to pass
 
 //	float GyroCorrection = -1 * GainFactor * ScaleFactor * GetTheGyroRate;
