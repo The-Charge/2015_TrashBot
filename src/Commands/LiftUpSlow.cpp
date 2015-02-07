@@ -8,6 +8,9 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
+/**
+ * LiftUpSlow (actual motor movement) happens in the Lift Subsystem
+ */
 
 #include "LiftUpSlow.h"
 
@@ -21,15 +24,14 @@ LiftUpSlow::LiftUpSlow() {
 
 	SmartDashboard::PutNumber(LIFT_ENCODER_MAX_STRING, LIFT_ENCODER_MAX); // to set a maximum on the robot
 
-	SmartDashboard::PutNumber(OFFSET_LIFT_MAX, OFFSET_LIFT_DEFAULT_MAX); // for the maximum lift offset
-	SmartDashboard::PutNumber(OFFSET_LIFT_MIN, OFFSET_LIFT_DEFAULT_MIN); // for later code
+	SmartDashboard::PutNumber(DEADBAND_String, DEADBAND_VALUE); // for the maximum lift offset
 }
 
 // Called just before this Command runs the first time
 void LiftUpSlow::Initialize() {
 
-	offsetmin  = SmartDashboard::GetNumber(OFFSET_LIFT_MIN, OFFSET_LIFT_DEFAULT_MIN);
-	offsetmax = SmartDashboard::GetNumber(OFFSET_LIFT_MAX, OFFSET_LIFT_DEFAULT_MAX);
+	deadband  = SmartDashboard::GetNumber(DEADBAND_String, DEADBAND_VALUE);
+
 
 	maxHeight = SmartDashboard::GetNumber(LIFT_ENCODER_MAX_STRING, LIFT_ENCODER_MAX); // gets value from smartdashboard
 
@@ -40,14 +42,12 @@ void LiftUpSlow::Execute() {
 
 	SmartDashboard::PutNumber("Lift Encoder value: ", Robot::lift->encoder->Get()); // gets encoder value
 
-
-
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool LiftUpSlow::IsFinished() {
 	encoderLiftvalue = Robot::lift->encoder->Get(); // gets encoder value
-	if ((encoderLiftvalue >= (maxHeight - offsetmax)))// if encoder value is in the offset range it stops the command
+	if ((encoderLiftvalue >= (maxHeight - deadband)))// if encoder value is in the offset range it stops the command
 		return true;
 
 	return false;

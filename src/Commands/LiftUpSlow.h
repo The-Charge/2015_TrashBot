@@ -31,11 +31,11 @@ public:
 	int maxHeight = 0;
 
 	const std::string DEADBAND_String = "Deadband: ";
-	const int DEADBAND_VALUE = 50;
+	const int DEADBAND_VALUE = 1024;
 
 	float encoderLiftvalue = 0;
 
-	int deaband = 0;
+	double deadband = 0;
 
 
 	LiftUpSlow();

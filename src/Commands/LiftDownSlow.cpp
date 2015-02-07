@@ -8,6 +8,9 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
+/**
+ * LiftDownSlow (actual motor movement) happens in the Lift Subsystem
+ */
 
 #include "LiftDownSlow.h"
 
