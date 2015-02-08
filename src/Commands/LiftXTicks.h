@@ -18,7 +18,7 @@
 
 /**
  *
- *
+
  * @author ExampleAuthor
  */
 class LiftXTicks: public Command {

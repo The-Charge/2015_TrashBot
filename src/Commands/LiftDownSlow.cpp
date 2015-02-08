@@ -39,13 +39,13 @@ void LiftDownSlow::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void LiftDownSlow::Execute() {
 	
-	SmartDashboard::PutNumber("Lift Encoder value: ", Robot::lift->encoder->Get()); // gets encoder value
+	SmartDashboard::PutNumber("Lift Encoder value: ", Robot::driveTrain->CANTalonLeftFront ->GetEncPosition()); // gets encoder value
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool LiftDownSlow::IsFinished() {
-	encoderLiftvalue = Robot::lift2->testEncoder->Get(); // gets encoder value
+	encoderLiftvalue = Robot::driveTrain->CANTalonLeftFront ->GetEncPosition(); // gets encoder value
 	if ((encoderLiftvalue <= (minHeight + deadband)))// if encoder value is in the offset range it stops the command
 		return true;
 
