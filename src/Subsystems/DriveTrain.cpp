@@ -191,6 +191,14 @@ void DriveTrain::PutEncoderValuesToDashboard() {
 	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,rightRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY,CANTalonRightRear->GetEncPosition());
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY, CANTalonRightRear -> GetEncVel());
+}
+
+void DriveTrain::ResetDistance() {
+ 	CANTalonLeftFront->SetPosition(0);
+ 	CANTalonLeftRear->SetPosition(0);
+ 	CANTalonRightFront->SetPosition(0);
+	CANTalonRightRear->SetPosition(0);
+}
 
 void DriveTrain::SetDistanceInFeet(float dist) {
 	ReadDashboardValues();
