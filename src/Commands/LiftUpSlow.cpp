@@ -29,6 +29,7 @@ LiftUpSlow::LiftUpSlow() {
 
 // Called just before this Command runs the first time
 void LiftUpSlow::Initialize() {
+	Robot::brake->BrakeOff();
 
 	deadband  = SmartDashboard::GetNumber(DEADBAND_STRING, DEADBAND_VALUE);
 
@@ -54,11 +55,14 @@ bool LiftUpSlow::IsFinished() {
 
 // Called once after isFinished returns true
 void LiftUpSlow::End() {
+	Robot::lift2->CANTalon1->Set(0);
+	Robot::brake-> BrakeOn();
 	
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LiftUpSlow::Interrupted() {
-
+	Robot::lift2->CANTalon1->Set(0);
+		Robot::brake-> BrakeOn();
 }

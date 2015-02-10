@@ -30,6 +30,9 @@ LiftDownSlow::LiftDownSlow() {
 // Called just before this Command runs the first time
 void LiftDownSlow::Initialize() {
 
+
+		Robot::brake-> BrakeOff();
+
 	deadband  = SmartDashboard::GetNumber(DEADBAND_STRING, DEADBAND_VALUE);
 
 	minHeight = SmartDashboard::GetNumber(LIFT_ENCODER_MIN_STRING, LIFT_ENCODER_MIN); // gets value from smartdashboard
@@ -54,11 +57,13 @@ bool LiftDownSlow::IsFinished() {
 
 // Called once after isFinished returns true
 void LiftDownSlow::End() {
-	
+	Robot::lift2->CANTalon1->Set(0);
+		Robot::brake-> BrakeOn();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LiftDownSlow::Interrupted() {
-
+	Robot::lift2->CANTalon1->Set(0);
+		Robot::brake-> BrakeOn();
 }
