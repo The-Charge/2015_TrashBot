@@ -118,7 +118,7 @@ void DriveTrain::PutEncoderValuesToDashboard() {
 
 	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,leftRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY,CANTalonLeftRear->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY, CANTalonLeftFront -> GetEncVel());
+	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY, CANTalonLeftRear -> GetEncVel());
 
 
 	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,rightRearPIDController->GetError());

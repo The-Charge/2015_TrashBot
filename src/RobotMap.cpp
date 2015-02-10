@@ -75,7 +75,7 @@ void RobotMap::init() {
 	armsRightArm = new DoubleSolenoid(0, 4, 5);      
 	lw->AddActuator("Arms", "RightArm", armsRightArm);
 	
-	lift2CANTalon1 = new CANTalon(11);
+	lift2CANTalon1 = new CANTalon(2);
 	
 	
 	lift2TestEncoder = new Encoder(2, 3, false, Encoder::k4X);

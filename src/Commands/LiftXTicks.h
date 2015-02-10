@@ -31,7 +31,7 @@ public:
 	const int LIFT_DEADBAND_DEFAULT = 1024; // 1/8 of the total ticks in one rotation of the encoder
 
 	const std::string MAX_VALUE_TICKS = "Lift Ticks Max: ";
-	const std::string LIFT_ENCODER_VALUE = "Lift encoder value: ";
+	const std::string LIFT_ENCODER_VALUE = "Lift encoder Current value: ";
 	const std::string LIFT_DEADBAND_STRING = "Lift deadband: ";
 
 	int LIFT_ENCODER_TICKS = Robot::lift-> encoder->Get();
