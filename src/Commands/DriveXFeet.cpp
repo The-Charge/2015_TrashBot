@@ -8,9 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-//Amanda is making changes here! <---
-
-
 #include "DriveXFeet.h"
 #include "../RobotMap.h"
 
@@ -25,6 +22,7 @@ DriveXFeet::DriveXFeet(float f, float m) {
 	maxpercent = m;
 	SmartDashboard::PutNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);
 	SmartDashboard::PutNumber(MAX_PERCENT_DASHBOARD_KEY, MAXPERCENT_DEFAULT);
+
 }
 
 // Called just before this Command runs the first time
@@ -32,6 +30,10 @@ void DriveXFeet::Initialize() {
 	this -> SetTimeout(10);
 	Robot::driveTrain-> ReadDashboardValues();
 	//TODO: Richard - If i have readdashboardvalues will that overwrite my float that I'm passing in???
+  //TODO: This needs to be corrected for SBDDriveXFeet - Richard
+  //  I left it the way it was from StrafeXFeet branch, which adds a max percentage
+  //  Max percentage needs to be added to the dashboard configuration in drivetrain
+  //  Then, this should only do "SetTimeout" and "SetDistanceInFeet"
 	Robot::driveTrain -> ResetDistance();
 	if (feet == 0)
 		{
@@ -49,11 +51,12 @@ void DriveXFeet::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void DriveXFeet::Execute() {
-	Robot::driveTrain ->PutEncoderValuesToDashboard();
+	Robot::driveTrain ->UpdateDashboard();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DriveXFeet::IsFinished() {
+
 	return Robot::driveTrain->AtDestination() || this -> IsTimedOut();
 }
 
