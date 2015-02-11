@@ -35,8 +35,8 @@ public:
 	const std::string MAX_VALUE_TICKS = "Lift Ticks Max: ";
 	const std::string LIFT_ENCODER_VALUE = "Lift encoder Current value: ";
 	const std::string LIFT_DEADBAND_STRING = "Lift deadband: ";
-	const std::string LIFT_SPEED_STRING = "Speed of Lift: ";
-	const std::string LIFT_TICKS_STRING = "Placement of Lift: ";
+	const std::string LIFT_SPEED_STRING = "lift::LiftXticks Speed of Lift: ";
+	const std::string LIFT_TICKS_STRING = "lift::LiftXticks Placement of Lift: ";
 
 
 	int LIFT_ENCODER_TICKS = Robot::lift-> encoder->Get();
