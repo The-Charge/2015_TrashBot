@@ -25,6 +25,9 @@ LiftXTicks::LiftXTicks(int t, float s) {
 
 	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE, LIFT_ENCODER_TICKS);
 
+	SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
+	SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
+
 	// intiliatizes speed and tick values sent in
 	speed = s;
 	ticks = t;
@@ -32,6 +35,10 @@ LiftXTicks::LiftXTicks(int t, float s) {
 
 // Called just before this Command runs the first time
 void LiftXTicks::Initialize() {
+
+	ticks = SmartDashboard::GetNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
+	speed = SmartDashboard::GetNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
+
 	Robot::brake->BrakeOff(); // turns brakes off of the lift
 	this -> SetTimeout(2); // sets timeout for safety
 	
