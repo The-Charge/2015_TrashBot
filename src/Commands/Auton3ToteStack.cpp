@@ -29,4 +29,43 @@ Auton3ToteStack::Auton3ToteStack() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+
+	// 4000 indicates the level of 4 bins, 3000 indicates the level of 3 bins, 2000, etc
+
+	//Grab Bin1
+	AddParallel (new LeftArmIn());
+	AddParallel (new RightArmIn());
+
+	AddSequential (new LiftXTicks (4000, .75));
+	AddSequential (new StrafeXFeet(4));
+	AddSequential (new LiftXTicks(2000), -.75);
+
+	AddParallel (new LeftArmOut());
+	AddParallel (new RightArmOut());
+
+	//Grab Bin2
+	AddSequential(new LiftXTicks(1000, -.75));
+
+	AddParallel(new LeftArmIn());
+	AddParallel(new RightArmIn());
+
+	AddSequential (new LiftXTicks (4000, .75));
+	AddSequential (new StrafeXFeet(4));
+	AddSequential (new LiftXTicks(3000), -.75);
+
+	AddParallel (new LeftArmOut());
+	AddParallel (new RightArmOut());
+
+	//Grab Bin3
+	AddSequential(new LiftXTicks(1000, -.75));
+
+	AddParallel(new LeftArmIn());
+	AddParallel(new RightArmIn());
+
+	//Moving to auto zone
+	AddSequential (new DriveXFeet(-4, .5));
+
+	AddParallel (new LeftArmOut());
+	AddParallel (new RightArmOut());
+
 }
