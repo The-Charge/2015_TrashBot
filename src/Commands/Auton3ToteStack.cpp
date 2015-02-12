@@ -37,7 +37,7 @@ Auton3ToteStack::Auton3ToteStack() {
 	AddParallel (new RightArmIn());
 
 	AddSequential (new LiftXTicks (4000, .75));
-	AddSequential (new StrafeXFeet(4));
+	AddSequential (new StrafeXFeet(5.4125));
 	AddSequential (new LiftXTicks(2000), -.75);
 
 	AddParallel (new LeftArmOut());
@@ -50,7 +50,7 @@ Auton3ToteStack::Auton3ToteStack() {
 	AddParallel(new RightArmIn());
 
 	AddSequential (new LiftXTicks (4000, .75));
-	AddSequential (new StrafeXFeet(4));
+	AddSequential (new StrafeXFeet(5.4125));
 	AddSequential (new LiftXTicks(3000), -.75);
 
 	AddParallel (new LeftArmOut());
