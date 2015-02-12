@@ -9,7 +9,13 @@
 // it from being updated in the future.
 
 
-
+#include "LeftArmIn.h"
+#include "RightArmIn.h"
+#include "StrafeXFeet.h"
+#include "LiftXTicks.h"
+#include "RightArmIn.h"
+#include "LeftArmIn.h"
+#include "DriveXFeet.h"
 #include "Auton3ToteStack.h"
 
 Auton3ToteStack::Auton3ToteStack() {

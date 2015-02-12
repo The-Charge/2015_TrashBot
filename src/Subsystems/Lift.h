@@ -36,6 +36,27 @@ public:
 	void LiftUpSlow();
 	void LiftDownSlow();
 
+	void PutDashboardValues();
+	void ReadDashboardValues();
+
+	//constants for smart dashboard displaying
+	const std::string LIFT_SPEED_UP_FAST_KEY = "Lift::Lift Speed Up Fast";
+	const float LIFT_SPEED_UP_FAST_DEFAULT = 1;
+
+	const std::string LIFT_SPEED_DOWN_FAST_KEY = "Lift::Lift Speed Down Fast";
+	const float LIFT_SPEED_DOWN_FAST_DEFAULT = -1;
+
+	const std::string LIFT_SPEED_UP_SLOW_KEY = "Lift::Lift Speed Up Slow";
+	const float LIFT_SPEED_UP_SLOW_DEFAULT = .2;
+
+	const std::string LIFT_SPEED_DOWN_SLOW_KEY = "Lift::Lift Speed Down Slow";
+	const float LIFT_SPEED_DOWN_SLOW_DEFAULT = -.2;
+
+	//variables for reading smart dashboard values
+	float liftSpeedUpFast;
+	float liftSpeedDownFast;
+	float liftSpeedUpSlow;
+	float liftSpeedDownSlow;
 
 
 
