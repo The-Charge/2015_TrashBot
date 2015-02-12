@@ -23,6 +23,19 @@
  */
 class LiftDownSlow: public Command {
 public:
+
+	const std::string LIFT_ENCODER_MIN_STRING = "Lift Encoder Allowed Min: ";
+	const int LIFT_ENCODER_MIN = 0;
+	int minHeight = 0;
+
+	const std::string DEADBAND_STRING = "Deadband: ";
+	const int DEADBAND_VALUE = 1024;
+
+	float encoderLiftvalue = 0;
+
+	double deadband = 0;
+
+
 	LiftDownSlow();
 	virtual void Initialize();
 	virtual void Execute();

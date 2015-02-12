@@ -9,35 +9,20 @@
 // it from being updated in the future.
 
 
-#ifndef DRIVE2FEET_H
-#define DRIVE2FEET_H
 
+#ifndef AUTONOMOUSSTRATEGYPUSH_H
+#define AUTONOMOUSSTRATEGYPUSH_H
 
-#include "Commands/Subsystem.h"
-#include "../Robot.h"
+#include "Commands/CommandGroup.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class Drive2Feet: public Command {
-public:
-	Drive2Feet();
-	virtual void Initialize();
-	virtual void Execute();
-	virtual bool IsFinished();
-	virtual void End();
-	virtual void Interrupted();
-
-	float TICKS_NEEDED;
-
-
-	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet::Ticks Needed";
-
-
-
-
+class AutonomousStrategyPush: public CommandGroup {
+public:	
+	AutonomousStrategyPush();
 };
 
 #endif
