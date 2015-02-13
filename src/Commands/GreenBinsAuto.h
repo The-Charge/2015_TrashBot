@@ -8,6 +8,7 @@ class GreenBinsAuto: public CommandGroup
 {
 public:
 	GreenBinsAuto();
+
 };
 
 #endif

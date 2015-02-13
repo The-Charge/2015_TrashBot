@@ -1,4 +1,7 @@
 #include "GreenBinsAuto.h"
+#include "StrafeXFeet.h"
+#include "TurnNDegrees.h"
+#include "DriveXFeet.h"
 
 GreenBinsAuto::GreenBinsAuto()
 {
