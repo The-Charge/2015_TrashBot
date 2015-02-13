@@ -121,14 +121,23 @@ void Drive::Execute() {
 	z = RobotMath::delinearize(z, delinearizationAlpha,
 			(int) delinearizationPower);
 
+	float rate = Robot::driveTrain -> GetGyroRate();
+		float correction = SmartDashboard::GetNumber(GYRO_CORRECTION_DASHBOARD_KEY, CORRECTION_DEFAULT);
+
 		if (selected -> compare(*jDrive) == 0 ){
 			if (Robot:: oi -> getJoystick1() -> GetRawButton(4)) // if the button is held
-			{ y = 0; z = 0; } // allows only the x value to pass
+			{ y = 0; z = 0;
+			rate = -1 * rate * correction;
+			Robot:: driveTrain -> robotDrive-> MecanumDrive_Cartesian(x, 0, 0, rate);
+			}
 		}
 		else if (selected -> compare(*xDrive) == 0)
 		{
 			if (Robot::oi -> getJoystick1() -> GetRawButton(2))
-			{ y = 0; z = 0; }
+			{ y = 0; z = 0;
+			rate = -1 * rate * correction;
+			Robot:: driveTrain -> robotDrive-> MecanumDrive_Cartesian(x, 0, 0, rate);
+			}
 		}
 
 	//----------------------------------------------------------------------------------------

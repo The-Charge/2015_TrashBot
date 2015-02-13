@@ -239,7 +239,6 @@ void DriveTrain::StrafeSDBFeet()
 	StrafeXFt(x);
 }
 
-
 void DriveTrain::StrafeXFt(float f)
 {
 	ReadDashboardValues();
