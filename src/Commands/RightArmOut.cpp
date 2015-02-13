@@ -22,7 +22,6 @@ RightArmOut::RightArmOut() {
 
 // Called just before this Command runs the first time
 void RightArmOut::Initialize() {
-	this -> SetTimeout(2);
 	Robot::arms->RightArmOut();
 }
 
@@ -33,12 +32,12 @@ void RightArmOut::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool RightArmOut::IsFinished() {
-	return this -> IsTimedOut();
+	return true;
 }
 
 // Called once after isFinished returns true
 void RightArmOut::End() {
-	Robot:: arms->RightArmOff();
+
 }
 
 // Called when another command which requires one or more of the same

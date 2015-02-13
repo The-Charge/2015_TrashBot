@@ -32,7 +32,7 @@ LiftXTicks::LiftXTicks(int t, float s) {
 
 // Called just before this Command runs the first time
 void LiftXTicks::Initialize() {
-	Robot::brake->BrakeOff(); // turns brakes off of the lift
+	Robot::lift->BrakeOff(); // turns brakes off of the lift
 	this -> SetTimeout(2); // sets timeout for safety
 	
 	deadbandlift = SmartDashboard::GetNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT); // sets deadband value
@@ -63,12 +63,12 @@ bool LiftXTicks::IsFinished() {
 // Called once after isFinished returns true
 void LiftXTicks::End() {
 	Robot::lift2-> CANTalon1->Set(0);
-	Robot::brake-> BrakeOn(); // turns break on
+	Robot::lift-> BrakeOn(); // turns break on
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LiftXTicks::Interrupted() {
 	Robot::lift2-> CANTalon1->Set(0);
-	Robot::brake-> BrakeOn();
+	Robot::lift-> BrakeOn();
 }
