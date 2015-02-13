@@ -29,6 +29,11 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+private:
+	SendableChooser*sc;
+	std::string*drive1Auton;
+	std::string*pushAuton;
+	std::string*pushGreenBins;
 };
 
 #endif
