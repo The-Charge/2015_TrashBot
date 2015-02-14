@@ -33,7 +33,7 @@
 #include "Commands/RightArmOut.h"
 #include "Commands/StrafeSBDFeet.h"
 #include "Commands/StrafeXFeet.h"
-#include "Commands/trashbin_auton.h"
+#include "Commands/Trashbin_Auton.h"
 #include "Commands/WinchIn.h"
 #include "Commands/WinchOut.h"
 
@@ -111,7 +111,7 @@ OI::OI() {
 	SmartDashboard::PutData("StrafeSBDFeet", new StrafeSBDFeet());
 
 
-	SmartDashboard::PutData("trashbin_auton", new trashbin_auton());
+	SmartDashboard::PutData("trashbin_auton", new Trashbin_Auton());
 
 	SmartDashboard::PutData("WinchIn", new WinchIn());
 
