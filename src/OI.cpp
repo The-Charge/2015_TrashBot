@@ -21,7 +21,6 @@
 #include "Commands/BrakeOff.h"
 #include "Commands/BrakeOn.h"
 #include "Commands/Drive.h"
-
 #include "Commands/DriveSBDFeet.h"
 #include "Commands/DriveXFeet.h"
 #include "Commands/LeftArmIn.h"
@@ -30,7 +29,6 @@
 #include "Commands/LiftDownSlow.h"
 #include "Commands/LiftUpFast.h"
 #include "Commands/LiftUpSlow.h"
-#include "Commands/LiftXTicks.h"
 #include "Commands/ResetEncoders.h"
 #include "Commands/RightArmIn.h"
 #include "Commands/RightArmOut.h"
@@ -75,7 +73,6 @@ OI::OI() {
 
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());
 
-
 	SmartDashboard::PutData("BrakeOn", new BrakeOn());
 
 	SmartDashboard::PutData("BrakeOff", new BrakeOff());
@@ -101,8 +98,6 @@ OI::OI() {
 	SmartDashboard::PutData("AutonomousStrategyPush", new AutonomousStrategyPush());
 
 	SmartDashboard::PutData("AutonomousStrategy2", new AutonomousStrategy2());
-
-	SmartDashboard::PutData("LiftXTicks", new LiftXTicks());
 
 	SmartDashboard::PutData("StrafeSBDFeet", new StrafeSBDFeet());
 
