@@ -40,29 +40,24 @@ void LiftUpSlow::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void LiftUpSlow::Execute() {
 
-	SmartDashboard::PutNumber("Lift Encoder value: ", Robot::driveTrain->CANTalonLeftFront ->GetEncPosition()); // gets encoder value
+	SmartDashboard::PutNumber("Lift Encoder value: ", Robot::lift->encoder->Get()); // gets encoder value
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool LiftUpSlow::IsFinished() {
-	encoderLiftvalue = Robot::driveTrain->CANTalonLeftFront ->GetEncPosition(); // gets encoder value
-	if ((encoderLiftvalue >= (maxHeight - deadband)))// if encoder value is in the offset range it stops the command
-		return true;
-
 	return false;
 }
 
 // Called once after isFinished returns true
 void LiftUpSlow::End() {
-	Robot::lift2->CANTalon1->Set(0);
-	Robot::brake-> BrakeOn();
-	
+	Robot::lift->speedController->Set(0);
+		Robot::brake-> BrakeOn();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LiftUpSlow::Interrupted() {
-	Robot::lift2->CANTalon1->Set(0);
+	Robot::lift->speedController->Set(0);
 		Robot::brake-> BrakeOn();
 }
