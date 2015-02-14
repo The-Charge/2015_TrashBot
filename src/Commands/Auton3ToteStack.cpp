@@ -17,7 +17,6 @@
 #include "LeftArmIn.h"
 #include "DriveXFeet.h"
 #include "Auton3ToteStack.h"
-
 #include "ParallelArmsIn.h"
 #include "ParallelArmsOut.h"
 
@@ -42,34 +41,34 @@ Auton3ToteStack::Auton3ToteStack() {
 	// 4000 indicates the level of 4 bins, 3000 indicates the level of 3 bins, 2000, etc
 
 	//Grab Bin1
-	AddSequential (new ParallelArmsIn());
+	//AddSequential (new ParallelArmsIn());
 
 	AddSequential (new LiftXTicks (4000, .75));
 	AddSequential (new StrafeXFeet(5.4125));
 	AddSequential (new LiftXTicks(2000, -.75));
 
-	AddSequential (new ParallelArmsOut());
+	//AddSequential (new ParallelArmsOut());
 
 	//Grab Bin2
 	AddSequential(new LiftXTicks(1000, -.75));
 
-	AddSequential (new ParallelArmsIn());
+	//AddSequential (new ParallelArmsIn());
 
 	AddSequential (new LiftXTicks (4000, .75));
 	AddSequential (new StrafeXFeet(5.4125));
 	AddSequential (new LiftXTicks(3000, -.75));
 
-	AddSequential (new ParallelArmsOut());
+	//AddSequential (new ParallelArmsOut());
 
 	//Grab Bin3
 	AddSequential(new LiftXTicks(1000, -.75));
 
-	AddSequential (new ParallelArmsIn());
+	//AddSequential (new ParallelArmsIn());
 
 	//Moving to auto zone
 	AddSequential (new DriveXFeet(-4, .5));
 
 
-	AddSequential (new ParallelArmsOut());
+	//AddSequential (new ParallelArmsOut());
 
 }
