@@ -37,7 +37,7 @@ void LiftXTicks::Initialize() {
 	this -> SetTimeout(2); // sets timeout for safety
 	
 	deadbandlift = SmartDashboard::GetNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT); // sets deadband value
-	Robot::lift2-> CANTalon1->Set(speed); // sets the speed wanted to drive at from auton
+	Robot::lift-> speedController->Set(speed); // sets the speed wanted to drive at from auton
 
 }
 
@@ -63,13 +63,13 @@ bool LiftXTicks::IsFinished() {
 
 // Called once after isFinished returns true
 void LiftXTicks::End() {
-	Robot::lift2-> CANTalon1->Set(0);
+	Robot::lift-> speedController->Set(0); //originally a lift2 command
 	Robot::lift-> BrakeOn(); // turns break on
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LiftXTicks::Interrupted() {
-	Robot::lift2-> CANTalon1->Set(0);
+	Robot::lift-> speedController->Set(0);  //this was originally a lift2 command
 	Robot::lift-> BrakeOn();
 }
