@@ -36,7 +36,7 @@ public:
 	const float TIME_CONST_M2H = 1.0;
 	const float TIME_CONST_L2M = 0.5;
 	//Motor speed constant (including +/-)
-	const float MOTOR_SPEED = 1.0;
+	const float MOTOR_SPEED = 0.5;
 
 	//Time needed to drive (actual time with speed correction)
 	const float MOVE_TIME_L2H = TIME_CONST_L2H/MOTOR_SPEED;

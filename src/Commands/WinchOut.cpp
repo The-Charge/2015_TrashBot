@@ -27,6 +27,8 @@ void WinchOut::Initialize() {
 
 	this -> SetInterruptible(false);
 
+
+
 // caculates where you are at
 	if (Robot::winchSystem->Winch_Position == 0 && SP == 2){
 		SetTimeout(MOVE_TIME_H2L); // sets timer to calculated value x3
