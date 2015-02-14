@@ -41,7 +41,7 @@ void DriveXFeet::Initialize() {
 		}
 	if (maxpercent == 0)
 	{
-		//TODO: Fairly certain you wanted a single '='.  :P -Richard
+
 		maxpercent = SmartDashboard::GetNumber(MAX_PERCENT_DASHBOARD_KEY, MAXPERCENT_DEFAULT);
 	}
 	Robot::driveTrain-> SetDistanceInFeet(feet);
