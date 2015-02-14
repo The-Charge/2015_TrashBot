@@ -43,10 +43,10 @@ GreenBinsAuto::GreenBinsAuto()
 	AddSequential(new StrafeXFeet(2));
 	AddSequential(new StrafeXFeet(-.5));
 	AddSequential(new TurnNDegrees(90));
-	AddSequential(new DriveXFeet(3));
-	AddSequential(new DriveXFeet(-5));
+	AddSequential(new DriveXFeet(4, .7));
+	AddSequential(new DriveXFeet(-5, .7));
 
 	AddSequential(new TurnNDegrees(-90));
-	AddSequential(new DriveXFeet(6.41666));
+	AddSequential(new DriveXFeet(6.41666, .9));
 
 }
