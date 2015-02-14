@@ -15,6 +15,7 @@
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
+#include "../Subsystems/WinchSystem.h"
 
 /**
  *
@@ -24,7 +25,25 @@
 class WinchIn: public Command {
 public:
 	float SP = 0;
-	WinchIn(float sp = 0);
+
+	// Smart Dashboard
+
+	const std::string WINCH_TIMER_TIME_STRING = "Winch::Timer Countdown In: ";
+	double timerCountUp = 0;
+
+	//Time needed to drive at 100% voltage/speed
+	const float TIME_CONST_L2H = 1.5;
+	const float TIME_CONST_M2H = 1.0;
+	const float TIME_CONST_L2M = 0.5;
+	//Motor speed constant (including +/-)
+	const float MOTOR_SPEED = 1.0;
+
+	//Time needed to drive (actual time with speed correction)
+	const float MOVE_TIME_L2H = TIME_CONST_L2H/MOTOR_SPEED;
+	const float MOVE_TIME_M2H = TIME_CONST_M2H/MOTOR_SPEED;
+	const float MOVE_TIME_L2M = TIME_CONST_L2M/MOTOR_SPEED;
+
+	WinchIn(float sp = 0); // default value sent to the winch command.
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
