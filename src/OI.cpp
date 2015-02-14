@@ -21,7 +21,7 @@
 #include "Commands/BrakeOff.h"
 #include "Commands/BrakeOn.h"
 #include "Commands/Drive.h"
-#include "Commands/Drive2Feet.h"
+
 #include "Commands/DriveSBDFeet.h"
 #include "Commands/DriveXFeet.h"
 #include "Commands/LeftArmIn.h"
@@ -75,7 +75,6 @@ OI::OI() {
 
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());
 
-	SmartDashboard::PutData("Drive2Feet", new Drive2Feet());
 
 	SmartDashboard::PutData("BrakeOn", new BrakeOn());
 
