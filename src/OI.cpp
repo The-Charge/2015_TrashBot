@@ -104,7 +104,7 @@ OI::OI() {
 
 	SmartDashboard::PutData("AutonomousStrategy2", new AutonomousStrategy2());
 
-	SmartDashboard::PutData("LiftXTicks", new LiftXTicks());
+	//SmartDashboard::PutData("LiftXTicks", new LiftXTicks());
 
 	SmartDashboard::PutData("StrafeSBDFeet", new StrafeSBDFeet());
 

@@ -34,7 +34,7 @@ public:
 	static Encoder* liftEncoder;
 	static DoubleSolenoid* armsLeftArm;
 	static DoubleSolenoid* armsRightArm;
-	static CANJaguar* lift2CANJaguar1;
+	static CANTalon* lift2CANTalon1;
 	static Encoder* lift2TestEncoder;
 	static SpeedController* winchSystemWinchMotor;
 

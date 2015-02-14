@@ -105,8 +105,9 @@ void Robot::TeleopInit() {
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
-	camera->GetImage(frame);
-	CameraServer::GetInstance()->SetImage(frame);
+
+	//camera->GetImage(frame);
+//	CameraServer::GetInstance()->SetImage(frame);
 }
 
 void Robot::TestPeriodic() {

@@ -23,7 +23,8 @@
  */
 class WinchOut: public Command {
 public:
-	WinchOut();
+	float SP = 0;
+	WinchOut(float sp = 0);
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

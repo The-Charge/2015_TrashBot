@@ -24,7 +24,7 @@ SpeedController* RobotMap::liftSpeedController = NULL;
 Encoder* RobotMap::liftEncoder = NULL;
 DoubleSolenoid* RobotMap::armsLeftArm = NULL;
 DoubleSolenoid* RobotMap::armsRightArm = NULL;
-CANJaguar* RobotMap::lift2CANJaguar1 = NULL;
+CANTalon* RobotMap::lift2CANTalon1 = NULL;
 Encoder* RobotMap::lift2TestEncoder = NULL;
 SpeedController* RobotMap::winchSystemWinchMotor = NULL;
 
@@ -76,14 +76,14 @@ void RobotMap::init() {
 	armsRightArm = new DoubleSolenoid(0, 4, 5);      
 	lw->AddActuator("Arms", "RightArm", armsRightArm);
 	
-	lift2CANJaguar1 = new CANJaguar(2);
+	lift2CANTalon1 = new CANTalon(99);
 	
 	
 	lift2TestEncoder = new Encoder(2, 3, false, Encoder::k4X);
 	lw->AddSensor("Lift2", "TestEncoder", lift2TestEncoder);
 	lift2TestEncoder->SetDistancePerPulse(1.0);
         lift2TestEncoder->SetPIDSourceParameter(Encoder::kRate);
-	winchSystemWinchMotor = new Talon(2);
+	winchSystemWinchMotor = new Talon(1);
 	lw->AddActuator("WinchSystem", "WinchMotor", (Talon*) winchSystemWinchMotor);
 	
 
