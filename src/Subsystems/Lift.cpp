@@ -126,17 +126,17 @@ int Lift::CurrentLiftPosition(){
 
 void Lift::BrakeOn()
 {
-	brakesolenoid -> Set(DoubleSolenoid::kForward);
+	solenoid1 -> Set(DoubleSolenoid::kForward);
 }
 
 void Lift::BrakeOff()
 {
-	brakesolenoid -> Set(DoubleSolenoid::kReverse);
+	solenoid1 -> Set(DoubleSolenoid::kReverse);
 }
 
 void Lift::BrakePowerOff()
 {
-	brakesolenoid -> Set(DoubleSolenoid::kOff);
+	solenoid1 -> Set(DoubleSolenoid::kOff);
 }
 
 
