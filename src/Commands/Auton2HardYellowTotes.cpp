@@ -37,14 +37,6 @@ Auton2HardYellowTotes::Auton2HardYellowTotes()
 	AddSequential (new LiftXTicks(2000, -.75));
 	AddSequential (new ParallelArmsOut());
 
-	// Grab Bin2
-	AddSequential (new LiftXTicks(1000, -.75));
-	AddSequential (new ParallelArmsIn());
-	AddSequential (new LiftXTicks(4000, .75));
-	AddSequential (new StrafeXFeet(5.4125));
-	AddSequential (new LiftXTicks(2000, -.75));
-	AddSequential (new ParallelArmsOut());
-
 	//Moving to AutoZone
 	AddSequential(new DriveXFeet(-4, .5));
 	AddSequential(new ParallelArmsOut());
