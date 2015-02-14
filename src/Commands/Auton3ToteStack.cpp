@@ -9,8 +9,17 @@
 // it from being updated in the future.
 
 
-
+#include "LeftArmOut.h"
+#include "RightArmOut.h"
+#include "StrafeXFeet.h"
+#include "LiftXTicks.h"
+#include "RightArmIn.h"
+#include "LeftArmIn.h"
+#include "DriveXFeet.h"
 #include "Auton3ToteStack.h"
+
+#include "ParallelArmsIn.h"
+#include "ParallelArmsOut.h"
 
 Auton3ToteStack::Auton3ToteStack() {
 	// Add Commands here:
@@ -29,4 +38,38 @@ Auton3ToteStack::Auton3ToteStack() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+
+	// 4000 indicates the level of 4 bins, 3000 indicates the level of 3 bins, 2000, etc
+
+	//Grab Bin1
+	AddSequential (new ParallelArmsIn());
+
+	AddSequential (new LiftXTicks (4000, .75));
+	AddSequential (new StrafeXFeet(5.4125));
+	AddSequential (new LiftXTicks(2000, -.75));
+
+	AddSequential (new ParallelArmsOut());
+
+	//Grab Bin2
+	AddSequential(new LiftXTicks(1000, -.75));
+
+	AddSequential (new ParallelArmsIn());
+
+	AddSequential (new LiftXTicks (4000, .75));
+	AddSequential (new StrafeXFeet(5.4125));
+	AddSequential (new LiftXTicks(3000, -.75));
+
+	AddSequential (new ParallelArmsOut());
+
+	//Grab Bin3
+	AddSequential(new LiftXTicks(1000, -.75));
+
+	AddSequential (new ParallelArmsIn());
+
+	//Moving to auto zone
+	AddSequential (new DriveXFeet(-4, .5));
+
+
+	AddSequential (new ParallelArmsOut());
+
 }

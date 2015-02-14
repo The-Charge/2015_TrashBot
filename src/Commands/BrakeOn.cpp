@@ -22,7 +22,7 @@ BrakeOn::BrakeOn() {
 
 // Called just before this Command runs the first time
 void BrakeOn::Initialize() {
-	this -> SetTimeout(2);
+
 	Robot:: lift -> BrakeOn();
 }
 
@@ -33,12 +33,12 @@ void BrakeOn::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool BrakeOn::IsFinished() {
-	return this -> IsTimedOut();
+	return true;
 }
 
 // Called once after isFinished returns true
 void BrakeOn::End() {
-	Robot:: lift-> BrakePowerOff();
+
 }
 
 // Called when another command which requires one or more of the same

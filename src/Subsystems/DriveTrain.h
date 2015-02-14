@@ -70,6 +70,12 @@ public:
 	PIDController*leftRearPIDController;
 	PIDController*rightRearPIDController;
 
+
+	PIDController * strafePIDController;
+
+//	RobotStrafePIDOutput * robotStrafePIDOutput;
+//	EncoderAveragePIDSource * encoderAveragePIDSource;
+
 	PIDCanTalon*leftRearPIDCanTalon;
 	PIDCanTalon*leftFrontPIDCanTalon;
 	PIDCanTalon*rightFrontPIDCanTalon;

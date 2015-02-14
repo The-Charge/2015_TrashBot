@@ -37,10 +37,11 @@ bool LeftArmIn::IsFinished() {
 
 // Called once after isFinished returns true
 void LeftArmIn::End() {
-}
 
+}
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void LeftArmIn::Interrupted() {
+void LeftArmIn::Interrupted()
+{
 	End();
 }

@@ -116,10 +116,13 @@ void Lift::PutDashboardValues()
 	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_SLOW_KEY, LIFT_SPEED_DOWN_SLOW_DEFAULT);
 }
 
-int Lift::CurrentLiftPosition()
-{
+
+int Lift::CurrentLiftPosition(){
 	return Robot::lift->encoder->Get();
 }
+
+
+
 void Lift::BrakeOn()
 {
 	brakesolenoid -> Set(DoubleSolenoid::kForward);
@@ -134,5 +137,7 @@ void Lift::BrakePowerOff()
 {
 	brakesolenoid -> Set(DoubleSolenoid::kOff);
 }
+
+
 
 
