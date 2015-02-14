@@ -57,6 +57,7 @@ DriveTrain::DriveTrain() :
 	rightRearPIDController = new PIDController(0, 0, 0, rightRearPIDCanTalon,
 			CANTalonRightRear);
 
+	//*******************************************************
 	robotStrafePIDOutput = new RobotStrafePIDOutput();
 	encoderAveragePIDSource = new EncoderAveragePIDSource();
 

@@ -21,5 +21,5 @@ ParallelArmsIn::ParallelArmsIn()
 	// arm.
 
 	AddParallel (new LeftArmIn());
-		AddParallel (new RightArmIn());
+	AddParallel (new RightArmIn());
 }
