@@ -41,6 +41,10 @@ public:
 	const float MOVE_TIME_H2M = TIME_CONST_H2M/MOTOR_SPEED;
 	const float MOVE_TIME_M2L = TIME_CONST_M2L/MOTOR_SPEED;
 
+	// Varibles used to get smartdashboard value for winch
+
+	int winchSetpoint = 0;
+
 	WinchOut(float sp = 0);
 	virtual void Initialize();
 	virtual void Execute();

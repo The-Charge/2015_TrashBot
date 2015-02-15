@@ -50,6 +50,7 @@ void WinchSystem::PutDashboardValues(){
 
 	SmartDashboard::PutNumber(WINCH_OUT_SPEED_STRING, WINCH_OUT_SPEED_DEFAULT);
 
+	SmartDashboard::PutNumber(WINCH_SETPOINT_STRING, WINCH_SETPOINT_DEFAULT);
 }
 
 // Put methods for controlling this subsystem

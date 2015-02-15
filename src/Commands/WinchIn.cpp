@@ -26,6 +26,7 @@ WinchIn::WinchIn(float sp) {
 void WinchIn::Initialize() {
 
 	this -> SetInterruptible(false);
+	SP = SmartDashboard::GetNumber(Robot::winchSystem->WINCH_SETPOINT_STRING, Robot::winchSystem->WINCH_SETPOINT_DEFAULT);
 
 	if (Robot::winchSystem->Winch_Position == 1 && SP == 0){ // if the winch is at the High position, the winch will not move
 		SetTimeout(MOVE_TIME_M2H);

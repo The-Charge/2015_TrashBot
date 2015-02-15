@@ -37,11 +37,14 @@ public:
 	void PutDashboardValues();
 
 	// Constants for the Smart Dashboard
-	const std::string WINCH_IN_SPEED_STRING = "WinchSystem::Winch In Speed";
+	const std::string WINCH_IN_SPEED_STRING = "WinchSystem::Winch In Speed ";
 	const float WINCH_IN_SPEED_DEFAULT = 0.5;
 
-	const std::string WINCH_OUT_SPEED_STRING = "WinchSystem::Winch out Speed";
+	const std::string WINCH_OUT_SPEED_STRING = "WinchSystem::Winch out Speed ";
 	const float WINCH_OUT_SPEED_DEFAULT = -0.5;
+
+	const std::string WINCH_SETPOINT_STRING = "WinchSystem::Winch to point ";
+	const int WINCH_SETPOINT_DEFAULT = 0;
 
 	// Variables for reding smart dashboard values
 	float winchSwinchIn; // Winch In
