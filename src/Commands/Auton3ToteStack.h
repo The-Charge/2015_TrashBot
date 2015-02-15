@@ -8,8 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
-
 #ifndef AUTON3TOTESTACK_H
 #define AUTON3TOTESTACK_H
 
@@ -21,7 +19,7 @@
  * @author ExampleAuthor
  */
 class Auton3ToteStack: public CommandGroup {
-public:	
+public:
 	Auton3ToteStack();
 };
 

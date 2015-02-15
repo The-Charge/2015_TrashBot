@@ -56,7 +56,6 @@ public:
 	void UpdateDashboard();
 	void DriveSDBFeet();
 
-
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
 	const float WHEELCIRCUMFERENCE_IN_FEET = WHEELCIRCUMFERENCE_IN_INCHES / 12;
@@ -64,11 +63,15 @@ public:
 	const int ENCODER_TICKS_PER_REVOLUTION = 300 * 4; //250; //2048
 	float TICKS_NEEDED = 0;
 
-
 	PIDController*leftFrontPIDController;
 	PIDController*rightFrontPIDController;
 	PIDController*leftRearPIDController;
 	PIDController*rightRearPIDController;
+
+	PIDController * strafePIDController;
+
+//	RobotStrafePIDOutput * robotStrafePIDOutput;
+//	EncoderAveragePIDSource * encoderAveragePIDSource;
 
 	PIDCanTalon*leftRearPIDCanTalon;
 	PIDCanTalon*leftFrontPIDCanTalon;
@@ -108,9 +111,11 @@ public:
 	float maxpercent;
 	float i;
 	float feet;
-	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
+	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY =
+			"DriveXFeet::Distance to Travel in Feet";
 	float absolutetolerance;
-	const std::string ABSOLUTE_TOLERANCE_DASHBOARD_KEY = "DriveTrain: Absolute Tolerance";
+	const std::string ABSOLUTE_TOLERANCE_DASHBOARD_KEY =
+			"DriveTrain: Absolute Tolerance";
 	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
 			"Drive2Feet::Proportional Constant";
@@ -118,22 +123,26 @@ public:
 	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
 			"Drive2Feet::Integral Constant";
 
-	const std::string ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY = "DriveTrain:Left Front Encoder Velocity:";
-	const std::string ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY = "DriveTrain:Right Front Encoder Velocity:";
-	const std::string ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY = "DriveTrain:Right Rear Encoder Velocity:";
-	const std::string ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY = "DriveTrain:Left Rear Encoder Velocity:";
+	const std::string ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY =
+			"DriveTrain:Left Front Encoder Velocity:";
+	const std::string ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY =
+			"DriveTrain:Right Front Encoder Velocity:";
+	const std::string ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY =
+			"DriveTrain:Right Rear Encoder Velocity:";
+	const std::string ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY =
+			"DriveTrain:Left Rear Encoder Velocity:";
 
-
-	const std::string STRAFE_SDB_FEET_DASHBOARD_KEY = "StrafeSDBFeet:Distance to Strafe:";
+	const std::string STRAFE_SDB_FEET_DASHBOARD_KEY =
+			"StrafeSDBFeet:Distance to Strafe:";
 	const int STRAFE_SBD_FEET_DEFAULT = 0;
 
-	const std::string STRAFE_SDB_FEET_MAX_PERCENT_DASHBOARD_KEY = "StrafeXFeet: Max Percent:";
+	const std::string STRAFE_SDB_FEET_MAX_PERCENT_DASHBOARD_KEY =
+			"StrafeXFeet: Max Percent:";
 	const int STRAFE_SDB_FEET_MAX_PERCENT_DEFAULT = .5;
 	void PutDashboardValues();
 
 	const float TICKS_PER_1_FOOT_STRAFE = 1232;
 	float TICKS_TO_STrAFE_IN_FEET;
-
 
 };
 

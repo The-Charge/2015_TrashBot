@@ -8,7 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #include "DriveXFeet.h"
 #include "AutonomousStrategyPush.h"
 
@@ -29,7 +28,6 @@ AutonomousStrategyPush::AutonomousStrategyPush() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-
 
 	//drives robot and possibly another robot into auto zone
 	AddSequential(new DriveXFeet(5));

@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef LIFTUPFAST_H
 #define LIFTUPFAST_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -23,6 +21,20 @@
  */
 class LiftUpFast: public Command {
 public:
+
+	const std::string LIFT_ENCODER_MAX_STRING = "Lift Encoder Allowed Max: ";
+	const int encoder_lift_ticks = 8192;
+	const float total_lift_turns = 8.4;
+	const int LIFT_ENCODER_MAX = encoder_lift_ticks * total_lift_turns;
+	int maxHeight = 0;
+
+	const std::string DEADBAND_STRING = "Deadband: ";
+	const int DEADBAND_VALUE = 1024;
+
+	float encoderLiftvalue = 0;
+
+	double deadband = 0;
+
 	LiftUpFast();
 	virtual void Initialize();
 	virtual void Execute();

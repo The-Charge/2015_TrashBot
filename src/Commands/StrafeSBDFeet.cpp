@@ -8,7 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #include "StrafeSBDFeet.h"
 
 StrafeSBDFeet::StrafeSBDFeet() {
@@ -22,24 +21,24 @@ StrafeSBDFeet::StrafeSBDFeet() {
 
 // Called just before this Command runs the first time
 void StrafeSBDFeet::Initialize() {
-	this -> SetTimeout(10);
-	Robot::driveTrain -> StrafeSDBFeet();
+	this->SetTimeout(10);
+	Robot::driveTrain->StrafeSDBFeet();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void StrafeSBDFeet::Execute() {
-	Robot::driveTrain -> UpdateDashboard();
+	Robot::driveTrain->UpdateDashboard();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool StrafeSBDFeet::IsFinished() {
-	return Robot::driveTrain -> AtDestination() || this -> IsTimedOut();
+	return Robot::driveTrain->AtDestination() || this->IsTimedOut();
 }
 
 // Called once after isFinished returns true
 void StrafeSBDFeet::End() {
-	Robot::driveTrain -> drive(0, 0, 0);
-	Robot:: driveTrain -> DisablePIDControllers();
+	Robot::driveTrain->drive(0, 0, 0);
+	Robot::driveTrain->DisablePIDControllers();
 }
 
 // Called when another command which requires one or more of the same

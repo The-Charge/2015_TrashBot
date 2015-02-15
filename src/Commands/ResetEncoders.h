@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef RESETENCODERS_H
 #define RESETENCODERS_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"

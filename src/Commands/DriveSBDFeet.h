@@ -8,8 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-#ifndef LEFTARMOUT_H
-#define LEFTARMOUT_H
+#ifndef DRIVESBDFEET_H
+#define DRIVESBDFEET_H
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -19,9 +19,9 @@
  *
  * @author ExampleAuthor
  */
-class LeftArmOut: public Command {
+class DriveSBDFeet: public Command {
 public:
-	LeftArmOut();
+	DriveSBDFeet();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

@@ -8,7 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef ARMS_H
 #define ARMS_H
 #include "Commands/Subsystem.h"
@@ -37,11 +36,6 @@ public:
 	void RightArmIn();
 	void RightArmOut();
 	void RightArmOff();
-
-
-
-
-
 
 };
 
