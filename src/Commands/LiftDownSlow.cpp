@@ -42,26 +42,20 @@ bool LiftDownSlow::IsFinished() {
 
 // Called once after isFinished returns true
 void LiftDownSlow::End() {
-<<<<<<< HEAD
-	Robot::lift->speedController->Set(0);
-		Robot::brake-> BrakeOn();
-=======
+
 
 	Robot::lift->speedController->Set(0);
-	;
+
 	Robot::lift->BrakeOn();
->>>>>>> origin/develop
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void LiftDownSlow::Interrupted() {
-<<<<<<< HEAD
-	Robot::lift->speedController->Set(0);
-		Robot::brake-> BrakeOn();
-=======
+
 
 	End();
 
->>>>>>> origin/develop
+
 }

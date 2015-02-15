@@ -15,8 +15,8 @@ RobotStrafePIDOutput::RobotStrafePIDOutput(RobotDrive * drive) {
 
 void RobotStrafePIDOutput::PIDWrite(double x) {
 	float rate = Robot::driveTrain->GetGyroRate();
-	float correction = SmartDashboard::GetNumber(GYRO_CORRECTION_DASHBOARD_KEY,
-			CORRECTION_DEFAULT);
+	//float correction = SmartDashboard::GetNumber(GYRO_CORRECTION_DASHBOARD_KEY,
+		//	CORRECTION_DEFAULT);
 	_drive->MecanumDrive_Cartesian(x, 0, 0, rate);
 	/*
 	 Robot::driveTrain -> rightRearPIDController -> SetTolerance(output);
