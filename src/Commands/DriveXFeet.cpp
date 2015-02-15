@@ -29,12 +29,7 @@ DriveXFeet::DriveXFeet(float f, float m) {
 // Called just before this Command runs the first time
 void DriveXFeet::Initialize() {
 	this->SetTimeout(10);
-	Robot::driveTrain->ReadDashboardValues();
-	//TODO: Richard - If i have readdashboardvalues will that overwrite my float that I'm passing in???
-	//TODO: This needs to be corrected for SBDDriveXFeet - Richard
-	//  I left it the way it was from StrafeXFeet branch, which adds a max percentage
-	//  Max percentage needs to be added to the dashboard configuration in drivetrain
-	//  Then, this should only do "SetTimeout" and "SetDistanceInFeet"
+
 	Robot::driveTrain->ResetDistance();
 	if (feet == 0) {
 		feet = SmartDashboard::GetNumber(

@@ -37,6 +37,7 @@ void RobotMap::init() {
 	driveTrainCANTalonRightFront = new CANTalon(6);
 
 	driveTrainCANTalonRightRear = new CANTalon(9);
+	
 	driveTrainRobotDrive = new RobotDrive(driveTrainCANTalonLeftFront,
 			driveTrainCANTalonLeftRear, driveTrainCANTalonRightFront,
 			driveTrainCANTalonRightRear);
