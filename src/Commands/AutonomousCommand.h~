@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef AUTONOMOUS_COMMAND_H
 #define AUTONOMOUS_COMMAND_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"

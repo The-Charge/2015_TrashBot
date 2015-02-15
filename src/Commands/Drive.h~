@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef DRIVE_H
 #define DRIVE_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -22,19 +20,22 @@
  * @author ExampleAuthor
  */
 class Drive: public Command {
-	private:
-	const std::string DELINEARIZATION_POWER_DASHBOARD_KEY="Drive::delinearizationPower";
-	const std::string DELINEARIZATION_ALPHA_DASHBOARD_KEY="Drive::delinearizationAlpha";
-	const std::string JOYSTICK_DEADBAND_DASHBOARD_KEY="Drive::joystickDeadband";
-	const double DELINEARIZATION_ALPHA_DEFAULT=.8;
-	const double DELINEARIZATION_POWER_DEFAULT=5;
-	const double JOYSTICK_DEADBAND_DEFAULT=.2;
+private:
+	const std::string DELINEARIZATION_POWER_DASHBOARD_KEY =
+			"Drive::delinearizationPower";
+	const std::string DELINEARIZATION_ALPHA_DASHBOARD_KEY =
+			"Drive::delinearizationAlpha";
+	const std::string JOYSTICK_DEADBAND_DASHBOARD_KEY =
+			"Drive::joystickDeadband";
+	const double DELINEARIZATION_ALPHA_DEFAULT = .8;
+	const double DELINEARIZATION_POWER_DEFAULT = 5;
+	const double JOYSTICK_DEADBAND_DEFAULT = .2;
 
 	const std::string SCALEFACTOR_GYRO_DASHBOARD_KEY = "Drive::ScaleFactor";
 	const std::string GAINFACTOR_GYRO_DASHBOARD_KEY = "Drive::GainFactor";
 
 	const double SCALEFACTOR_DEFAULT = 1;
-	const double GAINFACTOR_DEFAULT = 1/2024;
+	const double GAINFACTOR_DEFAULT = 1 / 2024;
 
 	double joystickDeadband;
 	double delinearizationPower;
