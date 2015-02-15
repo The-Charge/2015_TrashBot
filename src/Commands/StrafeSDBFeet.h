@@ -9,8 +9,8 @@
 // it from being updated in the future.
 
 
-#ifndef WINCHOUT_H
-#define WINCHOUT_H
+#ifndef STRAFESDBFEET_H
+#define STRAFESDBFEET_H
 
 
 #include "Commands/Subsystem.h"
@@ -21,25 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class WinchOut: public Command {
+class StrafeSDBFeet: public Command {
 public:
-	float SP = 0;
-
-	const std::string WINCH_TIMER_TIME_STRING = "Winch::Timer Countdown Out: ";
-		double timerCountUp = 0;
-
-	//Time needed to drive at 100% voltage/speed
-	const float TIME_CONST_H2L = 1.5;
-	const float TIME_CONST_H2M = 1.0;
-	const float TIME_CONST_M2L = 0.5;
-	//Motor Speed constant (including the +/-)
-	const float MOTOR_SPEED = 1.0;
-	//Time needed to drive (actual time with speed correction)
-	const float MOVE_TIME_H2L = TIME_CONST_H2L/MOTOR_SPEED;
-	const float MOVE_TIME_H2M = TIME_CONST_H2M/MOTOR_SPEED;
-	const float MOVE_TIME_M2L = TIME_CONST_M2L/MOTOR_SPEED;
-
-	WinchOut(float sp = 0);
+	StrafeSDBFeet();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

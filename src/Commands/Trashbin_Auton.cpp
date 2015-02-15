@@ -2,8 +2,7 @@
 
 #include "DriveXFeet.h"
 #include "StrafeXFeet.h"
-#include "WinchIn.h"
-#include "WinchOut.h"
+
 
 Trashbin_Auton::Trashbin_Auton()
 {
