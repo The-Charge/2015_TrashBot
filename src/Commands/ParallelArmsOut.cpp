@@ -1,8 +1,7 @@
 #include "ParallelArmsOut.h"
 #include "LeftArmOut.h"
 #include "RightArmOut.h"
-ParallelArmsOut::ParallelArmsOut()
-{
+ParallelArmsOut::ParallelArmsOut() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -20,7 +19,7 @@ ParallelArmsOut::ParallelArmsOut()
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddParallel (new LeftArmOut());
-		AddParallel (new RightArmOut());
+	AddParallel(new LeftArmOut());
+	AddParallel(new RightArmOut());
 
 }

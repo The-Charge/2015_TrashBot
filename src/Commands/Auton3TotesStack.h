@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef AUTON3TOTESSTACK_H
 #define AUTON3TOTESSTACK_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"

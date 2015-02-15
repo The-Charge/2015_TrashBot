@@ -8,8 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
-
 #include "CommandGroup1.h"
 #include "DriveXFeet.h"
 //#include "TurnNDegrees.h"
@@ -38,9 +36,9 @@ CommandGroup1::CommandGroup1() {
 
 	AddSequential(new DriveXFeet(3));
 
-		//AddSequential(new TurnNDegrees(-90));
+	//AddSequential(new TurnNDegrees(-90));
 
-		//AddSequential(new LiftDownSlow());
+	//AddSequential(new LiftDownSlow());
 
 	//AddSequential(new DriveXFeet(2));
 }

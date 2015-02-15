@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef LIFTUPSLOW_H
 #define LIFTUPSLOW_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -36,7 +34,6 @@ public:
 	float encoderLiftvalue = 0;
 
 	double deadband = 0;
-
 
 	LiftUpSlow();
 	virtual void Initialize();

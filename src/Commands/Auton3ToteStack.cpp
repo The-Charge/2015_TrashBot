@@ -8,7 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #include "LeftArmOut.h"
 #include "RightArmOut.h"
 #include "StrafeXFeet.h"
@@ -43,9 +42,9 @@ Auton3ToteStack::Auton3ToteStack() {
 	//Grab Bin1
 	//AddSequential (new ParallelArmsIn());
 
-	AddSequential (new LiftXTicks (4000, .75));
-	AddSequential (new StrafeXFeet(5.4125));
-	AddSequential (new LiftXTicks(2000, -.75));
+	AddSequential(new LiftXTicks(4000, .75));
+	AddSequential(new StrafeXFeet(5.4125));
+	AddSequential(new LiftXTicks(2000, -.75));
 
 	//AddSequential (new ParallelArmsOut());
 
@@ -54,9 +53,9 @@ Auton3ToteStack::Auton3ToteStack() {
 
 	//AddSequential (new ParallelArmsIn());
 
-	AddSequential (new LiftXTicks (4000, .75));
-	AddSequential (new StrafeXFeet(5.4125));
-	AddSequential (new LiftXTicks(3000, -.75));
+	AddSequential(new LiftXTicks(4000, .75));
+	AddSequential(new StrafeXFeet(5.4125));
+	AddSequential(new LiftXTicks(3000, -.75));
 
 	//AddSequential (new ParallelArmsOut());
 
@@ -66,8 +65,7 @@ Auton3ToteStack::Auton3ToteStack() {
 	//AddSequential (new ParallelArmsIn());
 
 	//Moving to auto zone
-	AddSequential (new DriveXFeet(-4, .5));
-
+	AddSequential(new DriveXFeet(-4, .5));
 
 	//AddSequential (new ParallelArmsOut());
 

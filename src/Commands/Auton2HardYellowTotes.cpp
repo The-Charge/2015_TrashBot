@@ -11,8 +11,7 @@
 #include "ParallelArmsIn.h"
 #include "ParallelArmsOut.h"
 
-Auton2HardYellowTotes::Auton2HardYellowTotes()
-{
+Auton2HardYellowTotes::Auton2HardYellowTotes() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -31,11 +30,11 @@ Auton2HardYellowTotes::Auton2HardYellowTotes()
 	// arm.
 
 	// Grab Bin1
-	AddSequential (new ParallelArmsIn());
-	AddSequential (new LiftXTicks(4000, .75));
-	AddSequential (new StrafeXFeet(5.4125));
-	AddSequential (new LiftXTicks(2000, -.75));
-	AddSequential (new ParallelArmsOut());
+	AddSequential(new ParallelArmsIn());
+	AddSequential(new LiftXTicks(4000, .75));
+	AddSequential(new StrafeXFeet(5.4125));
+	AddSequential(new LiftXTicks(2000, -.75));
+	AddSequential(new ParallelArmsOut());
 
 	//Moving to AutoZone
 	AddSequential(new DriveXFeet(-4, .5));
@@ -43,6 +42,5 @@ Auton2HardYellowTotes::Auton2HardYellowTotes()
 	// this should move the two bins where the outer right part of the tote is above the landmark
 	// if strafe to the right a small distance, bins will be on the landmark.
 	// can place the two totes ontop of the other tote places by another team.
-
 
 }

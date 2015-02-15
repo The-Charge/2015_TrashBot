@@ -4,8 +4,7 @@
 #include "Commands/CommandGroup.h"
 #include "WPILib.h"
 
-class Auton2HardYellowTotes: public CommandGroup
-{
+class Auton2HardYellowTotes: public CommandGroup {
 public:
 	Auton2HardYellowTotes();
 };

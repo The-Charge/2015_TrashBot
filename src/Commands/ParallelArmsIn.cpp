@@ -1,8 +1,7 @@
 #include "ParallelArmsIn.h"
 #include "LeftArmIn.h"
 #include "RightArmIn.h"
-ParallelArmsIn::ParallelArmsIn()
-{
+ParallelArmsIn::ParallelArmsIn() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -20,6 +19,6 @@ ParallelArmsIn::ParallelArmsIn()
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddParallel (new LeftArmIn());
-	AddParallel (new RightArmIn());
+	AddParallel(new LeftArmIn());
+	AddParallel(new RightArmIn());
 }

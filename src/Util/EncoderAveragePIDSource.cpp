@@ -20,8 +20,7 @@ EncoderAveragePIDSource::~EncoderAveragePIDSource() {
 	// TODO Auto-generated destructor stub
 }
 
-double EncoderAveragePIDSource::PIDGet()
-{
+double EncoderAveragePIDSource::PIDGet() {
 	//CANTalonRightFront->GetEncPosition()
 	//return (( _encoder1 -> Get() + _encoder2 -> Get() + _encoder3 -> Get() + _encoder4 -> Get()) / 4);
 	return 0;

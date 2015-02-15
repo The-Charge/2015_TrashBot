@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef LIFTXTICKS_H
 #define LIFTXTICKS_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -38,8 +36,7 @@ public:
 	const std::string LIFT_SPEED_STRING = "lift::LiftXticks Speed of Lift: ";
 	const std::string LIFT_TICKS_STRING = "lift::LiftXticks Placement of Lift: ";
 
-
-	int LIFT_ENCODER_TICKS = Robot::lift-> encoder->Get();
+	int LIFT_ENCODER_TICKS = Robot::lift->encoder->Get();
 
 	int deadbandlift = 0;
 	float speed = 0;

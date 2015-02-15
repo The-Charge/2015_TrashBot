@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef DRIVEXFEET_H
 #define DRIVEXFEET_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -32,7 +30,8 @@ public:
 	float maxpercent;
 	float feet;
 	const float FEET_DEFAULT = 2;
-	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
+	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY =
+			"DriveXFeet::Distance to Travel in Feet";
 	const float MAXPERCENT_DEFAULT = 0;
 	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveXFeet::Max Percent:";
 };

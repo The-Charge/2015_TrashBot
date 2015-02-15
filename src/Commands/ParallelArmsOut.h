@@ -4,8 +4,7 @@
 #include "Commands/CommandGroup.h"
 #include "WPILib.h"
 
-class ParallelArmsOut: public CommandGroup
-{
+class ParallelArmsOut: public CommandGroup {
 public:
 	ParallelArmsOut();
 };

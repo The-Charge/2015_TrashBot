@@ -11,8 +11,7 @@
 #include <PIDSource.h>
 #include <CANTalon.h>
 
-class PIDCanTalon: public PIDSource
-{
+class PIDCanTalon: public PIDSource {
 private:
 	CANTalon * _talon;
 public:

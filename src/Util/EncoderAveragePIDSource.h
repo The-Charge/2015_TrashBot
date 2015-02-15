@@ -8,7 +8,7 @@
 #ifndef SRC_UTIL_ENCODERAVERAGEPIDSOURCE_H_
 #define SRC_UTIL_ENCODERAVERAGEPIDSOURCE_H_
 
-class EncoderAveragePIDSource: public PIDSource{
+class EncoderAveragePIDSource: public PIDSource {
 private:
 //	CANTalon * _talon1;
 //	CANTalon * _talon2;

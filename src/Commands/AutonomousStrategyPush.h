@@ -8,8 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
-
 #ifndef AUTONOMOUSSTRATEGYPUSH_H
 #define AUTONOMOUSSTRATEGYPUSH_H
 
@@ -21,7 +19,7 @@
  * @author ExampleAuthor
  */
 class AutonomousStrategyPush: public CommandGroup {
-public:	
+public:
 	AutonomousStrategyPush();
 };
 

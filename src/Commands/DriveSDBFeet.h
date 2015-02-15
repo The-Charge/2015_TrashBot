@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef DRIVESDBFEET_H
 #define DRIVESDBFEET_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -30,12 +28,9 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 
-	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY = "DriveXFeet::Distance to Travel in Feet";
-
+	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY =
+			"DriveXFeet::Distance to Travel in Feet";
 
 };
-
-
-
 
 #endif

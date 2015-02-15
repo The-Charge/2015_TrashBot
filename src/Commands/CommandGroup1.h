@@ -8,8 +8,6 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
-
 #ifndef COMMAND_GROUP_1_H
 #define COMMAND_GROUP_1_H
 
@@ -21,7 +19,7 @@
  * @author ExampleAuthor
  */
 class CommandGroup1: public CommandGroup {
-public:	
+public:
 	CommandGroup1();
 };
 

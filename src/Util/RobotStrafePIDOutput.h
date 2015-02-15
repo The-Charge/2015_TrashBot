@@ -11,7 +11,7 @@
 #include <CANTalon.h>
 #include "../Robot.h"
 
-class RobotStrafePIDOutput: public PIDOutput{
+class RobotStrafePIDOutput: public PIDOutput {
 private:
 	RobotDrive * _drive;
 public:

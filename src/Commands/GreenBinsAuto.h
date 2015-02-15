@@ -4,8 +4,7 @@
 #include "Commands/CommandGroup.h"
 #include "WPILib.h"
 
-class GreenBinsAuto: public CommandGroup
-{
+class GreenBinsAuto: public CommandGroup {
 public:
 	GreenBinsAuto();
 

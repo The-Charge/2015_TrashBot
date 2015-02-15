@@ -3,8 +3,7 @@
 #include "TurnNDegrees.h"
 #include "DriveXFeet.h"
 
-GreenBinsAuto::GreenBinsAuto()
-{
+GreenBinsAuto::GreenBinsAuto() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -23,22 +22,22 @@ GreenBinsAuto::GreenBinsAuto()
 	// arm.
 
 	//First bin
-/*
-	for (int x = 0; x < 3; x++)
-	{
-		AddSequential(new StrafeXFeet(2));
-		AddSequential(new StrafeXFeet(-.5));
-		AddSequential(new TurnNDegrees(90));
-		AddSequential(new DriveXFeet(3));
-		AddSequential(new DriveXFeet(-5));
+	/*
+	 for (int x = 0; x < 3; x++)
+	 {
+	 AddSequential(new StrafeXFeet(2));
+	 AddSequential(new StrafeXFeet(-.5));
+	 AddSequential(new TurnNDegrees(90));
+	 AddSequential(new DriveXFeet(3));
+	 AddSequential(new DriveXFeet(-5));
 
-		if(x < 2)
-		{
-			AddSequential(new TurnNDegrees(-90));
-			AddSequential(new DriveXFeet(6.41666));
-		}
-	}
-*/
+	 if(x < 2)
+	 {
+	 AddSequential(new TurnNDegrees(-90));
+	 AddSequential(new DriveXFeet(6.41666));
+	 }
+	 }
+	 */
 
 	AddSequential(new StrafeXFeet(2));
 	AddSequential(new StrafeXFeet(-.5));
