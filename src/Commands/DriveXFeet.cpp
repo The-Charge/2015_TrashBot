@@ -31,6 +31,7 @@ void DriveXFeet::Initialize() {
 	this->SetTimeout(10);
 	Robot::driveTrain->ReadDashboardValues();
 	//TODO: Richard - If i have readdashboardvalues will that overwrite my float that I'm passing in???
+<<<<<<< HEAD
 	//TODO: This needs to be corrected for SBDDriveXFeet - Richard
 	//  I left it the way it was from StrafeXFeet branch, which adds a max percentage
 	//  Max percentage needs to be added to the dashboard configuration in drivetrain
@@ -39,6 +40,21 @@ void DriveXFeet::Initialize() {
 	if (feet == 0) {
 		feet = SmartDashboard::GetNumber(
 				DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);
+=======
+  //TODO: This needs to be corrected for SBDDriveXFeet - Richard
+  //  I left it the way it was from StrafeXFeet branch, which adds a max percentage
+  //  Max percentage needs to be added to the dashboard configuration in drivetrain
+  //  Then, this should only do "SetTimeout" and "SetDistanceInFeet"
+	Robot::driveTrain -> ResetDistance();
+	if (feet == 0)
+		{
+			feet = SmartDashboard:: GetNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY, FEET_DEFAULT);
+		}
+	if (maxpercent == 0)
+	{
+		//TODO: Fairly certain you wanted a single '='.  :P -Richard
+		maxpercent = SmartDashboard::GetNumber(MAX_PERCENT_DASHBOARD_KEY, MAXPERCENT_DEFAULT);
+>>>>>>> origin/tashbin_auton
 	}
 	if (maxpercent == 0) {
 
