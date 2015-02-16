@@ -8,14 +8,11 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef WINCHOUT_H
 #define WINCHOUT_H
 
-
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
-
 
 /**
  *
@@ -27,7 +24,7 @@ public:
 	float SP = 0;
 
 	const std::string WINCH_TIMER_TIME_STRING = "Winch::Timer Countdown Out: ";
-		double timerCountUp = 0;
+	double timerCountUp = 0;
 
 	//Time needed to drive at 100% voltage/speed
 	const float TIME_CONST_H2L = 1.5;
@@ -37,9 +34,9 @@ public:
 	const float MOTOR_SPEED = 0.5;
 
 	//Time needed to drive (actual time with speed correction)
-	const float MOVE_TIME_H2L = TIME_CONST_H2L/MOTOR_SPEED;
-	const float MOVE_TIME_H2M = TIME_CONST_H2M/MOTOR_SPEED;
-	const float MOVE_TIME_M2L = TIME_CONST_M2L/MOTOR_SPEED;
+	const float MOVE_TIME_H2L = TIME_CONST_H2L / MOTOR_SPEED;
+	const float MOVE_TIME_H2M = TIME_CONST_H2M / MOTOR_SPEED;
+	const float MOVE_TIME_M2L = TIME_CONST_M2L / MOTOR_SPEED;
 
 	// Varibles used to get smartdashboard value for winch
 

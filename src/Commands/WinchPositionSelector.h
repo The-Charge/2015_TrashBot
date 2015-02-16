@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef WINCHPOSITIONSELECTOR_H
 #define WINCHPOSITIONSELECTOR_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
