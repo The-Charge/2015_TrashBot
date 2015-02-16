@@ -1,168 +1,80 @@
 <xml version="1.0">
 <dashboard>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
-		<location x="1007" y="33"/>
-		<property name="Text" value="back"/>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
+		<location x="94" y="-17"/>
+		<width>247</width>
+		<height>74</height>
+		<property name="Image File" value="C:\workspace\2015_TrashBot\src\cam.png"/>
+		<property name="Maintain Aspect Ratio" value="true"/>
 	</static-widget>
-	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Label">
-		<location x="703" y="36"/>
-		<property name="Text" value="front"/>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.Image">
+		<location x="564" y="-18"/>
+		<width>275</width>
+		<height>75</height>
+		<property name="Image File" value="C:\workspace\2015_TrashBot\src\backcam.png"/>
+		<property name="Maintain Aspect Ratio" value="true"/>
 	</static-widget>
-	<widget field="The Gyro Rate" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="693" y="392"/>
-	</widget>
 	<widget field="The Gyro Angle" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="196" y="401"/>
-	</widget>
-	<widget field="StrafeSDBFeet:Distance to Strafe:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="365" y="396"/>
-	</widget>
-	<widget field="StrafeSBDFeet" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="929" y="342"/>
-	</widget>
-	<widget field="RightArmOut" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="533" y="348"/>
-	</widget>
-	<widget field="RightArmIn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="890" y="382"/>
-	</widget>
-	<widget field="ResetEncoders" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1040" y="381"/>
-	</widget>
-	<widget field="LiftUpSlow" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="1086" y="340"/>
-	</widget>
-	<widget field="LiftUpFast" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="805" y="343"/>
-	</widget>
-	<widget field="LiftDownSlow" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="672" y="343"/>
-	</widget>
-	<widget field="LiftDownFast" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="196" y="367"/>
-	</widget>
-	<widget field="Lift::Lift Speed Up Slow" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="341" y="359"/>
-		<height>21</height>
-	</widget>
-	<widget field="Lift::Lift Speed Up Fast" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="309" y="317"/>
-	</widget>
-	<widget field="Lift::Lift Speed Down Slow" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="308" y="291"/>
-	</widget>
-	<widget field="Lift::Lift Speed Down Fast" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="302" y="267"/>
-	</widget>
-	<widget field="LeftArmOut" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="214" y="123"/>
-	</widget>
-	<widget field="LeftArmIn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="125" y="97"/>
-	</widget>
-	<widget field="DriveXFeet::Distance to Travel in Feet" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="297" y="240"/>
-	</widget>
-	<widget field="DriveXFeet" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="123" y="62"/>
-	</widget>
-	<widget field="DriveTrain:Right Rear Encoder Velocity:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="298" y="209"/>
-	</widget>
-	<widget field="DriveTrain:Right Front Encoder Velocity:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="291" y="186"/>
-	</widget>
-	<widget field="DriveTrain:Max Percent" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="300" y="158"/>
-	</widget>
-	<widget field="DriveTrain:Left Rear Encoder Velocity:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="265" y="106"/>
-	</widget>
-	<widget field="DriveTrain:Left Front Encoder Velocity:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="262" y="87"/>
-	</widget>
-	<widget field="DriveTrain: Absolute Tolerance" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="270" y="65"/>
-	</widget>
-	<widget field="DriveSDBFeet" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="124" y="31"/>
-	</widget>
-	<widget field="Drive::joystickDeadband" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="290" y="43"/>
-		<height>22</height>
-	</widget>
-	<widget field="Drive::delinearizationPower" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="524" y="325"/>
-	</widget>
-	<widget field="Drive::delinearizationAlpha" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="760" y="318"/>
-	</widget>
-	<widget field="Drive::ScaleFactor" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="189" y="0"/>
-	</widget>
-	<widget field="Drive::Gyro Correction" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="388"/>
-	</widget>
-	<widget field="Drive::GainFactor" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="367"/>
-	</widget>
-	<widget field="Drive2Feet::Proportional Constant" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="346"/>
-	</widget>
-	<widget field="Drive2Feet::Integral Constant" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="325"/>
-	</widget>
-	<widget field="Drive2Feet::Encoder Position Right Rear" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="304"/>
-	</widget>
-	<widget field="Drive2Feet::Encoder Position Right Front" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="283"/>
-	</widget>
-	<widget field="Drive2Feet::Encoder Position Left Rear" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="262"/>
-	</widget>
-	<widget field="Drive2Feet::Encoder Position Left Front" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="241"/>
-	</widget>
-	<widget field="Drive2Feet::Closed Loop Error Right Rear" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="220"/>
-	</widget>
-	<widget field="Drive2Feet::Closed Loop Error Right Front" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="199"/>
-	</widget>
-	<widget field="Drive2Feet::Closed Loop Error Left Rear" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="178"/>
-	</widget>
-	<widget field="Drive2Feet::Closed Loop Error Left Front" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="157"/>
-	</widget>
-	<widget field="Drive2Feet: Ticks Needed:" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
-		<location x="0" y="136"/>
-	</widget>
-	<widget field="Drive" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="102"/>
-	</widget>
-	<widget field="BrakeOn" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="68"/>
-	</widget>
-	<widget field="BrakeOff" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="34"/>
-	</widget>
-	<widget field="Autonomous Command" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="0" y="0"/>
+		<location x="409" y="388"/>
 	</widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
-		<location x="579" y="67"/>
-		<width>298</width>
-		<height>228</height>
+		<location x="17" y="47"/>
+		<width>431</width>
+		<height>327</height>
 	</static-widget>
 	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
-		<location x="898" y="70"/>
-		<width>291</width>
-		<height>225</height>
+		<location x="503" y="47"/>
+		<width>416</width>
+		<height>327</height>
 		<property name="Camera IP Address" value="10.26.19.12"/>
 	</static-widget>
 </dashboard>
 <live-window>
 </live-window>
+	<hidden field="LiftUpSlow"/>
+	<hidden field="DriveTrain:Max Percent"/>
+	<hidden field="Drive2Feet::Closed Loop Error Right Front"/>
+	<hidden field="Drive::delinearizationPower"/>
+	<hidden field="ResetEncoders"/>
+	<hidden field="DriveTrain:Right Front Encoder Velocity:"/>
+	<hidden field="BrakeOff"/>
+	<hidden field="StrafeSDBFeet:Distance to Strafe:"/>
+	<hidden field="DriveTrain: Absolute Tolerance"/>
+	<hidden field="Drive2Feet::Closed Loop Error Left Rear"/>
+	<hidden field="Drive2Feet::Integral Constant"/>
+	<hidden field="DriveXFeet::Distance to Travel in Feet"/>
+	<hidden field="Lift::Lift Speed Up Slow"/>
+	<hidden field="DriveSDBFeet"/>
+	<hidden field="Drive2Feet::Encoder Position Right Rear"/>
+	<hidden field="Drive::delinearizationAlpha"/>
+	<hidden field="DriveTrain:Left Front Encoder Velocity:"/>
+	<hidden field="DriveTrain:Right Rear Encoder Velocity:"/>
+	<hidden field="Lift::Lift Speed Up Fast"/>
+	<hidden field="Drive"/>
+	<hidden field="DriveTrain:Left Rear Encoder Velocity:"/>
+	<hidden field="LiftDownFast"/>
+	<hidden field="Drive2Feet::Proportional Constant"/>
+	<hidden field="Lift::Lift Speed Down Fast"/>
+	<hidden field="Drive2Feet::Closed Loop Error Right Rear"/>
+	<hidden field="Drive2Feet::Encoder Position Left Rear"/>
+	<hidden field="LiftUpFast"/>
+	<hidden field="LeftArmIn"/>
+	<hidden field="Drive::GainFactor"/>
+	<hidden field="LeftArmOut"/>
+	<hidden field="BrakeOn"/>
+	<hidden field="Drive2Feet::Closed Loop Error Left Front"/>
+	<hidden field="Drive::joystickDeadband"/>
+	<hidden field="Drive2Feet::Encoder Position Left Front"/>
+	<hidden field="RightArmIn"/>
+	<hidden field="StrafeSBDFeet"/>
+	<hidden field="Lift::Lift Speed Down Slow"/>
+	<hidden field="RightArmOut"/>
+	<hidden field="DriveXFeet"/>
+	<hidden field="The Gyro Rate"/>
+	<hidden field="Drive2Feet::Encoder Position Right Front"/>
+	<hidden field="LiftDownSlow"/>
+	<hidden field="Drive2Feet: Ticks Needed:"/>
+	<hidden field="Drive::Gyro Correction"/>
+	<hidden field="Drive::ScaleFactor"/>
+	<hidden field="Autonomous Command"/>
 </xml>
