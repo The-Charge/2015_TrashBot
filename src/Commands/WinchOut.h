@@ -24,28 +24,32 @@
  */
 class WinchOut: public Command {
 public:
-	float SP = 0;
+	float SP = 0; // to get the value sent to the command from auton or from Smartdashboard
 
 	const std::string WINCH_TIMER_TIME_STRING = "Winch::Timer Countdown Out: ";
 		double timerCountUp = 0;
 
 	//Time needed to drive at 100% voltage/speed
+		// These are constants for the setpoints based on position to setpoint
+		// for the current command
 	const float TIME_CONST_H2L = 1.5;
 	const float TIME_CONST_H2M = 1.0;
 	const float TIME_CONST_M2L = 0.5;
 	//Motor Speed constant (including the +/-)
-	const float MOTOR_SPEED = 0.5;
+	const float MOTOR_SPEED = 0.5; // default motor speed for testing (may need to be changed from + to -)
 
 	//Time needed to drive (actual time with speed correction)
+
+	/*
+	  adjusts the time needed to get to the desired setpoint
+	 by dividing time from point to point by the motor speed
+	 */
 	const float MOVE_TIME_H2L = TIME_CONST_H2L/MOTOR_SPEED;
 	const float MOVE_TIME_H2M = TIME_CONST_H2M/MOTOR_SPEED;
 	const float MOVE_TIME_M2L = TIME_CONST_M2L/MOTOR_SPEED;
 
-	// Varibles used to get smartdashboard value for winch
 
-	int winchSetpoint = 0;
-
-	WinchOut(float sp = 0);
+	WinchOut(float sp = 0); // default position given
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();

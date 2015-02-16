@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef WINCHIN_H
 #define WINCHIN_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -32,6 +30,8 @@ public:
 	double timerCountUp = 0;
 
 	//Time needed to drive at 100% voltage/speed
+	// These are constants for the setpoints based on position to setpoint
+	// for the current command
 	const float TIME_CONST_L2H = 1.5;
 	const float TIME_CONST_M2H = 1.0;
 	const float TIME_CONST_L2M = 0.5;
@@ -39,9 +39,14 @@ public:
 	const float MOTOR_SPEED = 0.5;
 
 	//Time needed to drive (actual time with speed correction)
-	const float MOVE_TIME_L2H = TIME_CONST_L2H/MOTOR_SPEED;
-	const float MOVE_TIME_M2H = TIME_CONST_M2H/MOTOR_SPEED;
-	const float MOVE_TIME_L2M = TIME_CONST_L2M/MOTOR_SPEED;
+
+	/*
+	 adjusts the time needed to get to the desired setpoint
+	 by dividing time from point to point by the motor speed
+	 */
+	const float MOVE_TIME_L2H = TIME_CONST_L2H / MOTOR_SPEED;
+	const float MOVE_TIME_M2H = TIME_CONST_M2H / MOTOR_SPEED;
+	const float MOVE_TIME_L2M = TIME_CONST_L2M / MOTOR_SPEED;
 
 	WinchIn(float sp = 0); // default value sent to the winch command.
 	virtual void Initialize();

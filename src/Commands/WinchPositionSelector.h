@@ -24,12 +24,12 @@
 class WinchPositionSelector: public Command {
 public:
 
-	// values that retrive ouput from button box
+	// values that retrive ouput from button box to set the setpoint
 	bool winchPosH = Robot::oi->getButtonBox()->GetRawButton(9);
 	bool winchPosM = Robot::oi->getButtonBox()->GetRawButton(10);
 	bool winchPosL = Robot::oi->getButtonBox()->GetRawButton(11);
 
-	// values from winch system
+	// value from winch subsystem
 	int winchCurrentPos = Robot::winchSystem->Winch_Position;
 
 	WinchPositionSelector();
