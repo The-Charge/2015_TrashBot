@@ -63,7 +63,7 @@ void RobotMap::init() {
 	liftSolenoid1 = new DoubleSolenoid(0, 0, 1);      
 	lw->AddActuator("Lift", "Solenoid1", liftSolenoid1);
 	
-	liftSpeedController = new TalonSRX(10);
+	liftSpeedController = new TalonSRX(0);
 	lw->AddActuator("Lift", "SpeedController", (TalonSRX*) liftSpeedController);
 	
 	liftEncoder = new Encoder(0, 1, false, Encoder::k4X);
