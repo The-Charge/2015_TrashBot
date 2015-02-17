@@ -51,9 +51,6 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 
-private:
-
-	float liftRatio = 0;
 };
 
 #endif
