@@ -39,6 +39,15 @@ void LiftXTicks::Initialize() {
 	ticks = SmartDashboard::GetNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
 	speed = SmartDashboard::GetNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
 
+	/*
+	 if ticks give to the command are greater than or less then the soft
+	 limits given, then it will only go to the soft limit
+	 */
+	if (ticks > Robot::lift->UPPER_SAFETY_LIMIT)
+		ticks = Robot::lift->UPPER_SAFETY_LIMIT;
+	else if (ticks < Robot::lift->LOWER_SAFETY_LIMIT)
+		ticks = Robot::lift->LOWER_SAFETY_LIMIT;
+
 	Robot::lift->BrakeOff(); // turns brakes off of the lift
 
 	timeout = Robot::lift->CalcSafetyTimeOut(ticks);
@@ -46,6 +55,13 @@ void LiftXTicks::Initialize() {
 
 	deadbandlift = SmartDashboard::GetNumber(LIFT_DEADBAND_STRING,
 			LIFT_DEADBAND_DEFAULT); // sets deadband value
+
+	// if the motor overshoots the setpoint, the lift will change direction
+		if (LIFT_ENCODER_TICKS > ticks && speed > 0)
+			speed = speed * -1;
+
+		else if (LIFT_ENCODER_TICKS < ticks && speed < 0)
+			speed = speed * -1;
 
 	Robot::lift->speedController->Set(speed); // sets the speed wanted to drive at from auton
 
@@ -58,12 +74,12 @@ void LiftXTicks::Execute() {
 
 	// if the motor overshoots the setpoint, the lift will change direction
 	if (LIFT_ENCODER_TICKS > ticks && speed > 0)
-		Robot::lift->speedController->Set(-1 * speed);
+		speed = speed * -1;
 
 	else if (LIFT_ENCODER_TICKS < ticks && speed < 0)
-		Robot::lift->speedController->Set(-1 * speed);
+		speed = speed * -1;
 
-
+	Robot::lift->speedController->Set(speed);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -78,10 +94,10 @@ bool LiftXTicks::IsFinished() {
 			&& LIFT_ENCODER_TICKS <= ticks + (deadbandlift / 2))
 		return true;
 
-	if (speed > 0 && LIFT_ENCODER_TICKS >= Robot::lift->MAXLIFTTICKS - deadbandlift)
+	if (speed > 0 && LIFT_ENCODER_TICKS >= Robot::lift->UPPER_SAFETY_LIMIT)
 		return true;
 
-	if (speed < 0 && LIFT_ENCODER_TICKS <= 0 + deadbandlift)
+	if (speed < 0 && LIFT_ENCODER_TICKS <= Robot::lift->LOWER_SAFETY_LIMIT)
 		return true;
 
 	if (this->IsTimedOut())
