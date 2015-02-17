@@ -10,9 +10,21 @@
 
 #ifndef DRIVETRAIN_H
 #define DRIVETRAIN_H
-#include "Commands/Subsystem.h"
-#include "WPILib.h"
+
+#include <Commands/Subsystem.h>
+#include <string>
+
+class AverageEncodersPIDInput;
+class CANTalon;
+class Gyro;
+class PIDController;
+class RobotDrive;
+
 #include "../Util/PIDCanTalon.h"
+#include "../Util/RobotStrafePIDOutput.h"
+
+
+
 
 /**
  *
@@ -70,8 +82,8 @@ public:
 
 	PIDController * strafePIDController;
 
-//	RobotStrafePIDOutput * robotStrafePIDOutput;
-//	EncoderAveragePIDSource * encoderAveragePIDSource;
+	RobotStrafePIDOutput * robotStrafePIDOutput;
+	AverageEncodersPIDInput * averageEncoderPIDInput;
 
 	PIDCanTalon*leftRearPIDCanTalon;
 	PIDCanTalon*leftFrontPIDCanTalon;
