@@ -37,9 +37,11 @@ Drive::Drive() {
 	sc = new SendableChooser();
 	jDrive = new std::string("j");
 	xDrive = new std::string("x");
+	tDrive = new std::string("t");
 
 	sc->AddDefault("JoyStick", jDrive);
 	sc->AddObject("X-box Drive", xDrive);
+	sc->AddObject("'Tank' Drive", tDrive);
 
 	SmartDashboard::PutData("Drive Mode Chooser", sc);
 }
@@ -102,6 +104,10 @@ void Drive::Execute() {
 		x = Robot::oi->getJoystick1()->GetX();
 		y = Robot::oi->getJoystick1()->GetY();
 		z = Robot::oi->getJoystick1()->GetRawAxis(4);
+	} else if(selected->compare(*tDrive)==0){
+		x = (Robot::oi->getJoystick1()->GetX() + Robot::oi->getJoystick2()->GetX())/2;
+		y = (Robot::oi->getJoystick1()->GetY() + Robot::oi->getJoystick2()->GetY())/2;
+		z = (Robot::oi->getJoystick1()->GetY() - Robot::oi->getJoystick2()->GetY())/2;
 	}
 
 	if (Robot::oi->getJoystick1()->GetRawButton(2)) {
@@ -155,7 +161,6 @@ void Drive::Execute() {
 					rate);
 		}
 	}
-
 	//----------------------------------------------------------------------------------------
 	//both of these methods return an integer
 	//these must be sent to the smart dashboard
