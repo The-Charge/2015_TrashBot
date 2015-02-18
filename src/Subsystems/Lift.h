@@ -54,10 +54,10 @@ public:
 	const float LIFT_SPEED_DOWN_FAST_DEFAULT = -1;
 
 	const std::string LIFT_SPEED_UP_SLOW_KEY = "Lift::Lift Speed Up Slow";
-	const float LIFT_SPEED_UP_SLOW_DEFAULT = .2;
+	const float LIFT_SPEED_UP_SLOW_DEFAULT = .4;
 
 	const std::string LIFT_SPEED_DOWN_SLOW_KEY = "Lift::Lift Speed Down Slow";
-	const float LIFT_SPEED_DOWN_SLOW_DEFAULT = -.2;
+	const float LIFT_SPEED_DOWN_SLOW_DEFAULT = -.4;
 
 	const std::string LIFT_ENCODER_VALUE_DASHBOARD_KEY =
 			"Lift::Encoder Tick Value:";
@@ -71,14 +71,14 @@ public:
 
 	const int LIFT_DEADBAND_DEFAULT = 1024; // 1/8 of the total ticks in one rotation of the encoder
 	const int TICKS_LIFT_DEFAULT = 30000;
-	const int SPEED_LIFT_DEFAULT = .2;
+	const int SPEED_LIFT_DEFAULT = .4;
 
-	const int ENCODER_LIFT_TICKS = 8192; // full encoder rotation
-	const float TOTLA_LIFT_TURNS = 8.4; // how many rotations the ecoder must make to reach the desired height
-	const int MAX_LIFT_TICKS = ENCODER_LIFT_TICKS * ENCODER_LIFT_TICKS;
+//	const int ENCODER_LIFT_TICKS = 8192; // full encoder rotation
+//	const float TOTLA_LIFT_TURNS = 8.4; // how many rotations the ecoder must make to reach the desired height
+	const int MAX_LIFT_TICKS = 16200;
 
-	const int UPPER_DEADBAND = 1000;
-	const int LOWER_DEADBAND = 100;
+	const int UPPER_DEADBAND = 500;
+	const int LOWER_DEADBAND = 200;
 	const int UPPER_SAFETY_LIMIT = MAX_LIFT_TICKS - UPPER_DEADBAND;
 	const int LOWER_SAFETY_LIMIT = LOWER_DEADBAND + 0;
 
