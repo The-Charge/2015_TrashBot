@@ -58,7 +58,6 @@ void RobotMap::init() {
 	driveTrainDriveGyro->SetSensitivity(0.007);
 	compressor1AirCompressor = new Compressor(1);
 	
-	//winch would be CANTalon 12;
 	
 	liftSolenoid1 = new DoubleSolenoid(0, 0, 1);      
 	lw->AddActuator("Lift", "Solenoid1", liftSolenoid1);

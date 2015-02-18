@@ -49,11 +49,11 @@ void Robot::RobotInit() {
 	frame = imaqCreateImage(IMAQ_IMAGE_RGB, 0);
 	frame = imaqCreateImage(IMAQ_IMAGE_RGB, 0);
 	camera  = new AxisCamera("10.26.19.12");
-	camera->WriteMaxFPS(10);
+	camera->WriteMaxFPS(15);
 	camera->WriteResolution(AxisCamera::kResolution_320x240);
 	camera->WriteCompression(70);
 	camera = new AxisCamera("10.26.19.11");
-	camera->WriteMaxFPS(10);
+	camera->WriteMaxFPS(15);
 	camera->WriteResolution(AxisCamera::kResolution_320x240);
 	camera->WriteCompression(70);
 
