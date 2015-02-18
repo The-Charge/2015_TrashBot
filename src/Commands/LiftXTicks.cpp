@@ -73,10 +73,10 @@ void LiftXTicks::Execute() {
 	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE, LIFT_ENCODER_TICKS);
 
 	// if the motor overshoots the setpoint, the lift will change direction
-	if (LIFT_ENCODER_TICKS > ticks && speed > 0)
+	if (LIFT_ENCODER_TICKS > (ticks + deadbandlift/2) && speed > 0)
 		speed = speed * -1;
 
-	else if (LIFT_ENCODER_TICKS < ticks && speed < 0)
+	else if (LIFT_ENCODER_TICKS < (ticks - deadbandlift/2) && speed < 0)
 		speed = speed * -1;
 
 	Robot::lift->speedController->Set(speed);
