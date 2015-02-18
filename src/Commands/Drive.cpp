@@ -32,6 +32,9 @@ Drive::Drive() {
 	SmartDashboard::PutNumber(GAINFACTOR_GYRO_DASHBOARD_KEY,
 			GAINFACTOR_DEFAULT);
 
+	SmartDashboard::PutNumber(SPEED_PERCENT_STRING,
+			SPEED_PERCENT_DEFAULT);
+
 	sc = new SendableChooser();
 	jDrive = new std::string("j");
 	xDrive = new std::string("x");
@@ -58,6 +61,9 @@ void Drive::Initialize() {
 			DELINEARIZATION_ALPHA_DASHBOARD_KEY, DELINEARIZATION_ALPHA_DEFAULT);
 	SmartDashboard::PutNumber(GYRO_CORRECTION_DASHBOARD_KEY,
 			CORRECTION_DEFAULT);
+
+	speedpercent = SmartDashboard::GetNumber(SPEED_PERCENT_STRING,
+			SPEED_PERCENT_DEFAULT);
 
 }
 /*
@@ -97,6 +103,13 @@ void Drive::Execute() {
 		x = Robot::oi->getJoystick1()->GetX();
 		y = Robot::oi->getJoystick1()->GetY();
 		z = Robot::oi->getJoystick1()->GetRawAxis(4);
+	}
+
+	if (Robot::oi->getJoystick1()->GetRawButton(2))
+	{
+			x = speedpercent;
+			y = speedpercent;
+			z = speedpercent;
 	}
 
 	// creates a smartdashboard value to see what the gyro value for its angle and rate

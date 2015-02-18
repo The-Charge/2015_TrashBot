@@ -47,6 +47,10 @@ private:
 	const float CORRECTION_DEFAULT = 4;
 	const std::string GYRO_CORRECTION_DASHBOARD_KEY = "Drive::Gyro Correction";
 
+	const float SPEED_PERCENT_DEFAULT = 0.5;
+	const std::string SPEED_PERCENT_STRING = "Button 'half' speed: ";
+	float speedpercent = 0;
+
 public:
 	Drive();
 	//float delinearize(float, float);
