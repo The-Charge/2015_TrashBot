@@ -51,7 +51,7 @@ void Lift::LiftUpFast() {
 }
 void Lift::LiftDownFast() {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT) {
+	if (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_FAST) {
 		speedController->Set(0);
 		BrakeOn();
 	} else {
@@ -75,7 +75,7 @@ void Lift::LiftUpSlow() {
 }
 void Lift::LiftDownSlow() {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT)) {
+	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)) {
 		speedController->Set(0);
 		BrakeOn();
 	} else {
@@ -126,7 +126,7 @@ bool Lift::KeepLifting(float ticks, float speed)
 		{ return true; }
 		else if (speed > 0 && CurrentLiftPosition() >= MAXLIFTTICKS - GetDeadband())
 		{return true;}
-		else if (speed < 0 && CurrentLiftPosition() <= LOWER_SAFETY_LIMIT)
+		else if (speed < 0 && CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_SLOW)
 			{ return true; }
 		else return false;
 }
