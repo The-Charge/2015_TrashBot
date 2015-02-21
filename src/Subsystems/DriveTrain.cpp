@@ -127,7 +127,7 @@ void DriveTrain::UpdateDashboard() {
 			CANTalonRightFront->GetEncVel());
 	SmartDashboard::PutNumber(TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
 	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY, TICKS_PER_1_FOOT_STRAFE);
-
+	SmartDashboard::PutNumber(TICKS_PER_1_FOOT_DASHBOARD_KEY, )
 
 }
 

@@ -61,7 +61,10 @@ public:
 	const float WHEELCIRCUMFERENCE_IN_FEET = WHEELCIRCUMFERENCE_IN_INCHES / 12;
 	const float WHEELROTATIONS_PER_FOOT = 1 / WHEELCIRCUMFERENCE_IN_FEET;
 	const int ENCODER_TICKS_PER_REVOLUTION = 300 * 4; //250; //2048
+	const int TICKS_PER_ONE_FOOT = WHEELROTATIONS_PER_FOOT * ENCODER_TICKS_PER_REVOLUTION;
 	float TICKS_NEEDED = 0;
+
+	const std::string TICKS_PER_ONE_FOOT_DASHBOARD_KEY = "DriveXFeet:Ticks per One Foot";
 
 	PIDController*leftFrontPIDController;
 	PIDController*rightFrontPIDController;
