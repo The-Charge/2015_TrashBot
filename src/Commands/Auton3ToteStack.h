@@ -25,9 +25,9 @@ public:
 	const float SPEED_DOWN = .4;
 	const float TOTE_ONE_ENGAGE_TICKS = 0;
 	//TODO: MATH FOR CONSTANT TICK VALUE BELOW
-	const float TOTE_TWO_ENGAGE_TICKS = 0;
-	const float TOTE_THREE_ENGAGE_TICKS = 0;
-	const float GO_OVER_BIN_TICKS = 0;
+	const float TOTE_TWO_ENGAGE_TICKS = 3015;
+	const float TOTE_THREE_ENGAGE_TICKS = 6031;
+	const float GO_OVER_BIN_TICKS = 14205; //should go 4 inches above the bin.
 };
 
 #endif
