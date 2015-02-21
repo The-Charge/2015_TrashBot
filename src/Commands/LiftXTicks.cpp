@@ -38,8 +38,8 @@ LiftXTicks::LiftXTicks(int t, float s) {
 // Called just before this Command runs the first time
 void LiftXTicks::Initialize() {
 
-	ticks = SmartDashboard::GetNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
-	speed = SmartDashboard::GetNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
+	//ticks = SmartDashboard::GetNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
+	//speed = SmartDashboard::GetNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
 
 	Robot::lift->BrakeOff(); // turns brakes off of the lift
 	this->SetTimeout(2); // sets timeout for safety
