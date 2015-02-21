@@ -27,8 +27,8 @@ void WinchIn::Initialize() {
 	this->SetInterruptible(false); // makes the command unInteruptible
 	// *Since code doesn't use encoders, the value of where each setpoint is located must be keep safe*
 
-	SP = SmartDashboard::GetNumber(Robot::winchSystem->WINCH_SETPOINT_STRING,
-			Robot::winchSystem->WINCH_SETPOINT_DEFAULT);
+	//SP = SmartDashboard::GetNumber(Robot::winchSystem->WINCH_SETPOINT_STRING,
+			//Robot::winchSystem->WINCH_SETPOINT_DEFAULT);
 	// Set point is give through the smartdashboard
 
 	// caculates where you are at (3, 2, 1 are the same type of commands)
