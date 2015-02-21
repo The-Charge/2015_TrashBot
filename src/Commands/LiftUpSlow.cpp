@@ -26,9 +26,6 @@ LiftUpSlow::LiftUpSlow() {
 
 // Called just before this Command runs the first time
 void LiftUpSlow::Initialize() {
-
-	Robot::lift->BrakeOff();
-
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -43,9 +40,7 @@ bool LiftUpSlow::IsFinished() {
 
 // Called once after isFinished returns true
 void LiftUpSlow::End() {
-
 	Robot::lift->speedController->Set(0);
-	Robot::lift->BrakeOn();
 }
 
 // Called when another command which requires one or more of the same
