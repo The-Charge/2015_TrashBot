@@ -8,41 +8,34 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-#ifndef LIFTXTICKS_H
-#define LIFTXTICKS_H
+
+#ifndef LIFTSDBTICKS_H
+#define LIFTSDBTICKS_H
+
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
 
 /**
  *
-
+ *
  * @author ExampleAuthor
  */
-class LiftXTicks: public Command {
+class LiftSDBTicks: public Command {
 public:
-
-	const int encoder_lift_ticks = 8192; // full encoder rotation
-	const float total_lift_turns = 8.4; // how many rotations the ecoder must make to reach the desired height
-	const int MAXLIFTTICKS = total_lift_turns * encoder_lift_ticks;
-
-	const int LIFT_DEADBAND_DEFAULT = 1024; // 1/8 of the total ticks in one rotation of the encoder
-	const int TICKS_LIFT_DEFAULT = 30000;
-	const int SPEED_LIFT_DEFAULT = .2;
-
-
-	int LIFT_ENCODER_TICKS = Robot::lift->encoder->Get();
-
-	int deadbandlift = 0;
-	float speed = 0;
-	int ticks = 0;
-
-	LiftXTicks(int t, float s);
+	LiftSDBTicks();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+
+	const std::string LIFT_TICKS_DASHBOARD_KEY = "LiftSDBTicks: Ticks to Lift: ";
+	const std::string LIFT_SPEED_DASHBOARD_KEY =  "Lift SDBTicks: Speed: ";
+	const float TICKS_LIFT_DEFAULT = 0;
+	const float SPEED_LIFT_DEFAULT = .4;
+	float speed;
+	float ticks;
 };
 
 #endif
