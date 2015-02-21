@@ -107,7 +107,7 @@ void Drive::Execute() {
 	} else if(selected->compare(*tDrive)==0){ //Driving "tank"
 		x = (Robot::oi->getJoystick1()->GetX() + Robot::oi->getJoystick2()->GetX())/2 * speedpercent;
 		y = (Robot::oi->getJoystick1()->GetY() + Robot::oi->getJoystick2()->GetY())/2 * speedpercent;
-		z = (Robot::oi->getJoystick1()->GetY() - Robot::oi->getJoystick2()->GetY())/2 * speedpercent;
+		z = (Robot::oi->getJoystick1()->GetY() - Robot::oi->getJoystick2()->GetY())/2;
 	}
 
 
