@@ -113,7 +113,7 @@ void Lift::PutDashboardValues() {
 
 	SmartDashboard::PutNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT);
 
-	LIFT_ENCODER_TICKS = Robot::driveTrain->CANTalonLeftFront->GetEncPosition();
+	LIFT_ENCODER_TICKS = CurrentLiftPosition();
 	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE, LIFT_ENCODER_TICKS);
 
 	SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
