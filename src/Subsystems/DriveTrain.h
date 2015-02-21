@@ -83,24 +83,24 @@ public:
 	PIDCanTalon*rightRearPIDCanTalon;
 
 	const std::string CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY =
-			"Drive2Feet::Closed Loop Error Right Front";
+			"DriveXFeet::Closed Loop Error Right Front";
 	const std::string ENCODER_POSITION_RIGHT_FRONT_DASHBOARD_KEY =
-			"Drive2Feet::Encoder Position Right Front";
+			"DriveXFeet::Encoder Position Right Front";
 
 	const std::string CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY =
-			"Drive2Feet::Closed Loop Error Right Rear";
+			"DriveXFeet::Closed Loop Error Right Rear";
 	const std::string ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY =
-			"Drive2Feet::Encoder Position Right Rear";
+			"DriveXFeet::Encoder Position Right Rear";
 
 	const std::string CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY =
-			"Drive2Feet::Closed Loop Error Left Front";
+			"DriveXFeet::Closed Loop Error Left Front";
 	const std::string ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY =
-			"Drive2Feet::Encoder Position Left Front";
+			"DriveXFeet::Encoder Position Left Front";
 
 	const std::string CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY =
-			"Drive2Feet::Closed Loop Error Left Rear";
+			"DriveXFeet::Closed Loop Error Left Rear";
 	const std::string ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY =
-			"Drive2Feet::Encoder Position Left Rear";
+			"DriveXFeet::Encoder Position Left Rear";
 
 	const double CLOSED_LOOP_ERROR_DEFAULT = 0;
 	const double ENCODER_POSITION_DEFAULT = 0;
@@ -122,10 +122,10 @@ public:
 			"DriveTrain: Absolute Tolerance";
 	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
-			"Drive2Feet::Proportional Constant";
+			"DriveXFeet::Proportional Constant";
 	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveTrain:Max Percent";
 	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
-			"Drive2Feet::Integral Constant";
+			"DriveXFeet::Integral Constant";
 
 	const std::string ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY =
 			"DriveTrain:Left Front Encoder Velocity:";
