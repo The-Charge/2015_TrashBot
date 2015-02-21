@@ -126,8 +126,8 @@ void DriveTrain::UpdateDashboard() {
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY,
 			CANTalonRightFront->GetEncVel());
 	SmartDashboard::PutNumber(TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
-	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY, TICKS_PER_1_FOOT_STRAFE);
-	SmartDashboard::PutNumber(TICKS_PER_1_FOOT_DASHBOARD_KEY, )
+	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY, TICKS_PER_1_FOOT_STRAFE_DEFAULT);
+	SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY, TICKS_PER_ONE_FOOT_DEFAULT);
 
 }
 
@@ -180,8 +180,9 @@ void DriveTrain::ReadDashboardValues() {
 	leftRearPIDController->SetPID(p, i, 0);
 	rightRearPIDController->SetPID(p, i, 0);
 
-	TICKS_PER_1_FOOT_STRAFE = SmartDashboard::GetNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
-			TICKS_PER_1_FOOT_STRAFE);
+	ticksPerOneFootStrafe = SmartDashboard::GetNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
+			TICKS_PER_1_FOOT_STRAFE_DEFAULT);
+	ticksPerOneFoot = SmartDashboard::GetNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY, TICKS_PER_ONE_FOOT_DEFAULT);
 }
 
 void DriveTrain::PutEncoderValuesToDashboard() {
@@ -217,8 +218,7 @@ void DriveTrain::ResetDistance() {
 
 void DriveTrain::SetDistanceInFeet(float dist) {
 	ReadDashboardValues();
-	TICKS_NEEDED = WHEELROTATIONS_PER_FOOT * ENCODER_TICKS_PER_REVOLUTION
-			* dist;
+	TICKS_NEEDED = ticksPerOneFoot * dist;
 
 	leftRearPIDController->SetSetpoint(TICKS_NEEDED);
 	rightRearPIDController->SetSetpoint(-1 * TICKS_NEEDED);
@@ -256,7 +256,7 @@ void DriveTrain::StrafeSDBFeet() {
 
 void DriveTrain::StrafeXFt(float f) {
 	ReadDashboardValues();
-	TICKS_NEEDED = TICKS_PER_1_FOOT_STRAFE * f;
+	TICKS_NEEDED = ticksPerOneFootStrafe * f;
 	EncoderReset();
 
 //	strafePIDOutput =
