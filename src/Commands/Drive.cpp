@@ -96,18 +96,18 @@ void Drive::Execute() {
 	float y;
 	float z;
 
-	if (selected->compare(*jDrive) == 0) {
-		x = Robot::oi->getJoystick1()->GetX();
-		y = Robot::oi->getJoystick1()->GetY();
+	if (selected->compare(*jDrive) == 0) { //Driving with one Joystick
+		x = Robot::oi->getJoystick1()->GetX() * speedpercent;
+		y = Robot::oi->getJoystick1()->GetY() * speedpercent;
 		z = Robot::oi->getJoystick1()->GetZ();
-	} else if (selected->compare(*xDrive) == 0) {
-		x = Robot::oi->getJoystick1()->GetX();
-		y = Robot::oi->getJoystick1()->GetY();
+	} else if (selected->compare(*xDrive) == 0) { //Driving with X-box
+		x = Robot::oi->getJoystick1()->GetX() * speedpercent;
+		y = Robot::oi->getJoystick1()->GetY() * speedpercent;
 		z = Robot::oi->getJoystick1()->GetRawAxis(4);
-	} else if(selected->compare(*tDrive)==0){
-		x = (Robot::oi->getJoystick1()->GetX() + Robot::oi->getJoystick2()->GetX())/2;
-		y = (Robot::oi->getJoystick1()->GetY() + Robot::oi->getJoystick2()->GetY())/2;
-		z = (Robot::oi->getJoystick1()->GetY() - Robot::oi->getJoystick2()->GetY())/2;
+	} else if(selected->compare(*tDrive)==0){ //Driving "tank"
+		x = (Robot::oi->getJoystick1()->GetX() + Robot::oi->getJoystick2()->GetX())/2 * speedpercent;
+		y = (Robot::oi->getJoystick1()->GetY() + Robot::oi->getJoystick2()->GetY())/2 * speedpercent;
+		z = (Robot::oi->getJoystick1()->GetY() - Robot::oi->getJoystick2()->GetY())/2 * speedpercent;
 	}
 
 
@@ -138,13 +138,17 @@ void Drive::Execute() {
 	float correction = SmartDashboard::GetNumber(GYRO_CORRECTION_DASHBOARD_KEY,
 			CORRECTION_DEFAULT);
 
+	//Speed-setting buttons:
+
 if (Robot::oi->getJoystick1()->GetRawButton(2)) {
-		x = Robot::oi->getJoystick1()->GetX() * speedpercent;
-		y = Robot::oi->getJoystick1()->GetY() * speedpercent;
+		x = Robot::oi->getJoystick1()->GetX();
+		y = Robot::oi->getJoystick1()->GetY();
 		//z = Robot::oi->getJoystick1()->GetZ() * speedpercent;
 	}
 
-	if (selected->compare(*jDrive) == 0) {
+//Straffing mechanum-drive gyro corrections:
+
+	if (selected->compare(*jDrive) == 0) {  // one joystick drive
 		if (Robot::oi->getJoystick1()->GetRawButton(4)) // if the button is held
 				{
 			y = 0;
@@ -153,7 +157,7 @@ if (Robot::oi->getJoystick1()->GetRawButton(2)) {
 			Robot::driveTrain->robotDrive->MecanumDrive_Cartesian(x, 0, 0,
 					rate);
 		}
-	} else if (selected->compare(*xDrive) == 0) {
+	} else if (selected->compare(*xDrive) == 0) {  // X-box drive
 		if (Robot::oi->getJoystick1()->GetRawButton(2)) {
 			y = 0;
 			z = 0;
