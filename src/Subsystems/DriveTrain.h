@@ -144,6 +144,10 @@ public:
 	const float TICKS_PER_1_FOOT_STRAFE = 1232;
 	float TICKS_TO_STrAFE_IN_FEET;
 
+	const std::string STRAFE_X_FEET_DASHBOARD_KEY = "StrafeXFeet:Distance to Strafe:";
+	const std::string STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY =
+			"StrafeXFeet:Ticks per One Foot Strafe";
+
 };
 
 #endif

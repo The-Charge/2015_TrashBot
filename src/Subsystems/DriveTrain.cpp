@@ -126,6 +126,8 @@ void DriveTrain::UpdateDashboard() {
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY,
 			CANTalonRightFront->GetEncVel());
 	SmartDashboard::PutNumber(TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
+	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY, TICKS_PER_1_FOOT_STRAFE);
+
 
 }
 
@@ -177,6 +179,9 @@ void DriveTrain::ReadDashboardValues() {
 	rightFrontPIDController->SetPID(p, i, 0);
 	leftRearPIDController->SetPID(p, i, 0);
 	rightRearPIDController->SetPID(p, i, 0);
+
+	TICKS_PER_1_FOOT_STRAFE = SmartDashboard::GetNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
+			TICKS_PER_1_FOOT_STRAFE);
 }
 
 void DriveTrain::PutEncoderValuesToDashboard() {
