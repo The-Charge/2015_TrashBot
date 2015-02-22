@@ -45,6 +45,8 @@ public:
 	void PutDashboardValues();
 	void ReadDashboardValues();
 	int CurrentLiftPosition();
+	float GetDeadband();
+	bool KeepLifting(float, float);
 
 	//constants for smart dashboard displaying
 	const std::string LIFT_SPEED_UP_FAST_KEY = "Lift::Lift Speed Up Fast";
@@ -63,6 +65,14 @@ public:
 			"Lift::Encoder Tick Value:";
 	const float LIFT_ENCODER_VALUE_DEFAULT = -5;
 
+	const std::string MAX_VALUE_TICKS = "Lift Ticks Max: ";
+	const std::string LIFT_ENCODER_VALUE = "Lift encoder Current value: ";
+	const std::string LIFT_DEADBAND_STRING = "Lift deadband: ";
+	const std::string LIFT_SPEED_STRING = "lift::LiftXticks Speed of Lift: ";
+	const std::string LIFT_TICKS_STRING = "lift::LiftXticks Placement of Lift: ";
+
+	int LIFT_ENCODER_TICKS = 0;
+
 	//variables for reading smart dashboard values
 	float liftSpeedUpFast;
 	float liftSpeedDownFast;
@@ -73,14 +83,21 @@ public:
 	const int TICKS_LIFT_DEFAULT = 30000;
 	const int SPEED_LIFT_DEFAULT = .4;
 
+	const int encoder_lift_ticks = 8192; // full encoder rotation
+		const float total_lift_turns = 8.4; // how many rotations the ecoder must make to reach the desired height
+		const int MAXLIFTTICKS = total_lift_turns * encoder_lift_ticks;
+
 //	const int ENCODER_LIFT_TICKS = 8192; // full encoder rotation
 //	const float TOTLA_LIFT_TURNS = 8.4; // how many rotations the ecoder must make to reach the desired height
 	const int MAX_LIFT_TICKS = 16200;
 
 	const int UPPER_DEADBAND = 500;
-	const int LOWER_DEADBAND = 500;
+	const int LOWER_DEADBAND_SLOW = 500;
+	const int LOWER_DEADBAND_FAST = 1000;
+	const int LOWER_SAFETY_LIMIT_FAST = LOWER_DEADBAND_FAST+0;
 	const int UPPER_SAFETY_LIMIT = MAX_LIFT_TICKS - UPPER_DEADBAND;
-	const int LOWER_SAFETY_LIMIT = LOWER_DEADBAND + 0;
+	const int LOWER_SAFETY_LIMIT_SLOW = LOWER_DEADBAND_SLOW + 0;
+
 
 };
 

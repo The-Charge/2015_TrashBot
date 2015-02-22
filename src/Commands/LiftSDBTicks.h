@@ -8,26 +8,34 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-#ifndef AUTON3TOTESTACK_H
-#define AUTON3TOTESTACK_H
 
-#include "Commands/CommandGroup.h"
+#ifndef LIFTSDBTICKS_H
+#define LIFTSDBTICKS_H
+
+
+#include "Commands/Subsystem.h"
+#include "../Robot.h"
 
 /**
  *
  *
  * @author ExampleAuthor
  */
-class Auton3ToteStack: public CommandGroup {
+class LiftSDBTicks: public Command {
 public:
-	Auton3ToteStack();
-	const float SPEED_UP = .7;
-	const float SPEED_DOWN = .4;
-	const float TOTE_ONE_ENGAGE_TICKS = 0;
-	//TODO: MATH FOR CONSTANT TICK VALUE BELOW
-	const float TOTE_TWO_ENGAGE_TICKS = 3015;
-	const float TOTE_THREE_ENGAGE_TICKS = 6031;
-	const float GO_OVER_BIN_TICKS = 14205; //should go 4 inches above the bin.
+	LiftSDBTicks();
+	virtual void Initialize();
+	virtual void Execute();
+	virtual bool IsFinished();
+	virtual void End();
+	virtual void Interrupted();
+
+	const std::string LIFT_TICKS_DASHBOARD_KEY = "LiftSDBTicks: Ticks to Lift: ";
+	const std::string LIFT_SPEED_DASHBOARD_KEY =  "Lift SDBTicks: Speed: ";
+	const float TICKS_LIFT_DEFAULT = 0;
+	const float SPEED_LIFT_DEFAULT = .4;
+	float speed;
+	float ticks;
 };
 
 #endif

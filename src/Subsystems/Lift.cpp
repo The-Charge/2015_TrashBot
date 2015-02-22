@@ -51,7 +51,7 @@ void Lift::LiftUpFast() {
 }
 void Lift::LiftDownFast() {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT) {
+	if (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_FAST) {
 		speedController->Set(0);
 		BrakeOn();
 	} else {
@@ -75,7 +75,7 @@ void Lift::LiftUpSlow() {
 }
 void Lift::LiftDownSlow() {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT)) {
+	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)) {
 		speedController->Set(0);
 		BrakeOn();
 	} else {
@@ -107,6 +107,33 @@ void Lift::PutDashboardValues() {
 
 	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_SLOW_KEY,
 			LIFT_SPEED_DOWN_SLOW_DEFAULT);
+
+
+	SmartDashboard::PutNumber(MAX_VALUE_TICKS, MAXLIFTTICKS);
+
+	SmartDashboard::PutNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT);
+
+	LIFT_ENCODER_TICKS = CurrentLiftPosition();
+	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE, LIFT_ENCODER_TICKS);
+
+	SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
+	SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
+}
+
+bool Lift::KeepLifting(float ticks, float speed)
+{
+	if (CurrentLiftPosition() >= ticks - (GetDeadband() / 2) && CurrentLiftPosition() <= ticks + (GetDeadband()/ 2))
+		{ return true; }
+		else if (speed > 0 && CurrentLiftPosition() >= MAXLIFTTICKS - GetDeadband())
+		{return true;}
+		else if (speed < 0 && CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_SLOW)
+			{ return true; }
+		else return false;
+}
+
+float Lift::GetDeadband()
+{
+	return SmartDashboard::GetNumber(LIFT_DEADBAND_STRING,LIFT_DEADBAND_DEFAULT);
 }
 
 int Lift::CurrentLiftPosition() {

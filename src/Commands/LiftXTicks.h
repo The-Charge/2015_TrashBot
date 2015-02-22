@@ -30,11 +30,6 @@ public:
 	const int TICKS_LIFT_DEFAULT = 30000;
 	const int SPEED_LIFT_DEFAULT = .2;
 
-	const std::string MAX_VALUE_TICKS = "Lift Ticks Max: ";
-	const std::string LIFT_ENCODER_VALUE = "Lift encoder Current value: ";
-	const std::string LIFT_DEADBAND_STRING = "Lift deadband: ";
-	const std::string LIFT_SPEED_STRING = "lift::LiftXticks Speed of Lift: ";
-	const std::string LIFT_TICKS_STRING = "lift::LiftXticks Placement of Lift: ";
 
 	int LIFT_ENCODER_TICKS = Robot::lift->encoder->Get();
 
@@ -48,6 +43,7 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+
 };
 
 #endif
