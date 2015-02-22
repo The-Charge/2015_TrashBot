@@ -67,25 +67,6 @@ void Drive::Initialize() {
 			SPEED_PERCENT_DEFAULT);
 
 }
-/*
- float Drive::delinearize(float input, float alpha) {
-
- input = (alpha * input * input * input) + ((1 - alpha) * input); // to make the turns run more smoothly.
- return input;
-
- }
- float Drive::deadband(float input, float db){
- // deadband to control the sensitivity of the controller/joystick
- if ((input > db) || (input < -db)){//checks for the input's position on the controller.
- input = input * 1;
-
- }
- else{ // if within the deadband.
- input = 0;
- }
- return input;
-
- }*/
 // Called repeatedly when this Command is scheduled to run
 void Drive::Execute() {
 
@@ -173,7 +154,8 @@ if (Robot::oi->getJoystick1()->GetRawButton(2)) {
 
 	Robot::driveTrain->UpdateDashboard();
 
-	Robot::driveTrain->drive(x, y, z/3); // z/3 to reduce the speed for more precision while driving
+	Robot::driveTrain->drive(x, y, z/1.5); // z/1.5 to reduce the speed for more precision while driving
+		//but not too slow
 }
 
 // Make this return true when this Command no longer needs to run execute()
