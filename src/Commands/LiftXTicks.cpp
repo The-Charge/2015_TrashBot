@@ -33,7 +33,7 @@ void LiftXTicks::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void LiftXTicks::Execute() {
 
-	Robot::lift->PutDashboardValues();
+	Robot::lift->UpdateSmartDashboard();
 	Robot::lift->SetLift(ticks, speed);
 
 }
