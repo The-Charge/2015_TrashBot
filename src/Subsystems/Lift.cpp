@@ -108,6 +108,7 @@ void Lift::PutDashboardValues() {
 	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_SLOW_KEY,
 			LIFT_SPEED_DOWN_SLOW_DEFAULT);
 
+<<<<<<< HEAD
 
 	SmartDashboard::PutNumber(MAX_VALUE_TICKS, MAXLIFTTICKS);
 
@@ -136,6 +137,8 @@ float Lift::GetDeadband()
 	return SmartDashboard::GetNumber(LIFT_DEADBAND_STRING,LIFT_DEADBAND_DEFAULT);
 }
 
+=======
+>>>>>>> parent of 6cad362... Working on Lift system.  Work in progress.  Switching computers
 int Lift::CurrentLiftPosition() {
 	return Robot::lift->encoder->Get();
 }

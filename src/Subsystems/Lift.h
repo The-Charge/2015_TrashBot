@@ -45,8 +45,11 @@ public:
 	void PutDashboardValues();
 	void ReadDashboardValues();
 	int CurrentLiftPosition();
+<<<<<<< HEAD
 	float GetDeadband();
 	bool KeepLifting(float, float);
+=======
+>>>>>>> parent of 6cad362... Working on Lift system.  Work in progress.  Switching computers
 
 	//constants for smart dashboard displaying
 	const std::string LIFT_SPEED_UP_FAST_KEY = "Lift::Lift Speed Up Fast";
