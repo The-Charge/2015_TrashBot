@@ -107,7 +107,8 @@ void Lift::SetSDBLift() {
 }
 
 void Lift::SetLift(int ticks, float speed) {
-	int LIFTSETPOINT = ticks;
+
+	LIFTSETPOINT = ticks;
 	float sp = fabs(speed);
 	if (AtDestination()) {
 		Stop();
