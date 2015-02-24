@@ -276,5 +276,10 @@ void DriveTrain::StrafeXFt(float f) {
 	leftRearPIDController->Enable();
 
 }
+
+void DriveTrain::Stop() {
+	Robot::driveTrain->DisablePIDControllers();
+	Robot::driveTrain->drive(0, 0, 0);
+}
 // here. Call these from Commands.
 

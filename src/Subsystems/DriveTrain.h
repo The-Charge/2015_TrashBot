@@ -55,6 +55,7 @@ public:
 	void DriveFtInit();
 	void UpdateDashboard();
 	void DriveSDBFeet();
+	void Stop();
 
 	const float WHEELDIAMETER_IN_INCHES = 8;
 	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
@@ -122,7 +123,7 @@ public:
 	float absolutetolerance;
 	const std::string ABSOLUTE_TOLERANCE_DASHBOARD_KEY =
 			"DriveTrain: Absolute Tolerance";
-	const std::string TICKS_NEEDED_DASHBOARD_KEY = "Drive2Feet: Ticks Needed:";
+	const std::string TICKS_NEEDED_DASHBOARD_KEY = "DriveSDBFeet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
 			"DriveXFeet::Proportional Constant";
 	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveTrain:Max Percent";

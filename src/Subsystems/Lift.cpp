@@ -48,7 +48,6 @@ void Lift::LiftUpFast() {
 		speedController->Set(
 				SmartDashboard::GetNumber(LIFT_SPEED_UP_FAST_KEY,
 						LIFT_SPEED_UP_FAST_DEFAULT));
-
 	}
 }
 void Lift::LiftDownFast() {
@@ -60,7 +59,6 @@ void Lift::LiftDownFast() {
 		speedController->Set(
 				SmartDashboard::GetNumber(LIFT_SPEED_DOWN_FAST_KEY,
 						LIFT_SPEED_DOWN_FAST_DEFAULT));
-
 	}
 }
 void Lift::LiftUpSlow() {
@@ -90,40 +88,6 @@ void Lift::LiftDownSlow() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
-void Lift::UpdateSmartDashboard() {
-	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE_DASHBOARD_KEY, encoder->Get());
-}
-
-//----------------------Smart Dashboard-----------------------------------------
-void Lift::PutDashboardValues() {
-	SmartDashboard::PutNumber(LIFT_SPEED_UP_FAST_KEY,
-			LIFT_SPEED_UP_FAST_DEFAULT);
-	//This is putting an input box for changing the speed of the LiftUpFast method on the SD
-	//  (string name displayed next to box, default value in box)
-
-	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_FAST_KEY,
-			LIFT_SPEED_DOWN_FAST_DEFAULT);
-
-	SmartDashboard::PutNumber(LIFT_SPEED_UP_SLOW_KEY,
-			LIFT_SPEED_UP_SLOW_DEFAULT);
-
-	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_SLOW_KEY,
-			LIFT_SPEED_DOWN_SLOW_DEFAULT);
-
-	SmartDashboard::PutNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT);
-
-//	LIFT_ENCODER_TICKS = CurrentLiftPosition();
-//	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE, LIFT_ENCODER_TICKS);
-
-	SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
-	SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
-
-	SmartDashboard::PutNumber(MAX_VALUE_TICKS, MAX_LIFT_TICKS);
-	SmartDashboard::PutNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT);
-	SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
-	SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
-}
-
 int Lift::CurrentLiftPosition() {
 	return Robot::lift->encoder->Get();
 
@@ -143,13 +107,13 @@ void Lift::SetSDBLift() {
 }
 
 void Lift::SetLift(int ticks, float speed) {
-	int LiftSetpoint = ticks;
+	int LIFTSETPOINT = ticks;
 	float sp = fabs(speed);
 	if (AtDestination()) {
 		Stop();
 	} else {
 		BrakeOff();
-		if (CurrentLiftPosition() < LiftSetpoint)
+		if (CurrentLiftPosition() < LIFTSETPOINT)
 			speedController->Set(sp);
 		else
 			speedController->Set(-sp);
@@ -157,7 +121,7 @@ void Lift::SetLift(int ticks, float speed) {
 }
 
 bool Lift::AtDestination() {
-	int error = abs(LiftSetpoint - CurrentLiftPosition());
+	int error = abs(LIFTSETPOINT - CurrentLiftPosition());
 	if (error < GetDeadband() || (CurrentLiftPosition() >= UPPER_SAFETY_LIMIT)
 			|| (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_SLOW))
 		return true;
@@ -182,3 +146,28 @@ void Lift::BrakePowerOff() {
 	solenoid1->Set(DoubleSolenoid::kOff);
 }
 
+void Lift::UpdateSmartDashboard() {
+	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE_DASHBOARD_KEY,
+			CurrentLiftPosition());
+}
+
+void Lift::PutDashboardValues() {
+	SmartDashboard::PutNumber(LIFT_SPEED_UP_FAST_KEY,
+			LIFT_SPEED_UP_FAST_DEFAULT);
+
+	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_FAST_KEY,
+			LIFT_SPEED_DOWN_FAST_DEFAULT);
+
+	SmartDashboard::PutNumber(LIFT_SPEED_UP_SLOW_KEY,
+			LIFT_SPEED_UP_SLOW_DEFAULT);
+
+	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_SLOW_KEY,
+			LIFT_SPEED_DOWN_SLOW_DEFAULT);
+
+	SmartDashboard::PutNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT);
+
+	SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
+	SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
+
+	SmartDashboard::PutNumber(MAX_VALUE_TICKS, MAX_LIFT_TICKS);
+}

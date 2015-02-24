@@ -29,6 +29,5 @@ LiftXTicksTesting::LiftXTicksTesting() {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddSequential(new LiftXTicks(2, .5));
-
+	AddSequential(new LiftXTicks(2000, .5));
 }

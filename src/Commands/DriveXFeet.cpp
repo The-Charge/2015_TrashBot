@@ -59,8 +59,7 @@ bool DriveXFeet::IsFinished() {
 
 // Called once after isFinished returns true
 void DriveXFeet::End() {
-	Robot::driveTrain->DisablePIDControllers();
-	Robot::driveTrain->drive(0, 0, 0);
+	Robot::driveTrain->Stop();
 }
 
 // Called when another command which requires one or more of the same

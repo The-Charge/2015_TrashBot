@@ -21,22 +21,23 @@ StrafeSDBFeet::StrafeSDBFeet() {
 
 // Called just before this Command runs the first time
 void StrafeSDBFeet::Initialize() {
-
+	this->SetTimeout(10);
+	Robot::driveTrain->StrafeSDBFeet();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void StrafeSDBFeet::Execute() {
-
+	Robot::driveTrain->UpdateDashboard();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool StrafeSDBFeet::IsFinished() {
-	return false;
+	return Robot::driveTrain->AtDestination() || this->IsTimedOut();
 }
 
 // Called once after isFinished returns true
 void StrafeSDBFeet::End() {
-
+	Robot::driveTrain->Stop();
 }
 
 // Called when another command which requires one or more of the same

@@ -20,7 +20,6 @@
 #include "Commands/BrakeOff.h"
 #include "Commands/BrakeOn.h"
 #include "Commands/Drive.h"
-#include "Commands/Drive2Feet.h"
 #include "Commands/DriveSDBFeet.h"
 #include "Commands/DriveXFeet.h"
 #include "Commands/GreenBinsAuto.h"

@@ -66,10 +66,8 @@ public:
 
 	const std::string LIFT_ENCODER_VALUE_DASHBOARD_KEY =
 			"Lift::Encoder Tick Value:";
-	const float LIFT_ENCODER_VALUE_DEFAULT = -5;
 
-	const std::string MAX_VALUE_TICKS = "Lift Ticks Max: ";
-	const std::string LIFT_ENCODER_VALUE = "Lift encoder Current value: ";
+	const std::string MAX_VALUE_TICKS = "Lift max ticks: ";
 	const std::string LIFT_DEADBAND_STRING = "Lift deadband: ";
 	const std::string LIFT_SPEED_STRING = "lift::LiftXticks Speed of Lift: ";
 	const std::string LIFT_TICKS_STRING = "lift::LiftXticks Placement of Lift: ";
@@ -99,7 +97,7 @@ public:
 	const int LOWER_SAFETY_LIMIT_SLOW = LOWER_DEADBAND_SLOW + 0;
 	const int LOWER_SAFETY_LIMIT_FAST = LOWER_DEADBAND_FAST + 0;
 
-	int LiftSetpoint = 0;
+	int LIFTSETPOINT = 0;
 	int ticks = 0;
 	float speed = 0;
 

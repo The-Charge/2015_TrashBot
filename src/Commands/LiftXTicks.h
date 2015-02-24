@@ -22,17 +22,6 @@
 class LiftXTicks: public Command {
 public:
 
-	const int encoder_lift_ticks = 8192; // full encoder rotation
-	const float total_lift_turns = 8.4; // how many rotations the ecoder must make to reach the desired height
-	const int MAXLIFTTICKS = total_lift_turns * encoder_lift_ticks;
-
-	const int LIFT_DEADBAND_DEFAULT = 1024; // 1/8 of the total ticks in one rotation of the encoder
-	const int TICKS_LIFT_DEFAULT = 30000;
-	const int SPEED_LIFT_DEFAULT = .2;
-
-	int LIFT_ENCODER_TICKS = Robot::lift->encoder->Get();
-
-	int deadbandlift = 0;
 	float speed = 0;
 	int ticks = 0;
 

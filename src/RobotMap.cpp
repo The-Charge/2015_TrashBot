@@ -30,13 +30,13 @@ CANTalon* RobotMap::lift2CANTalon1 = NULL;
 
 void RobotMap::init() {
 
-	driveTrainCANTalonLeftFront = new CANTalon(7); // changed from 11 to 99 for testing
+	driveTrainCANTalonLeftFront = new CANTalon(11); // changed from 11 to 99 for testing
 
-	driveTrainCANTalonLeftRear = new CANTalon(8);
+	driveTrainCANTalonLeftRear = new CANTalon(2);
 
-	driveTrainCANTalonRightFront = new CANTalon(6);
+	driveTrainCANTalonRightFront = new CANTalon(3);
 
-	driveTrainCANTalonRightRear = new CANTalon(9);
+	driveTrainCANTalonRightRear = new CANTalon(5);
 
 	driveTrainRobotDrive = new RobotDrive(driveTrainCANTalonLeftFront,
 			driveTrainCANTalonLeftRear, driveTrainCANTalonRightFront,
