@@ -4,8 +4,7 @@
 #include "Commands/CommandGroup.h"
 #include "WPILib.h"
 
-class Trashbin_Auton: public CommandGroup
-{
+class Trashbin_Auton: public CommandGroup {
 public:
 	Trashbin_Auton();
 };

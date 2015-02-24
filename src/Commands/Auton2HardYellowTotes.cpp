@@ -38,9 +38,8 @@ Auton2HardYellowTotes::Auton2HardYellowTotes() {
 
 	//
 	AddSequential(new LiftXTicks(TOTE_ONE_ENGAGE_TICKS, SPEED_DOWN));
-	AddSequential (new ParallelArmsIn());
-	AddSequential (new LiftXTicks(TOTE_TWO_ENGAGE_TICKS, SPEED_UP));
-
+	AddSequential(new ParallelArmsIn());
+	AddSequential(new LiftXTicks(TOTE_TWO_ENGAGE_TICKS, SPEED_UP));
 
 	//Moving to AutoZone
 	AddSequential(new DriveXFeet(-4, .5));

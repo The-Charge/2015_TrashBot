@@ -41,33 +41,33 @@ Auton3ToteStack::Auton3ToteStack() {
 
 	//Grab Bin1
 
-	AddSequential (new ParallelArmsIn());
+	AddSequential(new ParallelArmsIn());
 
 	AddSequential(new LiftXTicks(GO_OVER_BIN_TICKS, SPEED_UP));
 	AddSequential(new StrafeXFeet(5.4125));
 	AddSequential(new LiftXTicks(TOTE_TWO_ENGAGE_TICKS, SPEED_DOWN));
 
-	AddSequential (new ParallelArmsOut());
+	AddSequential(new ParallelArmsOut());
 
 	//Grab Bin2
 	AddSequential(new LiftXTicks(TOTE_ONE_ENGAGE_TICKS, SPEED_DOWN));
 
-	AddSequential (new ParallelArmsIn());
+	AddSequential(new ParallelArmsIn());
 
 	AddSequential(new LiftXTicks(GO_OVER_BIN_TICKS, SPEED_UP));
 	AddSequential(new StrafeXFeet(5.4125));
 	AddSequential(new LiftXTicks(TOTE_THREE_ENGAGE_TICKS, SPEED_DOWN));
 
-	AddSequential (new ParallelArmsOut());
+	AddSequential(new ParallelArmsOut());
 
 	//Grab Bin3
 	AddSequential(new LiftXTicks(TOTE_ONE_ENGAGE_TICKS, SPEED_DOWN));
 
-	AddSequential (new ParallelArmsIn());
+	AddSequential(new ParallelArmsIn());
 
 	//Moving to auto zone
 	AddSequential(new DriveXFeet(-4, .5));
 
-	AddSequential (new ParallelArmsOut());
+	AddSequential(new ParallelArmsOut());
 
 }

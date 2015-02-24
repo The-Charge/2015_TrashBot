@@ -30,7 +30,6 @@ public:
 	const int TICKS_LIFT_DEFAULT = 30000;
 	const int SPEED_LIFT_DEFAULT = .2;
 
-
 	int LIFT_ENCODER_TICKS = Robot::lift->encoder->Get();
 
 	int deadbandlift = 0;

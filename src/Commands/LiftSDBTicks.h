@@ -8,10 +8,8 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-
 #ifndef LIFTSDBTICKS_H
 #define LIFTSDBTICKS_H
-
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -30,12 +28,6 @@ public:
 	virtual void End();
 	virtual void Interrupted();
 
-	const std::string LIFT_TICKS_DASHBOARD_KEY = "LiftSDBTicks: Ticks to Lift: ";
-	const std::string LIFT_SPEED_DASHBOARD_KEY =  "Lift SDBTicks: Speed: ";
-	const float TICKS_LIFT_DEFAULT = 0;
-	const float SPEED_LIFT_DEFAULT = .4;
-	float speed;
-	float ticks;
 };
 
 #endif
