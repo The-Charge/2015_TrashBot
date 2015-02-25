@@ -26,7 +26,7 @@ LiftXTicks::LiftXTicks(int t, float s) {
 // Called just before this Command runs the first time
 void LiftXTicks::Initialize() {
 
-	this->SetTimeout(2); // sets timeout for safety
+	this->SetTimeout(10); // sets timeout for safety
 
 }
 

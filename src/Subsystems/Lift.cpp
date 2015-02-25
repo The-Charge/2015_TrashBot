@@ -122,12 +122,27 @@ void Lift::SetLift(int ticks, float speed) {
 }
 
 bool Lift::AtDestination() {
-	int error = abs(LIFTSETPOINT - CurrentLiftPosition());
-	if (error < GetDeadband() || (CurrentLiftPosition() >= UPPER_SAFETY_LIMIT)
-			|| (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_SLOW))
+	int error = LIFTSETPOINT - CurrentLiftPosition();
+	if (abs(error < GetDeadband()))
+	{
+		//We are at are destination
 		return true;
+	}
+	else if(error > 0 && (CurrentLiftPosition() >= UPPER_SAFETY_LIMIT))
+	{
+		//We were going up and hit the upper safety limit
+		return true;
+	}
+	else if (error < 0 && (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_SLOW))
+	{
+		//We were going down and hit the lower safety limit
+		return true;
+	}
 	else
+	{
+		//We are going somewhere, we haven't reached it yet, and we haven't hit a safety limit
 		return false;
+	}
 }
 
 float Lift::GetDeadband() {

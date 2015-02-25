@@ -32,7 +32,7 @@ public:
 	const float FEET_DEFAULT = 2;
 	const std::string DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY =
 			"DriveXFeet::Distance to Travel in Feet";
-	const float MAXPERCENT_DEFAULT = 0;
+	const float MAXPERCENT_DEFAULT = 0.3;
 	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveXFeet::Max Percent:";
 };
 
