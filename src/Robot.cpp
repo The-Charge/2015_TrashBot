@@ -82,10 +82,12 @@ void Robot::RobotInit() {
 	pushAuton = new std::string ("p");
 	pushGreenBins = new std::string("b");
 	ToteStack3Auton = new std::string("3t");
-	ToteStack3Auton = new std::string ("2t");
+	ToteStack2Auton = new std::string ("2t");
 	sc -> AddDefault("Drive1Foot", drive1Auton);
 	sc -> AddObject("PushOtherRobot", pushAuton);
 	sc -> AddObject ("PushGreenBins", pushGreenBins);
+	sc -> AddObject ("Auton2HardYellowTotes", ToteStack2Auton);
+	sc -> AddObject ("Auton3ToteStack", ToteStack3Auton);
 
 	SmartDashboard::PutData ("Auton Mode Chooser", sc);
 }
