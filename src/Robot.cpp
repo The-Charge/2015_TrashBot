@@ -77,6 +77,17 @@ void Robot::RobotInit() {
 			(new AutonomousStrategyPush()));
 	chooser->AddObject("Autonomous Strategy 2", new AutonomousStrategy2());
 
+	sc = new SendableChooser();
+	drive1Auton = new std::string("o");
+	pushAuton = new std::string ("p");
+	pushGreenBins = new std::string("b");
+	ToteStack3Auton = new std::string("3t");
+	ToteStack3Auton = new std::string ("2t");
+	sc -> AddDefault("Drive1Foot", drive1Auton);
+	sc -> AddObject("PushOtherRobot", pushAuton);
+	sc -> AddObject ("PushGreenBins", pushGreenBins);
+
+	SmartDashboard::PutData ("Auton Mode Chooser", sc);
 }
 
 /**
