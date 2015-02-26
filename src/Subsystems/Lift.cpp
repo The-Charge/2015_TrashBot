@@ -123,7 +123,7 @@ void Lift::SetLift(int ticks, float speed) {
 
 bool Lift::AtDestination() {
 	int error = LIFTSETPOINT - CurrentLiftPosition();
-	if (abs(error < GetDeadband()))
+	if (abs(error) < GetDeadband())
 	{
 		//We are at are destination
 		return true;
