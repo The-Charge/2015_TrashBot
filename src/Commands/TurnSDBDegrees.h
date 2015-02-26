@@ -8,8 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
-#ifndef TURNNDEGREES_H
-#define TURNNDEGREES_H
+
+#ifndef TURNSDBDEGREES_H
+#define TURNSDBDEGREES_H
+
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -19,15 +21,9 @@
  *
  * @author ExampleAuthor
  */
-class TurnNDegrees: public Command {
+class TurnSDBDegrees: public Command {
 public:
-	//TODO: TEST CODE
-	float DegreestoTurn(float, float);
-	float degrees;
-	float speed;
-	float deadturn;
-
-	TurnNDegrees(float, float, float);
+	TurnSDBDegrees();
 	virtual void Initialize();
 	virtual void Execute();
 	virtual bool IsFinished();
