@@ -12,6 +12,7 @@
 #define LIFT_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
+#include "OI.h"
 
 /**
  *
@@ -43,6 +44,8 @@ public:
 	void BrakePowerOff();
 	void UpdateSmartDashboard();
 
+	float ReadSlowPotentiometer();
+	float ReadFastPotentiometer();
 	void PutDashboardValues();
 	void ReadDashboardValues();
 	int CurrentLiftPosition();
