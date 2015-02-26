@@ -12,7 +12,7 @@
 #define LIFT_H
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
-#include "OI.h"
+#include "../OI.h"
 
 /**
  *
