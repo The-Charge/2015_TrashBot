@@ -14,8 +14,6 @@
 #include "SmartDashboard/SmartDashboard.h"
 #include "Commands/Auton2HardYellowTotes.h"
 #include "Commands/Auton3TotesStack.h"
-#include "Commands/AutonomousCommand.h"
-#include "Commands/AutonomousStrategy2.h"
 #include "Commands/AutonomousStrategyPush.h"
 #include "Commands/BrakeOff.h"
 #include "Commands/BrakeOn.h"
@@ -69,7 +67,6 @@ OI::OI() {
      
 
         // SmartDashboard Buttons
-	SmartDashboard::PutData("Autonomous Command", new AutonomousCommand());
 
 	SmartDashboard::PutData("Drive", new Drive());
 
@@ -99,7 +96,6 @@ OI::OI() {
 
 	SmartDashboard::PutData("AutonomousStrategyPush", new AutonomousStrategyPush());
 
-	SmartDashboard::PutData("AutonomousStrategy2", new AutonomousStrategy2());
 
 	SmartDashboard::PutData("DriveSBDFeet", new DriveSBDFeet());
 

@@ -62,6 +62,7 @@ DriveTrain::DriveTrain() :
 
 //	strafePIDController = new PIDController(0, 0, 0, robotStra);
 
+#ifdef VERBOSE_DASHBOARD
 	SmartDashboard::PutNumber(ABSOLUTE_TOLERANCE_DASHBOARD_KEY,
 			ABSOLUTE_TOLERANCE_DEFAULT);
 	SmartDashboard::PutNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,
@@ -78,6 +79,7 @@ DriveTrain::DriveTrain() :
 		SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
 		SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
 
+#endif
 
 }
 void DriveTrain::InitDefaultCommand() {
@@ -102,6 +104,8 @@ void DriveTrain::EncoderReset() {
 	CANTalonRightRear->SetPosition(0);
 }
 void DriveTrain::UpdateDashboard() {
+
+#ifdef VERBOSE_DASHBOARD
 
 	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
 			leftFrontPIDController->GetError());
@@ -135,6 +139,7 @@ void DriveTrain::UpdateDashboard() {
 			TICKS_PER_1_FOOT_STRAFE_DEFAULT);
 	SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
 			TICKS_PER_ONE_FOOT_DEFAULT);
+#endif
 
 }
 
@@ -196,6 +201,8 @@ void DriveTrain::ReadDashboardValues() {
 
 void DriveTrain::PutEncoderValuesToDashboard() {
 
+#ifdef VERBOSE_DASHBOARD
+
 	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
 			leftFrontPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY,
@@ -216,6 +223,7 @@ void DriveTrain::PutEncoderValuesToDashboard() {
 			CANTalonRightRear->GetEncPosition());
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY,
 			CANTalonRightRear->GetEncVel());
+#endif
 }
 
 void DriveTrain::ResetDistance() {
@@ -289,9 +297,11 @@ void DriveTrain::Stop() {
 
 void DriveTrain::PutTurnSmartDashboardValues()
 {
+#ifdef VERBOSE_DASHBOARD
 	SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
 	SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
 	SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
+#endif
 }
 
 void DriveTrain::TurnSDBDegrees()
