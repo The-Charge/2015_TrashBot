@@ -33,8 +33,8 @@ void TurnNDegrees::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TurnNDegrees::Execute() {
-	Robot::driveTrain -> PutTurnSmartDashboardValues();
 	Robot::driveTrain -> TurnXDegrees(degrees, speed, deadturn);
+	Robot::driveTrain -> PutTurnSmartDashboardValues();
 }
 
 // Make this return true when this Command no longer needs to run execute()
