@@ -157,6 +157,28 @@ public:
 	const std::string STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY =
 			"StrafeXFeet:Ticks per One Foot Strafe";
 
+	void PutTurnSmartDashboardValues();
+	void TurnSDBDegrees();
+	void TurnXDegrees(float, float, float);
+	bool AtTurnDestination();
+	float GetCurrentPos();
+	void ResetDirection();
+
+
+
+	const float TURNING_DEFAULT = 90;
+		const float TURNING_SPEED_DEFAULT = .25;
+		const float DEADTURN_DEFAULT = 5;
+
+		float degreesturning;
+		float startAngle;
+		float speed = .4;
+		float deadturn = 10;
+
+		const std::string ANGLE_TO_TURN_DASHBOARD_KEY = "Degrees Wanted to Turn: ";
+		const std::string TURNING_SPEED_DASHBOARD_KEY = "Speed to turn (Positive): ";
+		const std::string DEADTURN_DASHBOARD_KEY= "Turning deadband: ";
+
 };
 
 #endif

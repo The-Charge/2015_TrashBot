@@ -8,8 +8,10 @@
 // update. Deleting the comments indicating the section will prevent
 // it from being updated in the future.
 
+
 #ifndef AUTONOMOUS_COMMAND_H
 #define AUTONOMOUS_COMMAND_H
+
 
 #include "Commands/Subsystem.h"
 #include "../Robot.h"
@@ -27,11 +29,6 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
-private:
-	SendableChooser*sc;
-	std::string*drive1Auton;
-	std::string*pushAuton;
-	std::string*pushGreenBins;
 };
 
 #endif

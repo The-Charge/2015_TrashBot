@@ -7,7 +7,6 @@
 #include "LeftArmIn.h"
 #include "DriveXFeet.h"
 #include "Auton3ToteStack.h"
-
 #include "ParallelArmsIn.h"
 #include "ParallelArmsOut.h"
 
@@ -31,15 +30,15 @@ Auton2HardYellowTotes::Auton2HardYellowTotes() {
 
 	// Grab Bin1
 	AddSequential(new ParallelArmsIn());
-	AddSequential(new LiftXTicks(GO_OVER_BIN_TICKS, SPEED_UP));
+	AddSequential(new LiftXTicks(Robot::lift -> GO_OVER_BIN_TICKS, Robot::lift -> SPEED_UP));
 	AddSequential(new StrafeXFeet(5.4125));
-	AddSequential(new LiftXTicks(TOTE_TWO_ENGAGE_TICKS, SPEED_DOWN));
+	AddSequential(new LiftXTicks(Robot::lift -> TOTE_TWO_ENGAGE_TICKS, Robot::lift -> SPEED_DOWN));
 	AddSequential(new ParallelArmsOut());
 
 	//
-	AddSequential(new LiftXTicks(TOTE_ONE_ENGAGE_TICKS, SPEED_DOWN));
+	AddSequential(new LiftXTicks(Robot::lift -> TOTE_ONE_ENGAGE_TICKS, Robot::lift -> SPEED_DOWN));
 	AddSequential(new ParallelArmsIn());
-	AddSequential(new LiftXTicks(TOTE_TWO_ENGAGE_TICKS, SPEED_UP));
+	AddSequential(new LiftXTicks(Robot::lift -> TOTE_TWO_ENGAGE_TICKS, Robot::lift -> SPEED_UP));
 
 	//Moving to AutoZone
 	AddSequential(new DriveXFeet(-4, .5));
