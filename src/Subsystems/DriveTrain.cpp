@@ -75,9 +75,13 @@ DriveTrain::DriveTrain() :
 			STRAFE_SBD_FEET_DEFAULT);
 
 	SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
-		SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
-		SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
+	SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
+	SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
 
+	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
+			TICKS_PER_1_FOOT_STRAFE_DEFAULT);
+	SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
+			TICKS_PER_ONE_FOOT_DEFAULT);
 
 }
 void DriveTrain::InitDefaultCommand() {
@@ -131,10 +135,10 @@ void DriveTrain::UpdateDashboard() {
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY,
 			CANTalonRightFront->GetEncVel());
 	SmartDashboard::PutNumber(TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
-	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
-			TICKS_PER_1_FOOT_STRAFE_DEFAULT);
-	SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
-			TICKS_PER_ONE_FOOT_DEFAULT);
+	//SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
+	//		TICKS_PER_1_FOOT_STRAFE_DEFAULT);
+	//SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
+	//		TICKS_PER_ONE_FOOT_DEFAULT);
 
 }
 
@@ -171,7 +175,6 @@ void DriveTrain::ReadDashboardValues() {
 			PROPORTIONAL_CONSTANT_DEFAULT);
 	i = SmartDashboard::GetNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,
 			INTEGRAL_CONSTANT_DEFAULT);
-	leftFrontPIDController->SetPID(p, i, 0);
 
 	leftFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
 	rightFrontPIDController->SetOutputRange(-1 * maxpercent, maxpercent);
@@ -183,6 +186,7 @@ void DriveTrain::ReadDashboardValues() {
 	leftRearPIDController->SetAbsoluteTolerance(absolutetolerance);
 	rightRearPIDController->SetAbsoluteTolerance(absolutetolerance);
 
+	leftFrontPIDController->SetPID(p, i, 0);
 	rightFrontPIDController->SetPID(p, i, 0);
 	leftRearPIDController->SetPID(p, i, 0);
 	rightRearPIDController->SetPID(p, i, 0);
@@ -190,6 +194,8 @@ void DriveTrain::ReadDashboardValues() {
 	ticksPerOneFootStrafe = SmartDashboard::GetNumber(
 			STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
 			TICKS_PER_1_FOOT_STRAFE_DEFAULT);
+
+
 	ticksPerOneFoot = SmartDashboard::GetNumber(
 			TICKS_PER_ONE_FOOT_DASHBOARD_KEY, TICKS_PER_ONE_FOOT_DEFAULT);
 }
@@ -287,54 +293,51 @@ void DriveTrain::Stop() {
 	Robot::driveTrain->drive(0, 0, 0);
 }
 
-void DriveTrain::PutTurnSmartDashboardValues()
-{
+void DriveTrain::PutTurnSmartDashboardValues() {
 	SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
 	SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
 	SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
 }
 
-void DriveTrain::TurnSDBDegrees()
-{
-	degreesturning = SmartDashboard::GetNumber(ANGLE_TO_TURN_DASHBOARD_KEY, TURNING_DEFAULT);
-	speed = SmartDashboard::GetNumber(TURNING_SPEED_DASHBOARD_KEY, TURNING_SPEED_DEFAULT);
-	deadturn = SmartDashboard::GetNumber(DEADTURN_DASHBOARD_KEY, DEADTURN_DEFAULT);
+void DriveTrain::TurnSDBDegrees() {
+	degreesturning = SmartDashboard::GetNumber(ANGLE_TO_TURN_DASHBOARD_KEY,
+			TURNING_DEFAULT);
+	speed = SmartDashboard::GetNumber(TURNING_SPEED_DASHBOARD_KEY,
+			TURNING_SPEED_DEFAULT);
+	deadturn = SmartDashboard::GetNumber(DEADTURN_DASHBOARD_KEY,
+			DEADTURN_DEFAULT);
 	TurnXDegrees(degreesturning, speed, deadturn);
 }
 
-float DriveTrain::GetCurrentPos()
-{
-	return driveGyro -> GetAngle();
+float DriveTrain::GetCurrentPos() {
+	return driveGyro->GetAngle();
 }
 
-void DriveTrain::TurnXDegrees(float d, float s, float dt)
-{
+void DriveTrain::TurnXDegrees(float d, float s, float dt) {
 	degreesturning = d;
 	speed = fabs(s);
 	deadturn = dt;
 
 	if (AtTurnDestination())
 		Stop();
-	else
-	{
-	if (GetCurrentPos() < degreesturning)
-		drive(0, 0, speed); // clockwise
-	else
-		drive(0, 0, -speed); // counter clockwise
+	else {
+		if (GetCurrentPos() < degreesturning)
+			drive(0, 0, speed); // clockwise
+		else
+			drive(0, 0, -speed); // counter clockwise
 	}
 }
 
-void DriveTrain::ResetDirection()
-{
-	driveGyro -> Reset();
+void DriveTrain::ResetDirection() {
+	driveGyro->Reset();
 }
 
-bool DriveTrain::AtTurnDestination()
-{
+bool DriveTrain::AtTurnDestination() {
 	float error = degreesturning - (GetCurrentPos());
 	if (fabs(error) < deadturn)
 		return true;
-	else return false;
+	else
+		return false;
 }
 
 // here. Call these from Commands.

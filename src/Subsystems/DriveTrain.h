@@ -57,18 +57,16 @@ public:
 	void DriveSDBFeet();
 	void Stop();
 
-	const float WHEELDIAMETER_IN_INCHES = 8;
-	const float WHEELCIRCUMFERENCE_IN_INCHES = WHEELDIAMETER_IN_INCHES * 3.14;
-	const float WHEELCIRCUMFERENCE_IN_FEET = WHEELCIRCUMFERENCE_IN_INCHES / 12;
-	const float WHEELROTATIONS_PER_FOOT = 1 / WHEELCIRCUMFERENCE_IN_FEET;
-	const int ENCODER_TICKS_PER_REVOLUTION = 300 * 4; //250; //2048
-	int ticksPerOneFoot;
-	const int TICKS_PER_ONE_FOOT_DEFAULT = WHEELROTATIONS_PER_FOOT
-			* ENCODER_TICKS_PER_REVOLUTION;
+
 	float TICKS_NEEDED = 0;
 
 	const std::string TICKS_PER_ONE_FOOT_DASHBOARD_KEY =
 			"DriveXFeet:Ticks per One Foot";
+
+
+
+	const float TICKS_PER_ONE_FOOT_DEFAULT = 8000;
+	const float TICKS_PER_1_FOOT_STRAFE_DEFAULT = 1232;
 
 	PIDController*leftFrontPIDController;
 	PIDController*rightFrontPIDController;
@@ -148,7 +146,8 @@ public:
 	const int STRAFE_SDB_FEET_MAX_PERCENT_DEFAULT = .5;
 	void PutDashboardValues();
 
-	const float TICKS_PER_1_FOOT_STRAFE_DEFAULT = 1232;
+	float ticksPerOneFoot;
+
 	float ticksPerOneFootStrafe;
 	float TICKS_TO_STrAFE_IN_FEET;
 
@@ -164,20 +163,19 @@ public:
 	float GetCurrentPos();
 	void ResetDirection();
 
-
-
 	const float TURNING_DEFAULT = 90;
-		const float TURNING_SPEED_DEFAULT = .25;
-		const float DEADTURN_DEFAULT = 5;
+	const float TURNING_SPEED_DEFAULT = .25;
+	const float DEADTURN_DEFAULT = 5;
 
-		float degreesturning;
-		float startAngle;
-		float speed = .4;
-		float deadturn = 10;
+	float degreesturning;
 
-		const std::string ANGLE_TO_TURN_DASHBOARD_KEY = "Degrees Wanted to Turn: ";
-		const std::string TURNING_SPEED_DASHBOARD_KEY = "Speed to turn (Positive): ";
-		const std::string DEADTURN_DASHBOARD_KEY= "Turning deadband: ";
+	float startAngle;
+	float speed = .4;
+	float deadturn = 12;
+
+	const std::string ANGLE_TO_TURN_DASHBOARD_KEY = "Degrees Wanted to Turn: ";
+	const std::string TURNING_SPEED_DASHBOARD_KEY = "Speed to turn (Positive): ";
+	const std::string DEADTURN_DASHBOARD_KEY = "Turning deadband: ";
 
 };
 
