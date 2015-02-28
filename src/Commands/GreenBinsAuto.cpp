@@ -26,7 +26,7 @@ GreenBinsAuto::GreenBinsAuto() {
 		//get bin into auton zone
 		AddSequential(new StrafeXFeet(2));
 		AddSequential(new StrafeXFeet(-.5));
-		AddSequential(new TurnNDegrees(90, .5, 40));
+//		AddSequential(new TurnNDegrees(90, .5, 40));
 		AddSequential(new DriveXFeet(4, .7));
 
 		if(x < 2)
@@ -35,7 +35,7 @@ GreenBinsAuto::GreenBinsAuto() {
 			AddSequential(new DriveXFeet(-5, .7));
 
 			//goes to next bin
-			AddSequential(new TurnNDegrees(-90, .5, 40));
+//			AddSequential(new TurnNDegrees(-90, .5, 40));
 			AddSequential(new DriveXFeet(6.41666, .9));
 		}
 		else
