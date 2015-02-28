@@ -1,0 +1,10 @@
+diff a/src/Commands/GreenBinsAuto.cpp b/src/Commands/GreenBinsAuto.cpp	(rejected hunks)
+@@ -35,7 +35,7 @@
+ 			AddSequential(new DriveXFeet(-5, .7));
+ 
+ 			//goes to next bin
+-			AddSequential(new TurnNDegrees(-90, .5, 40));
++//			AddSequential(new TurnNDegrees(-90, .5, 40));
+ 			AddSequential(new DriveXFeet(6.41666, .9));
+ 		}
+ 		else
