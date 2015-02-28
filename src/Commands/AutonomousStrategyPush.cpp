@@ -30,7 +30,7 @@ AutonomousStrategyPush::AutonomousStrategyPush() {
 	// arm.
 
 	//drives robot and possibly another robot into auto zone
-	AddSequential(new DriveXFeet(5));
+	AddSequential(new DriveXFeet(-8, .5));
 	//TODO: need to add speed
 	//TODO: need an exact measurement of how far to drive both robots
 	// Need a extact measurement of how far we need to push the other robot.

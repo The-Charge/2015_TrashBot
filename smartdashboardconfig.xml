@@ -1,16 +1,16 @@
 <xml version="1.0">
 <dashboard>
+	<widget field="Auton3ToteStack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="552" y="114"/>
+	</widget>
 	<widget field="ResetEncoders" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="571" y="149"/>
+		<location x="575" y="38"/>
 	</widget>
 	<widget field="TurnSDBDegrees" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="59" y="391"/>
 	</widget>
 	<widget field="arms" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
 		<location x="1151" y="58"/>
-	</widget>
-	<widget field="Auton3TotesStack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="557" y="38"/>
 	</widget>
 	<widget field="lift" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
 		<location x="1161" y="34"/>
@@ -34,10 +34,10 @@
 		<location x="371" y="293"/>
 	</widget>
 	<widget field="Auton Mode Chooser" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="838" y="13"/>
+		<location x="801" y="3"/>
 	</widget>
 	<widget field="Drive Mode Chooser" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
-		<location x="995" y="16"/>
+		<location x="972" y="10"/>
 	</widget>
 	<widget field="compressor" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
 		<location x="1120" y="81"/>
@@ -193,6 +193,7 @@
 	<hidden field="DriveXFeet"/>
 	<hidden field="LiftDownSlow"/>
 	<hidden field="Drive"/>
+	<hidden field="Auton3TotesStack"/>
 	<hidden field="LiftDownFast"/>
 	<hidden field="Drive::ScaleFactor"/>
 </xml>

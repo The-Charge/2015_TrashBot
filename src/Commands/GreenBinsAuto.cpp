@@ -39,13 +39,22 @@ GreenBinsAuto::GreenBinsAuto() {
 	 }
 	 */
 
-	AddSequential(new StrafeXFeet(2));
-	AddSequential(new StrafeXFeet(-.5));
-	AddSequential(new TurnNDegrees(90, .5, 40));
-	AddSequential(new DriveXFeet(4, .7));
-	AddSequential(new DriveXFeet(-5, .7));
+	for(int x = 0; x < 3; x++)
+	{
+		AddSequential(new StrafeXFeet(2));
+		AddSequential(new StrafeXFeet(-.5));
+		AddSequential(new TurnNDegrees(90, .5, 12));
+		AddSequential(new DriveXFeet(4, .7));
 
-	AddSequential(new TurnNDegrees(-90, .5, 40));
-	AddSequential(new DriveXFeet(6.41666, .9));
+		if(x < 2)
+		{
+			AddSequential(new DriveXFeet(-5, .7));
+
+			AddSequential(new TurnNDegrees(-90, .5, 12));
+			AddSequential(new DriveXFeet(6.41666, .9));
+		}
+		else
+			AddSequential(new DriveXFeet(1, .7));
+	}
 
 }
