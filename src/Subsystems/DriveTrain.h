@@ -57,16 +57,12 @@ public:
 	void DriveSDBFeet();
 	void Stop();
 
-
 	float TICKS_NEEDED = 0;
 
 	const std::string TICKS_PER_ONE_FOOT_DASHBOARD_KEY =
 			"DriveXFeet:Ticks per One Foot";
-
-
-
-	const float TICKS_PER_ONE_FOOT_DEFAULT = 8000;
-	const float TICKS_PER_1_FOOT_STRAFE_DEFAULT = 1232;
+	const float TICKS_PER_ONE_FOOT_DEFAULT = 775;
+	const float TICKS_PER_1_FOOT_STRAFE_DEFAULT = 1200;
 
 	PIDController*leftFrontPIDController;
 	PIDController*rightFrontPIDController;
@@ -110,7 +106,7 @@ public:
 	const double MAX_PERCENT_DEFAULT = .5;
 	const double INTEGRAL_CONSTANT_DEFAULT = 0;
 	const double TICKS_NEEDED_DEFAULT = 0;
-	const double ABSOLUTE_TOLERANCE_DEFAULT = 75;
+	const double ABSOLUTE_TOLERANCE_DEFAULT = 100;
 	const double FEET_DEFAULT = 2;
 	float p;
 	float maxpercent;
@@ -164,8 +160,8 @@ public:
 	void ResetDirection();
 
 	const float TURNING_DEFAULT = 90;
-	const float TURNING_SPEED_DEFAULT = .25;
-	const float DEADTURN_DEFAULT = 5;
+	const float TURNING_SPEED_DEFAULT = .4;
+	const float DEADTURN_DEFAULT = 12;
 
 	float degreesturning;
 

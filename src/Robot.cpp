@@ -120,7 +120,7 @@ void Robot::TeleopInit() {
 	// these lines or comment it out.
 	if (autonomousCommandGroup != NULL)
 		autonomousCommandGroup->Cancel();
-	SmartDashboard::PutData("schulder", Scheduler::GetInstance());
+	SmartDashboard::PutData("schedulder", Scheduler::GetInstance());
 
 }
 

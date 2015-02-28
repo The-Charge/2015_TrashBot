@@ -1,7 +1,7 @@
 <xml version="1.0">
 <dashboard>
 	<widget field="Auton3ToteStack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
-		<location x="552" y="114"/>
+		<location x="559" y="152"/>
 	</widget>
 	<widget field="ResetEncoders" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
 		<location x="575" y="38"/>
@@ -174,6 +174,22 @@
 	<widget field="Drive::Gyro Correction" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
 		<location x="284" y="116"/>
 	</widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
+		<location x="1008" y="380"/>
+		<width>335</width>
+		<height>202</height>
+	</static-widget>
+	<static-widget class="edu.wpi.first.smartdashboard.gui.elements.VideoStreamViewerExtension">
+		<location x="668" y="376"/>
+		<width>332</width>
+		<height>206</height>
+	</static-widget>
+	<widget field="Auton3TotesStack" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="557" y="104"/>
+	</widget>
+	<widget field="AutonomousStrategy2" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="538" y="127"/>
+	</widget>
 </dashboard>
 <live-window>
 </live-window>
@@ -186,14 +202,12 @@
 	<hidden field="BrakeOn"/>
 	<hidden field="BrakeOff"/>
 	<hidden field="DriveXFeet::Max Percent:"/>
-	<hidden field="AutonomousStrategy2"/>
 	<hidden field="RightArmIn"/>
 	<hidden field="RightArmOut"/>
 	<hidden field="DriveSBDFeet"/>
 	<hidden field="DriveXFeet"/>
 	<hidden field="LiftDownSlow"/>
 	<hidden field="Drive"/>
-	<hidden field="Auton3TotesStack"/>
 	<hidden field="LiftDownFast"/>
 	<hidden field="Drive::ScaleFactor"/>
 </xml>

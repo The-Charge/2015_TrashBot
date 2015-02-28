@@ -29,7 +29,7 @@ Auton2HardYellowTotes::Auton2HardYellowTotes() {
 	// arm.
 
 	// Grab Bin1
-	/*
+	
 	AddSequential(new ParallelArmsIn());
 	AddSequential(new LiftXTicks(Robot::lift -> GO_OVER_BIN_TICKS, Robot::lift -> SPEED_UP));
 	AddSequential(new StrafeXFeet(5.4125));
@@ -47,7 +47,4 @@ Auton2HardYellowTotes::Auton2HardYellowTotes() {
 	// this should move the two bins where the outer right part of the tote is above the landmark
 	// if strafe to the right a small distance, bins will be on the landmark.
 	// can place the two totes ontop of the other tote places by another team.
-	 * */
-	AddSequential(new TurnNDegrees(90, .5, 12));
-
 }

@@ -87,13 +87,9 @@ OI::OI() {
      
 
         // SmartDashboard Buttons
-	SmartDashboard::PutData("Drive", new Drive());
-
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());
 
 	SmartDashboard::PutData("LiftXTicksTesting", new LiftXTicksTesting());
-
-	SmartDashboard::PutData("LeftArmOut", new LeftArmOut());
 
 	SmartDashboard::PutData("ParallelArmsIn", new ParallelArmsIn());
 
