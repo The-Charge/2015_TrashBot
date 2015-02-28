@@ -65,8 +65,10 @@ Auton3ToteStack::Auton3ToteStack() {
 
 	AddSequential(new ParallelArmsIn());
 
+	AddSequential(new LiftXTicks(Robot::lift -> TOTE_ONE_ENGAGE_TICKS, Robot::lift -> SPEED_UP));
+
 	//Moving to auto zone
-	AddSequential(new DriveXFeet(-4, .5));
+	AddSequential(new DriveXFeet(-8.11, .5));
 
 	AddSequential(new ParallelArmsOut());
 

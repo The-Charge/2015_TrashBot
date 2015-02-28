@@ -10,8 +10,7 @@
 
 #include "Robot.h"
 #include "Commands/AutonomousStrategyPush.h"
-#include "Commands/AutonomousStrategy2.h"
-
+//#define VERBOSE_DASHBOARD
 #include <CameraServer.h>
 #include <Commands/Scheduler.h>
 #include <DriverStation.h>
@@ -74,7 +73,7 @@ void Robot::RobotInit() {
 	chooser = new SendableChooser();
 	chooser->AddDefault("Default/Autonomous Push Strategy",
 			(new AutonomousStrategyPush()));
-	chooser->AddObject("Autonomous Strategy 2", new AutonomousStrategy2());
+
 
 	sc = new SendableChooser();
 	drive1Auton = new std::string("o");

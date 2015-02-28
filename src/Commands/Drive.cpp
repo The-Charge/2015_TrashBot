@@ -121,8 +121,21 @@ void Drive::Execute() {
 			CORRECTION_DEFAULT);
 
 	//Speed-setting buttons:
+	//***********CHECK THIS PLEASE
+	if (selected -> compare(*tDrive) == 0)
+	{
+		if (Robot::oi -> getJoystick1() -> GetRawButton(2))
+		{
 
-	if (Robot::oi->getJoystick1()->GetRawButton(2)) {
+				x = (Robot::oi->getJoystick1()->GetX()
+						+ Robot::oi->getJoystick2()->GetX()) / 2;
+				y = (Robot::oi->getJoystick1()->GetY()
+						+ Robot::oi->getJoystick2()->GetY()) / 2;
+				z = (Robot::oi->getJoystick1()->GetY()
+						- Robot::oi->getJoystick2()->GetY()) / 2;
+		}
+	}
+	else if (Robot::oi->getJoystick1()->GetRawButton(2)) {
 		x = Robot::oi->getJoystick1()->GetX();
 		y = Robot::oi->getJoystick1()->GetY();
 		//z = Robot::oi->getJoystick1()->GetZ() * speedpercent;
@@ -146,6 +159,17 @@ void Drive::Execute() {
 			rate = -1 * rate * correction;
 			Robot::driveTrain->robotDrive->MecanumDrive_Cartesian(x, 0, 0,
 					rate);
+		}
+		//***CHECK THIS PLEASE!!!!
+		else if (selected->compare(*tDrive) == 0)
+		{
+			if (Robot::oi -> getJoystick2() -> GetRawButton(6))
+			{
+				y = 0;
+				z = 0;
+				rate = -1 * rate * correction;
+				Robot::driveTrain -> robotDrive-> MecanumDrive_Cartesian(x, 0, 0, rate);
+			}
 		}
 	}
 	//----------------------------------------------------------------------------------------

@@ -41,7 +41,7 @@ Auton2HardYellowTotes::Auton2HardYellowTotes() {
 	AddSequential(new LiftXTicks(Robot::lift -> TOTE_TWO_ENGAGE_TICKS, Robot::lift -> SPEED_UP));
 
 	//Moving to AutoZone
-	AddSequential(new DriveXFeet(-4, .5));
+	AddSequential(new DriveXFeet(-8.9, .5));
 	AddSequential(new ParallelArmsOut());
 	// this should move the two bins where the outer right part of the tote is above the landmark
 	// if strafe to the right a small distance, bins will be on the landmark.

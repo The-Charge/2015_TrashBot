@@ -67,7 +67,7 @@ OI::OI() {
 	joystick2 = new Joystick(1);
 	
 	joystick1 = new Joystick(0);
-	
+	joystick2 = new Joystick(1);
 	resetEncodersButton = new JoystickButton(joystick1, 8);
 	resetEncodersButton->WhenPressed(new ResetEncoders());
      
