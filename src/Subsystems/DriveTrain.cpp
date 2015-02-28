@@ -140,18 +140,13 @@ void DriveTrain::UpdateDashboard() {
 	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY,
 			CANTalonRightFront->GetEncVel());
 	SmartDashboard::PutNumber(TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
-<<<<<<< HEAD
+
 	//SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
 	//		TICKS_PER_1_FOOT_STRAFE_DEFAULT);
 	//SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
 	//		TICKS_PER_ONE_FOOT_DEFAULT);
-=======
-	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
-			TICKS_PER_1_FOOT_STRAFE_DEFAULT);
-	SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
-			TICKS_PER_ONE_FOOT_DEFAULT);
+
 #endif
->>>>>>> BrittanyChanges
 
 }
 
@@ -309,9 +304,7 @@ void DriveTrain::Stop() {
 	Robot::driveTrain->drive(0, 0, 0);
 }
 
-<<<<<<< HEAD
-void DriveTrain::PutTurnSmartDashboardValues() {
-=======
+
 void DriveTrain::PutTurnSmartDashboardValues()
 {
 #ifdef VERBOSE_DASHBOARD
