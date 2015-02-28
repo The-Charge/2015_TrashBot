@@ -21,31 +21,27 @@ GreenBinsAuto::GreenBinsAuto() {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	//First bin
-	/*
-	 for (int x = 0; x < 3; x++)
-	 {
-	 AddSequential(new StrafeXFeet(2));
-	 AddSequential(new StrafeXFeet(-.5));
-	 AddSequential(new TurnNDegrees(90));
-	 AddSequential(new DriveXFeet(3));
-	 AddSequential(new DriveXFeet(-5));
+	for(int x = 0; x < 3; x++)
+	{
+		//get bin into auton zone
+		AddSequential(new StrafeXFeet(2));
+		AddSequential(new StrafeXFeet(-.5));
+		AddSequential(new TurnNDegrees(90, .5, 40));
+		AddSequential(new DriveXFeet(4, .7));
 
-	 if(x < 2)
-	 {
-	 AddSequential(new TurnNDegrees(-90));
-	 AddSequential(new DriveXFeet(6.41666));
-	 }
-	 }
-	 */
+		if(x < 2)
+		{
+			//robot returns to where it started
+			AddSequential(new DriveXFeet(-5, .7));
 
-	AddSequential(new StrafeXFeet(2));
-	AddSequential(new StrafeXFeet(-.5));
-	AddSequential(new TurnNDegrees(90, .5, 40));
-	AddSequential(new DriveXFeet(4, .7));
-	AddSequential(new DriveXFeet(-5, .7));
+			//goes to next bin
+			AddSequential(new TurnNDegrees(-90, .5, 40));
+			AddSequential(new DriveXFeet(6.41666, .9));
+		}
+		else
+			//make sure robot in auton zone
+			AddSequential(new DriveXFeet(1, .7));
+	}
 
-	AddSequential(new TurnNDegrees(-90, .5, 40));
-	AddSequential(new DriveXFeet(6.41666, .9));
 
 }
