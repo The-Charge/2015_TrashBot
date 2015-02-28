@@ -160,6 +160,7 @@ void Drive::Execute() {
 			Robot::driveTrain->robotDrive->MecanumDrive_Cartesian(x, 0, 0,
 					rate);
 		}
+	}
 		//***CHECK THIS PLEASE!!!!
 		else if (selected->compare(*tDrive) == 0)
 		{
@@ -171,7 +172,6 @@ void Drive::Execute() {
 				Robot::driveTrain -> robotDrive-> MecanumDrive_Cartesian(x, 0, 0, rate);
 			}
 		}
-	}
 	//----------------------------------------------------------------------------------------
 	//both of these methods return an integer
 	//these must be sent to the smart dashboard
