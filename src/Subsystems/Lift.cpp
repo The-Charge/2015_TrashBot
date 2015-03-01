@@ -171,14 +171,14 @@ void Lift::BrakePowerOff() {
 }
 
 void Lift::UpdateSmartDashboard() {
-#ifdef VERBOSE_DASHBOARD
+//#ifdef VERBOSE_DASHBOARD
 	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE_DASHBOARD_KEY,
 			CurrentLiftPosition());
-#endif
+//#endif
 }
 
 void Lift::PutDashboardValues() {
-#ifdef VERBOSE_DASHBOARD
+//#ifdef VERBOSE_DASHBOARD
 	SmartDashboard::PutNumber(LIFT_SPEED_UP_FAST_KEY,
 			LIFT_SPEED_UP_FAST_DEFAULT);
 
@@ -197,5 +197,5 @@ void Lift::PutDashboardValues() {
 	SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
 
 	SmartDashboard::PutNumber(MAX_VALUE_TICKS, MAX_LIFT_TICKS);
-#endif
+//#endif
 }
