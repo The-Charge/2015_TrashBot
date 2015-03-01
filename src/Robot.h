@@ -35,7 +35,7 @@ public:
 	LiveWindow *lw;
 	SendableChooser*sc;
 	std::string*drive1Auton;
-	std::string*pushAuton;
+	std::string*AutoPush;
 	std::string*pushGreenBins;
 	std::string*ToteStack3Auton;
 	std::string*ToteStack2Auton;

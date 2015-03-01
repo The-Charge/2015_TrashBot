@@ -308,7 +308,6 @@ void DriveTrain::Stop() {
 void DriveTrain::PutTurnSmartDashboardValues()
 {
 #ifdef VERBOSE_DASHBOARD
->>>>>>> BrittanyChanges
 	SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
 	SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
 	SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
