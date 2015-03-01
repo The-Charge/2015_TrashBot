@@ -86,5 +86,7 @@ void RobotMap::init() {
 	driveTrainCANTalonRightRear->SetFeedbackDevice(CANTalon::QuadEncoder);
 
 	compressor1AirCompressor->SetClosedLoopControl(true);
+	compressor1AirCompressor->Start();
+
 
 }
