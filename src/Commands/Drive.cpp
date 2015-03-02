@@ -125,7 +125,6 @@ void Drive::Execute() {
 	} else if (Robot::oi->getJoystick1()->GetRawButton(2)) {
 		x = Robot::oi->getJoystick1()->GetX();
 		y = Robot::oi->getJoystick1()->GetY();
-		//z = Robot::oi->getJoystick1()->GetZ() * speedpercent;
 	}
 
 //Straffing mechanum-drive gyro corrections:
@@ -150,7 +149,6 @@ void Drive::Execute() {
 			return;
 		}
 	}
-	//***CHECK THIS PLEASE!!!!
 	else if (selected->compare(*tDrive) == 0) {
 		if (Robot::oi->getJoystick2()->GetRawButton(6)) {
 			y = 0;
