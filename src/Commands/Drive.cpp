@@ -39,9 +39,9 @@ Drive::Drive() {
 	xDrive = new std::string("x");
 	tDrive = new std::string("t");
 
-	sc->AddDefault("JoyStick", jDrive);
+	sc->AddDefault("'Tank' Drive", tDrive);
+	sc->AddObject("JoyStick", jDrive);
 	sc->AddObject("X-box Drive", xDrive);
-	sc->AddObject("'Tank' Drive", tDrive);
 
 	SmartDashboard::PutData("Drive Mode Chooser", sc);
 }
