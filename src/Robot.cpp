@@ -117,17 +117,13 @@ void Robot::TeleopInit() {
 	// teleop starts running. If you want the autonomous to 
 	// continue until interrupted by another command, remove
 	// these lines or comment it out.
-	if (autonomousCommandGroup != NULL)
-		autonomousCommandGroup->Cancel();
+	if (autonomousCommand != NULL)
+		autonomousCommand->Cancel();
 	SmartDashboard::PutData("schedulder", Scheduler::GetInstance());
-
 }
 
 void Robot::TeleopPeriodic() {
 	Scheduler::GetInstance()->Run();
-
-	//camera->GetImage(frame);
-//	CameraServer::GetInstance()->SetImage(frame);
 }
 
 void Robot::TestPeriodic() {
