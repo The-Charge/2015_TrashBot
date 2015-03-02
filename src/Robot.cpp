@@ -103,7 +103,7 @@ void Robot::DisabledPeriodic() {
 }
 
 void Robot::AutonomousInit() {
-	autonomousCommandGroup = (CommandGroup *) chooser->GetSelected();
+	autonomousCommandGroup = (CommandGroup *) sc->GetSelected();
 	if (autonomousCommandGroup != NULL)
 		autonomousCommandGroup->Start();
 }
