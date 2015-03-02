@@ -68,7 +68,7 @@ void RobotMap::init() {
 	liftEncoder = new Encoder(0, 1, false, Encoder::k4X);
 	lw->AddSensor("Lift", "Encoder", liftEncoder);
 	liftEncoder->SetDistancePerPulse(1.0);
-        liftEncoder->SetPIDSourceParameter(Encoder::kRate);
+        liftEncoder->SetPIDSourceParameter(Encoder::kDistance);
 	armsLeftArm = new DoubleSolenoid(0, 2, 3);      
 	lw->AddActuator("Arms", "LeftArm", armsLeftArm);
 	
