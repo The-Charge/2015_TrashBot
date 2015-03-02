@@ -117,10 +117,10 @@ public:
 	float absolutetolerance;
 	const std::string ABSOLUTE_TOLERANCE_DASHBOARD_KEY =
 			"DriveTrain: Absolute Tolerance";
-	const std::string TICKS_NEEDED_DASHBOARD_KEY = "DriveSDBFeet: Ticks Needed:";
+	const std::string TICKS_NEEDED_DASHBOARD_KEY = "DriveXFeet: Ticks Needed:";
 	const std::string PROPORTIONAL_CONSTANT_DASHBOARD_KEY =
 			"DriveXFeet::Proportional Constant";
-	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveTrain:Max Percent";
+	const std::string MAX_PERCENT_DASHBOARD_KEY = "DriveXFeet:Max Speed";
 	const std::string INTEGRAL_CONSTANT_DAHSBOARD_KEY =
 			"DriveXFeet::Integral Constant";
 
