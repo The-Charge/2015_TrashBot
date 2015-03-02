@@ -27,11 +27,6 @@ Drive::Drive() {
 	SmartDashboard::PutNumber(JOYSTICK_DEADBAND_DASHBOARD_KEY,
 			JOYSTICK_DEADBAND_DEFAULT);
 
-	SmartDashboard::PutNumber(SCALEFACTOR_GYRO_DASHBOARD_KEY,
-			SCALEFACTOR_DEFAULT);
-	SmartDashboard::PutNumber(GAINFACTOR_GYRO_DASHBOARD_KEY,
-			GAINFACTOR_DEFAULT);
-
 	SmartDashboard::PutNumber(SPEED_PERCENT_STRING, SPEED_PERCENT_DEFAULT);
 
 	sc = new SendableChooser();
@@ -50,11 +45,6 @@ Drive::Drive() {
 void Drive::Initialize() {
 	joystickDeadband = SmartDashboard::GetNumber(
 			JOYSTICK_DEADBAND_DASHBOARD_KEY, JOYSTICK_DEADBAND_DEFAULT);
-
-	ScaleFactor = SmartDashboard::GetNumber(SCALEFACTOR_GYRO_DASHBOARD_KEY,
-			SCALEFACTOR_DEFAULT);
-	GainFactor = SmartDashboard::GetNumber(GAINFACTOR_GYRO_DASHBOARD_KEY,
-			GAINFACTOR_DEFAULT);
 
 	delinearizationPower = SmartDashboard::GetNumber(
 			DELINEARIZATION_POWER_DASHBOARD_KEY, DELINEARIZATION_POWER_DEFAULT);

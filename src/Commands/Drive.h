@@ -34,9 +34,6 @@ private:
 	const std::string SCALEFACTOR_GYRO_DASHBOARD_KEY = "Drive::ScaleFactor";
 	const std::string GAINFACTOR_GYRO_DASHBOARD_KEY = "Drive::GainFactor";
 
-	const double SCALEFACTOR_DEFAULT = 1;
-	const double GAINFACTOR_DEFAULT = 1 / 2024;
-
 	double joystickDeadband;
 	double delinearizationPower;
 	double delinearizationAlpha;
