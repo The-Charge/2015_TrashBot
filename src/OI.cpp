@@ -84,7 +84,8 @@ OI::OI() {
 	liftUpFastBtn2->WhileHeld(new LiftUpFast());
 	joystick1 = new Joystick(0);
 	
-     
+     resetEncodersButton = new JoystickButton(joystick1, 8);
+	 resetEncodersButton-> WhenPressed(new ResetEncoders());
 
         // SmartDashboard Buttons
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());
