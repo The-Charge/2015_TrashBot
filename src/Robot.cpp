@@ -79,13 +79,22 @@ void Robot::RobotInit() {
 	sc = new SendableChooser();
 	drive1Auton = new std::string("o");
 	AutoPush = new std::string ("p");
+
+#ifdef VERBOSE_DASHBOARD
 	pushGreenBins = new std::string("b");
+#endif
+
 	ToteStack3Auton = new std::string("3t");
 	ToteStack2Auton = new std::string ("2t");
 	sc -> AddDefault ("PushOtherRobot", AutoPush);
+
+#ifdef VERBOSE_DASHBOARD
 	sc -> AddObject ("PushGreenBins", pushGreenBins);
+#endif
+
 	sc -> AddObject ("Auton2HardYellowTotes", ToteStack2Auton);
 	sc -> AddObject ("Auton3ToteStack", ToteStack3Auton);
+
 
 	SmartDashboard::PutData ("Auton Mode Chooser", sc);
 }
