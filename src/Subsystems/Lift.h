@@ -105,12 +105,12 @@ public:
 	int ticks = 0;
 	float speed = 0;
 
-	const float SPEED_UP = .7;
-	const float SPEED_DOWN = .4;
-	const float TOTE_ONE_ENGAGE_TICKS = 0;
-	const float TOTE_TWO_ENGAGE_TICKS = 3015;
-	const float TOTE_THREE_ENGAGE_TICKS = TOTE_TWO_ENGAGE_TICKS + TOTE_TWO_ENGAGE_TICKS;
-	const float GO_OVER_BIN_TICKS = 14205; //should go 4 inches above the bin.
+	static const float SPEED_UP;
+	static const float SPEED_DOWN;
+	static const float TOTE_ONE_ENGAGE_TICKS;
+	static const float TOTE_TWO_ENGAGE_TICKS;
+	static const float TOTE_THREE_ENGAGE_TICKS;
+	static const float GO_OVER_BIN_TICKS; //should go 4 inches above the bin.
 
 };
 

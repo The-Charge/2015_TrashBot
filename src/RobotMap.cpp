@@ -56,7 +56,7 @@ void RobotMap::init() {
 	driveTrainDriveGyro = new Gyro(0);
 	lw->AddSensor("DriveTrain", "DriveGyro", driveTrainDriveGyro);
 	driveTrainDriveGyro->SetSensitivity(0.007);
-	compressor1AirCompressor = new Compressor(1);
+	compressor1AirCompressor = new Compressor(62);
 	
 	
 	liftSolenoid1 = new DoubleSolenoid(0, 0, 1);      

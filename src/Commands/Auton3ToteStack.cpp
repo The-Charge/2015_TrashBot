@@ -18,6 +18,7 @@
 #include "Auton3ToteStack.h"
 #include "ParallelArmsIn.h"
 #include "ParallelArmsOut.h"
+#include "../Subsystems/Lift.h"
 
 Auton3ToteStack::Auton3ToteStack() {
 	// Add Commands here:
@@ -43,33 +44,36 @@ Auton3ToteStack::Auton3ToteStack() {
 
 	AddSequential(new ParallelArmsIn());
 
-	AddSequential(new LiftXTicks(Robot::lift -> GO_OVER_BIN_TICKS, Robot::lift -> SPEED_UP));
+	AddSequential(new LiftXTicks(Lift:: GO_OVER_BIN_TICKS, Lift:: SPEED_UP));
 	AddSequential(new StrafeXFeet(5.4125));
-	AddSequential(new LiftXTicks(Robot::lift -> TOTE_TWO_ENGAGE_TICKS,Robot::lift ->  SPEED_DOWN));
+	AddSequential(new LiftXTicks(Lift:: TOTE_TWO_ENGAGE_TICKS,Lift:: SPEED_DOWN));
 
 	AddSequential(new ParallelArmsOut());
 
 	//Grab Bin2
-	AddSequential(new LiftXTicks(Robot::lift -> TOTE_ONE_ENGAGE_TICKS, Robot::lift -> SPEED_DOWN));
+	AddSequential(new LiftXTicks(Lift:: TOTE_ONE_ENGAGE_TICKS, Lift::SPEED_DOWN));
 
 	AddSequential(new ParallelArmsIn());
 
-	AddSequential(new LiftXTicks(Robot::lift -> GO_OVER_BIN_TICKS, Robot::lift -> SPEED_UP));
+	AddSequential(new LiftXTicks(Lift:: GO_OVER_BIN_TICKS, Lift::SPEED_UP));
 	AddSequential(new StrafeXFeet(5.4125));
-	AddSequential(new LiftXTicks(Robot::lift -> TOTE_THREE_ENGAGE_TICKS,Robot::lift ->  SPEED_DOWN));
+	AddSequential(new LiftXTicks(Lift:: TOTE_THREE_ENGAGE_TICKS,Lift::  SPEED_DOWN));
 
 	AddSequential(new ParallelArmsOut());
 
 	//Grab Bin3
-	AddSequential(new LiftXTicks(Robot::lift -> TOTE_ONE_ENGAGE_TICKS, Robot::lift -> SPEED_DOWN));
+	AddSequential(new LiftXTicks(Lift:: TOTE_ONE_ENGAGE_TICKS, Lift::SPEED_DOWN));
 
 	AddSequential(new ParallelArmsIn());
 
-	AddSequential(new LiftXTicks(Robot::lift -> TOTE_ONE_ENGAGE_TICKS, Robot::lift -> SPEED_UP));
+	AddSequential(new LiftXTicks(Lift::TOTE_ONE_ENGAGE_TICKS, Lift::SPEED_UP));
 
 	//Moving to auto zone
 	AddSequential(new DriveXFeet(-8.11, .5));
 
 	AddSequential(new ParallelArmsOut());
 
+	AddSequential (new DriveXFeet(.5)); // to clear away from bin
+
+	AddSequential (new LiftXTicks(Lift::GO_OVER_BIN_TICKS, Lift::SPEED_UP));
 }
