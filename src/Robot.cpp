@@ -77,6 +77,7 @@ void Robot::RobotInit() {
 
 	//driveMode = new
 
+	//Autonomus Mode Sendable Chooser
 	sc = new SendableChooser();
 	sc -> AddDefault ("PushOtherRobot", new AutonomousStrategyPush());
 	sc -> AddObject ("PushGreenBins", new GreenBinsAuto());
