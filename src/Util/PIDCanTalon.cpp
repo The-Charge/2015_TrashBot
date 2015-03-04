@@ -13,5 +13,5 @@ PIDCanTalon::PIDCanTalon(CANTalon * talon) {
 }
 
 double PIDCanTalon::PIDGet() {
-	return _talon->GetEncPosition();
+	return _talon->GetEncPosition() * -1;
 }
