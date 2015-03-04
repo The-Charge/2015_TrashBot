@@ -27,6 +27,7 @@
 #include "Commands/LeftArmOut.h"
 #include "Commands/LiftDownFast.h"
 #include "Commands/LiftDownSlow.h"
+#include "Commands/LiftSDBTicks.h"
 #include "Commands/LiftUpFast.h"
 #include "Commands/LiftUpSlow.h"
 #include "Commands/LiftXTicksTesting.h"
@@ -89,6 +90,7 @@ OI::OI() {
 
         // SmartDashboard Buttons
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());
+	SmartDashboard::PutData("LiftSDBTicks", new LiftSDBTicks());
 
 	SmartDashboard::PutData("LiftXTicksTesting", new LiftXTicksTesting());
 

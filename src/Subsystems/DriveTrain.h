@@ -61,7 +61,7 @@ public:
 
 	const std::string TICKS_PER_ONE_FOOT_DASHBOARD_KEY =
 			"DriveXFeet:Ticks per One Foot";
-	const float TICKS_PER_ONE_FOOT_DEFAULT = 775;
+	const float TICKS_PER_ONE_FOOT_DEFAULT = 64;//775; //was 775
 	const float TICKS_PER_1_FOOT_STRAFE_DEFAULT = 1200;
 
 	PIDController*leftFrontPIDController;

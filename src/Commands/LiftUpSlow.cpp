@@ -40,7 +40,7 @@ bool LiftUpSlow::IsFinished() {
 
 // Called once after isFinished returns true
 void LiftUpSlow::End() {
-	Robot::lift->speedController->Set(0);
+	Robot::lift->Stop();
 }
 
 // Called when another command which requires one or more of the same

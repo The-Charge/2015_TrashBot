@@ -19,6 +19,6 @@ ParallelArmsIn::ParallelArmsIn() {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddParallel(new LeftArmIn());
-	AddParallel(new RightArmIn());
+	AddSequential(new LeftArmIn());
+	AddSequential(new RightArmIn());
 }

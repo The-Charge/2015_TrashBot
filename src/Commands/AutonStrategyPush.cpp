@@ -11,6 +11,7 @@
 
 
 #include "AutonStrategyPush.h"
+#include "DriveXFeet.h"
 
 AutonStrategyPush::AutonStrategyPush() {
 	// Add Commands here:
@@ -29,4 +30,5 @@ AutonStrategyPush::AutonStrategyPush() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
+	AddSequential(new DriveXFeet(-9, .3));
 }

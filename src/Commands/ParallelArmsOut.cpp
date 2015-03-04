@@ -19,7 +19,7 @@ ParallelArmsOut::ParallelArmsOut() {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddParallel(new LeftArmOut());
-	AddParallel(new RightArmOut());
+	AddSequential(new LeftArmOut());
+	AddSequential(new RightArmOut());
 
 }

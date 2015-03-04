@@ -251,7 +251,8 @@ void DriveTrain::SetDistanceInFeet(float dist) {
 	leftFrontPIDController->SetSetpoint(TICKS_NEEDED);
 	rightFrontPIDController->SetSetpoint(-1 * TICKS_NEEDED);
 
-	DriveTrain::EncoderReset();
+	//DriveTrain::EncoderReset();
+	ResetDistance();
 
 	leftFrontPIDController->Enable();
 	rightFrontPIDController->Enable();
