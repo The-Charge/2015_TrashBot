@@ -49,7 +49,12 @@ void Lift::InitDefaultCommand() {
 }
 void Lift::LiftUpFast() {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() >= UPPER_SAFETY_LIMIT) {
+	if (Robot::oi-> getButtonBox()-> GetRawButton(16))
+	{
+		BrakeOff();
+		speedController -> Set (ReadFastPotentiometer() * 1);
+	}
+	else if (CurrentLiftPosition() >= UPPER_SAFETY_LIMIT) {
 		Stop();
 	} else {
 		BrakeOff();
@@ -58,7 +63,12 @@ void Lift::LiftUpFast() {
 }
 void Lift::LiftDownFast() {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_FAST) {
+	if (Robot::oi-> getButtonBox()-> GetRawButton(16))
+		{
+			BrakeOff();
+			speedController -> Set (ReadFastPotentiometer() * -1);
+		}
+	else if (CurrentLiftPosition() <= LOWER_SAFETY_LIMIT_FAST) {
 		Stop();
 	} else {
 		BrakeOff();
@@ -66,8 +76,13 @@ void Lift::LiftDownFast() {
 	}
 }
 void Lift::LiftUpSlow() {
-	UpdateSmartDashboard();
-	if (CurrentLiftPosition() >= UPPER_SAFETY_LIMIT) {
+	UpdateSmartDashboard();\
+	if (Robot::oi-> getButtonBox()-> GetRawButton(16))
+		{
+			BrakeOff();
+			speedController -> Set (ReadSlowPotentiometer() * 1);
+		}
+	else if (CurrentLiftPosition() >= UPPER_SAFETY_LIMIT) {
 		Stop();
 	} else {
 		BrakeOff();
@@ -76,7 +91,12 @@ void Lift::LiftUpSlow() {
 }
 void Lift::LiftDownSlow() {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)) {
+	if (Robot::oi-> getButtonBox()-> GetRawButton(16))
+		{
+			BrakeOff();
+			speedController -> Set (ReadSlowPotentiometer() * -1);
+		}
+	else if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)) {
 		Stop();
 	} else {
 		BrakeOff();

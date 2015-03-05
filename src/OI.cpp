@@ -71,6 +71,8 @@ OI::OI() {
 	liftUpFastBtn = new JoystickButton(buttonBox, 1);
 	liftUpFastBtn->WhileHeld(new LiftUpFast());
 	joystick2 = new Joystick(1);
+	overRideEncoderBtn = new JoystickButton(buttonBox, 11);
+	overRideEncoderBtn -> WhileHeld (new LiftUpFast());
 	
 	parallelArmsOutBtn2 = new JoystickButton(joystick2, 11);
 	parallelArmsOutBtn2->WhenPressed(new ParallelArmsOut());
