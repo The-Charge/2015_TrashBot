@@ -15,8 +15,9 @@
 #include "Commands/Auton2HardYellowTotes.h"
 #include "Commands/Auton3TotesStack.h"
 #include "Commands/AutonOneTote.h"
-//#include "Commands/AutonStrategy2.h"
-#include "Commands/AutonStrategyPush.h"
+#include "Commands/AutonPushOverScoringPlatform.h"
+#include "Commands/AutonomousStrategy2.h"
+#include "Commands/AutonomousStrategyPush.h"
 #include "Commands/BrakeOff.h"
 #include "Commands/BrakeOn.h"
 #include "Commands/Drive.h"
@@ -27,7 +28,6 @@
 #include "Commands/LeftArmOut.h"
 #include "Commands/LiftDownFast.h"
 #include "Commands/LiftDownSlow.h"
-#include "Commands/LiftSDBTicks.h"
 #include "Commands/LiftUpFast.h"
 #include "Commands/LiftUpSlow.h"
 #include "Commands/LiftXTicksTesting.h"
@@ -90,7 +90,6 @@ OI::OI() {
 
         // SmartDashboard Buttons
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());
-	SmartDashboard::PutData("LiftSDBTicks", new LiftSDBTicks());
 
 	SmartDashboard::PutData("LiftXTicksTesting", new LiftXTicksTesting());
 
@@ -104,7 +103,7 @@ OI::OI() {
 
 	SmartDashboard::PutData("TurnSDBDegrees", new TurnSDBDegrees());
 
-	SmartDashboard::PutData("AutonStrategyPush", new AutonStrategyPush());
+	SmartDashboard::PutData("AutonomousStrategyPush", new AutonomousStrategyPush());
 
 	SmartDashboard::PutData("Auton3TotesStack", new Auton3TotesStack());
 
@@ -112,7 +111,7 @@ OI::OI() {
 
 	SmartDashboard::PutData("GreenBinsAuto", new GreenBinsAuto());
 
-	//SmartDashboard::PutData("AutonStrategy2", new AutonomousStrategy2());
+	SmartDashboard::PutData("AutonomousStrategy2", new AutonomousStrategy2());
 
 	SmartDashboard::PutData("AutonOneTote", new AutonOneTote());
 

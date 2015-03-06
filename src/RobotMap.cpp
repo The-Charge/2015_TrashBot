@@ -56,7 +56,7 @@ void RobotMap::init() {
 	driveTrainDriveGyro = new Gyro(0);
 	lw->AddSensor("DriveTrain", "DriveGyro", driveTrainDriveGyro);
 	driveTrainDriveGyro->SetSensitivity(0.007);
-	compressor1AirCompressor = new Compressor(62);
+	compressor1AirCompressor = new Compressor(1);
 	
 	
 	liftSolenoid1 = new DoubleSolenoid(0, 0, 1);      
@@ -68,7 +68,7 @@ void RobotMap::init() {
 	liftEncoder = new Encoder(0, 1, false, Encoder::k4X);
 	lw->AddSensor("Lift", "Encoder", liftEncoder);
 	liftEncoder->SetDistancePerPulse(1.0);
-        liftEncoder->SetPIDSourceParameter(Encoder::kDistance);
+        liftEncoder->SetPIDSourceParameter(Encoder::kRate);
 	armsLeftArm = new DoubleSolenoid(0, 2, 3);      
 	lw->AddActuator("Arms", "LeftArm", armsLeftArm);
 	
