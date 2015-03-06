@@ -19,5 +19,5 @@ AutonPushOverScoringPlatform::AutonPushOverScoringPlatform()
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddSequential(new DriveXFeet(12, .3));
+	AddSequential(new DriveXFeet(-12.416, .3));
 }
