@@ -75,8 +75,11 @@ void Lift::LiftUpSlow() {
 	}
 }
 void Lift::LiftDownSlow() {
+	LiftDownSlow(false);
+}
+void Lift::LiftDownSlow(bool override) {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)) {
+	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)&& !override) {
 		Stop();
 	} else {
 		BrakeOff();

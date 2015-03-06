@@ -39,6 +39,7 @@ public:
 	void LiftDownFast();
 	void LiftUpSlow();
 	void LiftDownSlow();
+	void LiftDownSlow(bool);
 	void BrakeOn();
 	void BrakeOff();
 	void BrakePowerOff();
