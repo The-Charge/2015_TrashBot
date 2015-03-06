@@ -16,6 +16,7 @@
 #include "DriveXFeet.h"
 #include "ParallelArmsOut.h"
 #include "ParallelArmsIn.h"
+#include "DelayCommand.h"
 
 
 AutonOneTote::AutonOneTote() {
@@ -42,18 +43,21 @@ AutonOneTote::AutonOneTote() {
 
 
 	AddSequential (new ParallelArmsIn());
+
+	AddSequential (new DelayCommand(1));
+
 	AddSequential(new LiftXTicks(Lift:: TOTE_TWO_ENGAGE_TICKS,Lift::SPEED_UP));
 
-	AddSequential (new DriveXFeet(-8));
+	AddSequential (new DriveXFeet(-10, .3));
 
-	AddSequential (new LiftXTicks(Lift::TOTE_ONE_ENGAGE_TICKS, Lift::SPEED_DOWN));
+	AddSequential(new LiftXTicks(Lift:: TOTE_ONE_ENGAGE_TICKS,Lift::SPEED_DOWN));
 
 	AddSequential (new ParallelArmsOut());
 
 
 	// may want to add this to all command groups so it is ovbious we are not touching totes;
 
-	AddSequential (new DriveXFeet(.5)); // to clear away from bin
+	AddSequential (new DriveXFeet(-.5, .3)); // to clear away from bin
 
 	AddSequential (new LiftXTicks(Lift::GO_OVER_BIN_TICKS, Lift::SPEED_UP));
 
