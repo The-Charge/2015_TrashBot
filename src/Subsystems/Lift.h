@@ -95,8 +95,8 @@ public:
 	const int MAX_LIFT_TICKS = 16200;
 
 	const int UPPER_DEADBAND = 500;
-	const int LOWER_DEADBAND_SLOW = 300; //was 500
-	const int LOWER_DEADBAND_FAST = 1000; //was 1000
+	const int LOWER_DEADBAND_SLOW = 500; //was 500
+	const int LOWER_DEADBAND_FAST = 1300; //was 1000
 
 	const int UPPER_SAFETY_LIMIT = MAX_LIFT_TICKS - UPPER_DEADBAND;
 	const int LOWER_SAFETY_LIMIT_SLOW = LOWER_DEADBAND_SLOW + 0;
