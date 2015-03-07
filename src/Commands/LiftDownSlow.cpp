@@ -30,7 +30,7 @@ void LiftDownSlow::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void LiftDownSlow::Execute() {
-	Robot::lift->LiftDownSlow(Robot::oi -> getJoystick2() -> GetRawButton(1));
+	Robot::lift->LiftDownSlow((Robot::oi -> getJoystick2() -> GetRawButton(1)) || (Robot::oi -> getButtonBox() -> GetRawButton(13)));
 }
 
 // Make this return true when this Command no longer needs to run execute()
