@@ -59,6 +59,6 @@ AutonOneTote::AutonOneTote() {
 
 	AddSequential (new DriveXFeet(-.5, .3)); // to clear away from bin
 
-	AddSequential (new LiftXTicks(Lift::GO_OVER_BIN_TICKS, Lift::SPEED_UP));
+	AddSequential (new LiftXTicks(Lift::TOTE_TWO_ENGAGE_TICKS, Lift::SPEED_UP));
 
 }
