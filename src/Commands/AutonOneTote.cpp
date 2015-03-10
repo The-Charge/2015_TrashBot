@@ -48,7 +48,7 @@ AutonOneTote::AutonOneTote() {
 
 	AddSequential(new LiftXTicks(Lift:: TOTE_TWO_ENGAGE_TICKS,Lift::SPEED_UP));
 
-	AddSequential (new DriveXFeet(-10, .3));
+	AddSequential (new DriveXFeet(-9.5, .3));
 
 	AddSequential(new LiftXTicks(Lift:: TOTE_ONE_ENGAGE_TICKS,Lift::SPEED_DOWN));
 
