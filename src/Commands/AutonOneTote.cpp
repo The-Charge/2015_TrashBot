@@ -17,6 +17,7 @@
 #include "ParallelArmsOut.h"
 #include "ParallelArmsIn.h"
 #include "DelayCommand.h"
+#include "TurnNDegrees.h"
 
 
 AutonOneTote::AutonOneTote() {
@@ -48,7 +49,11 @@ AutonOneTote::AutonOneTote() {
 
 	AddSequential(new LiftXTicks(Lift:: TOTE_TWO_ENGAGE_TICKS,Lift::SPEED_UP));
 
-	AddSequential (new DriveXFeet(-10, .3));
+	AddSequential (new DriveXFeet(-7.5, .3));
+
+	AddSequential (new TurnNDegrees(90, .3, 10));
+
+	AddSequential (new DriveXFeet(1, .3));
 
 	AddSequential(new LiftXTicks(Lift:: TOTE_ONE_ENGAGE_TICKS,Lift::SPEED_DOWN));
 
@@ -57,8 +62,8 @@ AutonOneTote::AutonOneTote() {
 
 	// may want to add this to all command groups so it is ovbious we are not touching totes;
 
-	AddSequential (new DriveXFeet(-.5, .3)); // to clear away from bin
+	AddSequential (new DriveXFeet(-1, .3));  // to clear away from bin
 
-	AddSequential (new LiftXTicks(Lift::TOTE_TWO_ENGAGE_TICKS, Lift::SPEED_UP));
+	AddParallel (new LiftXTicks(Lift::GO_OVER_BIN_TICKS, Lift::SPEED_UP));
 
 }
