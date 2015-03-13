@@ -43,7 +43,7 @@ AutonPickingUpTwoThings::AutonPickingUpTwoThings()
 		AddSequential(new DriveXFeet(-7.5, .5));// should end up in the middle of the zone
 		AddSequential(new TurnNDegrees(90, .3, 10)); // turning 90 degrees
 		AddSequential(new DriveXFeet(1,.5));// moving forward
-		AddSequential(new LiftXTicks(Lift::TOTE_ONE_ENGAGE_TICKS)); //Lowers totes to the ground
+		AddSequential(new LiftXTicks(Lift::TOTE_ONE_ENGAGE_TICKS, Lift::SPEED_DOWN)); //Lowers totes to the ground
 		AddSequential(new ParallelArmsOut());// letting go of the stack
 		AddSequential(new DriveXFeet(-1,.5)); // driving back
 		AddSequential(new LiftXTicks(Lift::GO_OVER_BIN_TICKS, Lift:: SPEED_UP));// going all the way up (to go over a bin)
