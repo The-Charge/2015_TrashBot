@@ -21,40 +21,22 @@ GreenBinsAuto::GreenBinsAuto() {
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	//First bin
-	/*
-	 for (int x = 0; x < 3; x++)
-	 {
-	 AddSequential(new StrafeXFeet(2));
-	 AddSequential(new StrafeXFeet(-.5));
-	 AddSequential(new TurnNDegrees(90));
-	 AddSequential(new DriveXFeet(3));
-	 AddSequential(new DriveXFeet(-5));
-
-	 if(x < 2)
-	 {
-	 AddSequential(new TurnNDegrees(-90));
-	 AddSequential(new DriveXFeet(6.41666));
-	 }
-	 }
-	 */
-
 	for(int x = 0; x < 3; x++)
 	{
 		AddSequential(new StrafeXFeet(2));
 		AddSequential(new StrafeXFeet(-.5));
-		AddSequential(new TurnNDegrees(90, .5, 12));
-		AddSequential(new DriveXFeet(4, .7));
+		AddSequential(new TurnNDegrees(-90, .5, 12));
+		AddSequential(new DriveXFeet(-4, .7));
 
 		if(x < 2)
 		{
-			AddSequential(new DriveXFeet(-5, .7));
+			AddSequential(new DriveXFeet(5, .7));
 
-			AddSequential(new TurnNDegrees(-90, .5, 12));
+			AddSequential(new TurnNDegrees(90, .5, 12));
 			AddSequential(new DriveXFeet(6.41666, .9));
 		}
 		else
-			AddSequential(new DriveXFeet(1, .7));
+			AddSequential(new DriveXFeet(-1, .7));
 	}
 
 }
