@@ -63,26 +63,26 @@ DriveTrain::DriveTrain() :
 //	strafePIDController = new PIDController(0, 0, 0, robotStra);
 
 //#ifdef VERBOSE_DASHBOARD
-	SmartDashboard::PutNumber(ABSOLUTE_TOLERANCE_DASHBOARD_KEY,
-			ABSOLUTE_TOLERANCE_DEFAULT);
-	SmartDashboard::PutNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,
-			INTEGRAL_CONSTANT_DEFAULT);
-	SmartDashboard::PutNumber(MAX_PERCENT_DASHBOARD_KEY, MAX_PERCENT_DEFAULT);
-	SmartDashboard::PutNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,
-			PROPORTIONAL_CONSTANT_DEFAULT);
-	SmartDashboard::PutNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY,
-			FEET_DEFAULT);
-	SmartDashboard::PutNumber(STRAFE_SDB_FEET_DASHBOARD_KEY,
-			STRAFE_SBD_FEET_DEFAULT);
+	//SmartDashboard::PutNumber(ABSOLUTE_TOLERANCE_DASHBOARD_KEY,
+	//		ABSOLUTE_TOLERANCE_DEFAULT);
+	//SmartDashboard::PutNumber(INTEGRAL_CONSTANT_DAHSBOARD_KEY,
+	//		INTEGRAL_CONSTANT_DEFAULT);
+	//SmartDashboard::PutNumber(MAX_PERCENT_DASHBOARD_KEY, MAX_PERCENT_DEFAULT);
+	//SmartDashboard::PutNumber(PROPORTIONAL_CONSTANT_DASHBOARD_KEY,
+	//		PROPORTIONAL_CONSTANT_DEFAULT);
+	//SmartDashboard::PutNumber(DISTANCE_TO_TRAVEL_IN_FEET_DASHBOARD_KEY,
+	//		FEET_DEFAULT);
+	//SmartDashboard::PutNumber(STRAFE_SDB_FEET_DASHBOARD_KEY,
+	//		STRAFE_SBD_FEET_DEFAULT);
 
-	SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
-	SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
-	SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
+	//SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
+	//SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
+	//SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
 
-	SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
-			TICKS_PER_1_FOOT_STRAFE_DEFAULT);
-	SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
-			TICKS_PER_ONE_FOOT_DEFAULT);
+	//SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
+	//		TICKS_PER_1_FOOT_STRAFE_DEFAULT);
+	//SmartDashboard::PutNumber(TICKS_PER_ONE_FOOT_DASHBOARD_KEY,
+	//		TICKS_PER_ONE_FOOT_DEFAULT);
 //#endif
 
 
@@ -112,34 +112,34 @@ void DriveTrain::UpdateDashboard() {
 
 //#ifdef VERBOSE_DASHBOARD
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
-			leftFrontPIDController->GetError());
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
+		//	leftFrontPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY,
 			CANTalonLeftFront->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY,
-			CANTalonLeftFront->GetEncVel());
+	//SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY,
+		//	CANTalonLeftFront->GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
-			leftRearPIDController->GetError());
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
+		//	leftRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY,
 			CANTalonLeftRear->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY,
-			CANTalonLeftFront->GetEncVel());
+	//SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY,
+	//	CANTalonLeftFront->GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
-			rightRearPIDController->GetError());
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
+	//	rightRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY,
 			CANTalonRightRear->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY,
-			CANTalonRightRear->GetEncVel());
+	//SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY,
+	//	CANTalonRightRear->GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY,
-			rightFrontPIDController->GetError());
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_FRONT_DASHBOARD_KEY,
+	//	rightFrontPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_FRONT_DASHBOARD_KEY,
 			CANTalonRightFront->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY,
-			CANTalonRightFront->GetEncVel());
-	SmartDashboard::PutNumber(TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
+	//SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_FRONT_DASHBOARD_KEY,
+	//	CANTalonRightFront->GetEncVel());
+	//SmartDashboard::PutNumber(TICKS_NEEDED_DASHBOARD_KEY, TICKS_NEEDED);
 
 	//SmartDashboard::PutNumber(STRAFE_X_FEET_TICKS_PER_ONE_FOOT_KEY,
 	//		TICKS_PER_1_FOOT_STRAFE_DEFAULT);
@@ -212,26 +212,26 @@ void DriveTrain::PutEncoderValuesToDashboard() {
 
 //#ifdef VERBOSE_DASHBOARD
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
-			leftFrontPIDController->GetError());
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_FRONT_DASHBOARD_KEY,
+	//		leftFrontPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_FRONT_DASHBOARD_KEY,
 			CANTalonLeftFront->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY,
-			CANTalonLeftFront->GetEncVel());
+	//SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_FRONT_DASHBOARD_KEY,
+	//		CANTalonLeftFront->GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
-			leftRearPIDController->GetError());
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_LEFT_REAR_DASHBOARD_KEY,
+	//		leftRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_LEFT_REAR_DASHBOARD_KEY,
 			CANTalonLeftRear->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY,
-			CANTalonLeftRear->GetEncVel());
+	//SmartDashboard::PutNumber(ENCODER_VELOCITY_LEFT_REAR_DASHBOARD_KEY,
+	//		CANTalonLeftRear->GetEncVel());
 
-	SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
-			rightRearPIDController->GetError());
+	//SmartDashboard::PutNumber(CLOSED_LOOP_ERROR_RIGHT_REAR_DASHBOARD_KEY,
+	//		rightRearPIDController->GetError());
 	SmartDashboard::PutNumber(ENCODER_POSITION_RIGHT_REAR_DASHBOARD_KEY,
 			CANTalonRightRear->GetEncPosition());
-	SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY,
-			CANTalonRightRear->GetEncVel());
+	//SmartDashboard::PutNumber(ENCODER_VELOCITY_RIGHT_REAR_DASHBOARD_KEY,
+	//		CANTalonRightRear->GetEncVel());
 //#endif
 }
 
@@ -309,9 +309,9 @@ void DriveTrain::Stop() {
 void DriveTrain::PutTurnSmartDashboardValues()
 {
 //#ifdef VERBOSE_DASHBOARD
-	SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
-	SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
-	SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
+	//SmartDashboard::PutNumber(ANGLE_TO_TURN_DASHBOARD_KEY, degreesturning);
+	//SmartDashboard::PutNumber(TURNING_SPEED_DASHBOARD_KEY, speed);
+	//SmartDashboard::PutNumber(DEADTURN_DASHBOARD_KEY, deadturn);
 //#endif
 }
 
