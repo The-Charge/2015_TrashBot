@@ -22,7 +22,7 @@ StrafeXFeet::StrafeXFeet(float f) {
 
 // Called just before this Command runs the first time
 void StrafeXFeet::Initialize() {
-	this->SetTimeout(10);
+	this->SetTimeout(5);
 	Robot::driveTrain->StrafeXFt(feet);
 }
 

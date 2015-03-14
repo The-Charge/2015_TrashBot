@@ -189,23 +189,23 @@ void Lift::UpdateSmartDashboard() {
 
 void Lift::PutDashboardValues() {
 //#ifdef VERBOSE_DASHBOARD
-	SmartDashboard::PutNumber(LIFT_SPEED_UP_FAST_KEY,
-			LIFT_SPEED_UP_FAST_DEFAULT);
+	//SmartDashboard::PutNumber(LIFT_SPEED_UP_FAST_KEY,
+		//	LIFT_SPEED_UP_FAST_DEFAULT);
 
-	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_FAST_KEY,
-			LIFT_SPEED_DOWN_FAST_DEFAULT);
+	//SmartDashboard::PutNumber(LIFT_SPEED_DOWN_FAST_KEY,
+		//	LIFT_SPEED_DOWN_FAST_DEFAULT);
 
-	SmartDashboard::PutNumber(LIFT_SPEED_UP_SLOW_KEY,
-			LIFT_SPEED_UP_SLOW_DEFAULT);
+	//SmartDashboard::PutNumber(LIFT_SPEED_UP_SLOW_KEY,
+		//	LIFT_SPEED_UP_SLOW_DEFAULT);
 
-	SmartDashboard::PutNumber(LIFT_SPEED_DOWN_SLOW_KEY,
-			LIFT_SPEED_DOWN_SLOW_DEFAULT);
+	//SmartDashboard::PutNumber(LIFT_SPEED_DOWN_SLOW_KEY,
+		//	LIFT_SPEED_DOWN_SLOW_DEFAULT);
 
-	SmartDashboard::PutNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT);
+	//SmartDashboard::PutNumber(LIFT_DEADBAND_STRING, LIFT_DEADBAND_DEFAULT);
 
-	SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
-	SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
+	//SmartDashboard::PutNumber(LIFT_TICKS_STRING, TICKS_LIFT_DEFAULT);
+	//SmartDashboard::PutNumber(LIFT_SPEED_STRING, SPEED_LIFT_DEFAULT);
 
-	SmartDashboard::PutNumber(MAX_VALUE_TICKS, MAX_LIFT_TICKS);
+	//SmartDashboard::PutNumber(MAX_VALUE_TICKS, MAX_LIFT_TICKS);
 //#endif
 }
