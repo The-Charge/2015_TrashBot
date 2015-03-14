@@ -10,11 +10,9 @@
 
 
 
-#include "AutonomousStrategyPush.h"
-#include "DriveXFeet.h"
-#include "TurnNDegrees.h"
+#include "AutonPushOverScoring.h"
 
-AutonomousStrategyPush::AutonomousStrategyPush() {
+AutonPushOverScoring::AutonPushOverScoring() {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
 	//      AddSequential(new Command2());
@@ -31,6 +29,4 @@ AutonomousStrategyPush::AutonomousStrategyPush() {
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-	AddSequential (new DriveXFeet(-2, .3));
-	AddSequential (new TurnNDegrees(-90, .6, 10));
 }
