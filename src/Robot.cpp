@@ -84,7 +84,7 @@ void Robot::RobotInit() {
 
 	//Autonomus Mode Sendable Chooser
 	sc = new SendableChooser();
-	sc -> AddDefault ("AutonDrive", new AutonStrategyPush());
+	sc -> AddDefault ("AutonDrive", new AutonomousStrategyPush());
 	sc -> AddObject ("DoNothing", new DelayCommand(15));
 	sc -> AddObject ("AutonDriveOver", new AutonPushOverScoringPlatform);
 	sc -> AddObject ("PushGreenBins", new GreenBinsAuto());

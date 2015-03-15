@@ -349,7 +349,7 @@ void DriveTrain::ResetDirection() {
 }
 
 bool DriveTrain::AtTurnDestination() {
-	float error = degreesturning - (GetCurrentPos());
+	float error = degreesturning + (GetCurrentPos());
 	if (fabs(error) < deadturn)
 		return true;
 	else
