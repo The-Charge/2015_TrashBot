@@ -20,7 +20,7 @@
 #include "Commands/AutonOneTote.h"
 #include "Commands/Auton2HardYellowTotes.h"
 #include "Commands/Auton3TotesStack.h"
-#include "Commands/AutonStrategyPush.h"
+#include "Commands/AutonomousStrategyPush.h"
 #include "Commands/AutonOneTote.h"
 #include "Commands/GreenBinsAuto.h"
 #include "Commands/AutonPushOverScoringPlatform.h"
