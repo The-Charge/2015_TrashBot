@@ -31,7 +31,7 @@ AutonOneToteCounterClockwise::AutonOneToteCounterClockwise()
 
 		AddSequential(new LiftXTicks(Lift:: TOTE_TWO_ENGAGE_TICKS,Lift::SPEED_UP));
 
-		AddSequential (new DriveXFeet(-7.5, .3));
+		AddSequential (new DriveXFeet(-8, .3));
 
 		AddSequential (new TurnNDegrees(-90, .3, 10));
 
