@@ -79,8 +79,8 @@ void Lift::LiftDownSlow() {
 }
 void Lift::LiftDownSlow(bool override) {
 	UpdateSmartDashboard();
-	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)&& !override) {
-		Stop();
+//	if (CurrentLiftPosition() <= (LOWER_SAFETY_LIMIT_SLOW)&& !override) {//
+		if (CurrentLiftPosition() <= 0) {		Stop();
 	} else {
 		BrakeOff();
 		speedController->Set(ReadSlowPotentiometer() * -1);
@@ -101,7 +101,7 @@ float Lift::ReadSlowPotentiometer()
 	int y = Robot::oi->getButtonBox()->GetY();
 
 	if(y < 0)
-		return .1*y + .4;
+		return .2*y + .2;
 	else
 		return .3*y + .4;
 }
