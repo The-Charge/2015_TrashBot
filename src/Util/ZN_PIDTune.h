@@ -3,7 +3,7 @@
 
 class ZN_PIDTune {
 public:
-	static float* PIDTuner(float Ku, float Tu);
+	static float* PIDTuner(float Ku, float Tu, float* TPID);
 
 };
 

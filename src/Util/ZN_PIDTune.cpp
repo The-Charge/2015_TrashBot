@@ -1,8 +1,8 @@
 #include "ZN_PIDTune.h"
 #include <cmath>
 
- float* PIDTuner(float Ku, float Tu){
-	 float* TPID = new float[3];
+ float* PIDTuner(float Ku, float Tu, float* TPID){
+
 
 	 //Creates the p value for the PID controller
 	 TPID[0] = (Ku/3.0);
