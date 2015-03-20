@@ -182,8 +182,8 @@ void Lift::BrakePowerOff() {
 
 void Lift::UpdateSmartDashboard() {
 //#ifdef VERBOSE_DASHBOARD
-	SmartDashboard::PutNumber(LIFT_ENCODER_VALUE_DASHBOARD_KEY,
-			CurrentLiftPosition());
+	//SmartDashboard::PutNumber(LIFT_ENCODER_VALUE_DASHBOARD_KEY,
+		//	CurrentLiftPosition());
 //#endif
 }
 
