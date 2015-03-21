@@ -25,7 +25,7 @@ DriveXFeet::DriveXFeet(float f, float m) {
 
 // Called just before this Command runs the first time
 void DriveXFeet::Initialize() {
-	this->SetTimeout(10);
+	this->SetTimeout(8);
 
 	Robot::driveTrain->ResetDistance();
 	Robot::driveTrain->SetDistanceInFeet(feet);

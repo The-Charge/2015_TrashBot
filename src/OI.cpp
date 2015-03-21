@@ -52,9 +52,9 @@ OI::OI() {
 
 	buttonBox = new Joystick(2);
 	
-	BinRetrievalLowerBtn = new JoystickButton(buttonBox, 12);
+	BinRetrievalLowerBtn = new JoystickButton(buttonBox, 11);
 	BinRetrievalLowerBtn -> WhileHeld (new BinRetrievalLower());
-	BinRetrievalRaiseBtn = new JoystickButton(buttonBox, 11);
+	BinRetrievalRaiseBtn = new JoystickButton(buttonBox, 12);
 	BinRetrievalRaiseBtn -> WhileHeld(new BinRetrievalRaise());
 
 	parallelArmsOutBtn = new JoystickButton(buttonBox, 10);

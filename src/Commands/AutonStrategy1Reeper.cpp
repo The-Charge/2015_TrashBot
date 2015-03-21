@@ -23,10 +23,12 @@ AutonStrategy1Reeper::AutonStrategy1Reeper()
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddSequential (new DriveXFeet(-3, .5) );
-	AddSequential (new BinRetrievalRaiseAuton (5));
-	AddSequential (new DelayCommand(1));
-	AddSequential (new DriveXFeet(6, .8));
+	AddSequential (new DriveXFeet(-.75, .25) );
+	AddSequential (new BinRetrievalRaiseAuton (3));
+	//AddSequential (new DelayCommand(1));
+	AddSequential (new DriveXFeet(8, .8));
+
+	AddParallel (new DriveXFeet(-1, .4));
 	AddSequential (new BinRetrievalLowerAutonm(4));
 
 }
