@@ -26,7 +26,7 @@ DriveXFeet::DriveXFeet(float f, float m) {
 // Called just before this Command runs the first time
 void DriveXFeet::Initialize() {
 	this->SetTimeout( (1.0069 * feet)  - (6 * maxpercent) + 1.7448);
-
+	//8
 	Robot::driveTrain->ResetDistance();
 	Robot::driveTrain->SetDistanceInFeet(feet);
 	Robot::driveTrain->SetPIDControllerOutputRange(maxpercent);
