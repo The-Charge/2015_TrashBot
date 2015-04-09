@@ -1,7 +1,8 @@
 #include "AutonStrategy1ReeperParallel.h"
-#include "DriveXFeet.h"
+#include "DriveXFeetReeper.h"
 #include "BinRetrievalRaiseAuton.h"
 #include "BinRetrievalLowerAutonm.h"
+#include "DriveXFeet.h"
 AutonStrategy1ReeperParallel::AutonStrategy1ReeperParallel()
 {
 	// Add Commands here:
@@ -21,7 +22,7 @@ AutonStrategy1ReeperParallel::AutonStrategy1ReeperParallel()
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 
-	AddParallel (new DriveXFeet(-.75, .25) );
+	AddParallel (new DriveXFeetReeper(-.75, .25) );
 	AddSequential (new BinRetrievalRaiseAuton (3));
 	//AddSequential (new DelayCommand(1));
 	AddSequential (new DriveXFeet(8, .8));
