@@ -6,13 +6,13 @@
 class BinRetrievalRaiseAuton: public Command
 {
 public:
-	BinRetrievalRaiseAuton(int t);
+	BinRetrievalRaiseAuton(float t);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
-	int timetorun;
+	float timetorun;
 };
 
 #endif

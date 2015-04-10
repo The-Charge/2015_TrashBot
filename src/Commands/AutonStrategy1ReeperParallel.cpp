@@ -23,7 +23,7 @@ AutonStrategy1ReeperParallel::AutonStrategy1ReeperParallel()
 	// arm.
 
 	AddParallel (new DriveXFeetReeper(-.75, .25) );
-	AddSequential (new BinRetrievalRaiseAuton (3));
+	AddSequential (new BinRetrievalRaiseAuton (2.5));
 	//AddSequential (new DelayCommand(1));
 	AddSequential (new DriveXFeet(8, .8));
 

@@ -58,10 +58,7 @@ OI::OI() {
 	BinRetrievalRaiseBtn = new JoystickButton(buttonBox, 12);
 	BinRetrievalRaiseBtn -> WhileHeld(new BinRetrievalRaise());
 
-	ReeperArmDown = new JoystickButton(joystick2, 1);
-	ReeperArmDown -> WhileHeld (new BinRetrievalLower());
-	ReeperArmUp = new JoystickButton(joystick1, 1);
-	ReeperArmUp -> WhileHeld (new BinRetrievalRaise());
+
 
 
 
@@ -103,7 +100,10 @@ OI::OI() {
 	liftUpFastBtn2->WhileHeld(new LiftUpFast());
 	joystick1 = new Joystick(0);
 	
-     
+	ReeperArmDown = new JoystickButton(joystick2, 1);
+		ReeperArmDown -> WhileHeld (new BinRetrievalLower());
+		ReeperArmUp = new JoystickButton(joystick1, 1);
+		ReeperArmUp -> WhileHeld (new BinRetrievalRaise());
 
         // SmartDashboard Buttons
 	SmartDashboard::PutData("ResetEncoders", new ResetEncoders());

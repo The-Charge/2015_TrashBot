@@ -1,7 +1,7 @@
 #include "BinRetrievalRaiseAuton.h"
 #include "../Robot.h"
 
-BinRetrievalRaiseAuton::BinRetrievalRaiseAuton(int t)
+BinRetrievalRaiseAuton::BinRetrievalRaiseAuton(float t)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
