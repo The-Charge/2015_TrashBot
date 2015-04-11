@@ -23,7 +23,7 @@ AutonStrategy1ReeperParallelFaster::AutonStrategy1ReeperParallelFaster()
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 	AddParallel (new DriveXFeetReeper(-.75, .25) );
-		AddSequential (new BinRetrievalRaiseAuton (2));
+		AddSequential (new BinRetrievalRaiseAuton (1));
 		//AddSequential (new DelayCommand(1));
 		AddSequential (new DriveXFeet(8, .8));
 

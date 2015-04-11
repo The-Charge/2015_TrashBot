@@ -15,7 +15,7 @@ void BinRetrieval::InitDefaultCommand()
 
 void BinRetrieval::Lower()
 {
-	speedController-> Set(-.2);
+	speedController-> Set(-.25);
 }
 
 void BinRetrieval::Raise()
