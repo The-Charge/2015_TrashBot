@@ -1,41 +1,40 @@
-#include "BinRetrievalRaiseAuton.h"
+#include "BinRetrievalRaiseLeftAuton.h"
 #include "../Robot.h"
-
-BinRetrievalRaiseAuton::BinRetrievalRaiseAuton(float t)
+BinRetrievalRaiseLeftAuton::BinRetrievalRaiseLeftAuton(float t)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires (Robot::binRetrieval);
-	timetorun = t;
+	timeout = t;
 }
 
 // Called just before this Command runs the first time
-void BinRetrievalRaiseAuton::Initialize()
+void BinRetrievalRaiseLeftAuton::Initialize()
 {
-this -> SetTimeout(timetorun);
+this -> SetTimeout (timeout);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void BinRetrievalRaiseAuton::Execute()
+void BinRetrievalRaiseLeftAuton::Execute()
 {
-Robot::binRetrieval -> RaiseRight();
+Robot::binRetrieval -> RaiseLeft();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool BinRetrievalRaiseAuton::IsFinished()
+bool BinRetrievalRaiseLeftAuton::IsFinished()
 {
 	return this -> IsTimedOut();
 }
 
 // Called once after isFinished returns true
-void BinRetrievalRaiseAuton::End()
+void BinRetrievalRaiseLeftAuton::End()
 {
 Robot::binRetrieval -> StopBoth();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void BinRetrievalRaiseAuton::Interrupted()
+void BinRetrievalRaiseLeftAuton::Interrupted()
 {
 End();
 }

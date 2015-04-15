@@ -18,7 +18,7 @@ this -> SetTimeout(timetorun);
 // Called repeatedly when this Command is scheduled to run
 void BinRetrievalLowerAutonm::Execute()
 {
-Robot::binRetrieval->Lower();
+Robot::binRetrieval->LowerLeft();
 }
 
 // Make this return true when this Command no longer needs to run execute()

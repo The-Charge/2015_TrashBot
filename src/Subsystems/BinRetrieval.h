@@ -11,13 +11,17 @@ private:
 	// for methods that implement subsystem capabilities
 public:
 
-	SpeedController*speedController;
-
+	SpeedController*speedControllerRight;
+	SpeedController*speedControllerLeft;
 	BinRetrieval();
 	void InitDefaultCommand();
-	void Lower();
-	void Raise();
-	void Stop();
+	void LowerRight();
+	void RaiseRight();
+	void LowerLeft();
+	void RaiseLeft();
+	void StopBoth();
+	void RaiseBoth();
+	void LowerBoth();
 };
 
 #endif

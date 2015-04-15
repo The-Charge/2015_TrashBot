@@ -17,7 +17,7 @@ void BinRetrievalRaise::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void BinRetrievalRaise::Execute()
 {
-	Robot::binRetrieval -> Raise();
+	Robot::binRetrieval -> RaiseLeft();
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -29,7 +29,7 @@ bool BinRetrievalRaise::IsFinished()
 // Called once after isFinished returns true
 void BinRetrievalRaise::End()
 {
-Robot::binRetrieval -> Stop();
+Robot::binRetrieval -> StopBoth();
 }
 
 // Called when another command which requires one or more of the same

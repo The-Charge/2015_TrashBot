@@ -30,7 +30,8 @@ public:
 	static Compressor* compressor1AirCompressor;
 	static DoubleSolenoid* liftSolenoid1;
 	static SpeedController* liftSpeedController;
-	static SpeedController* binRetrievalSpeedController;
+	static SpeedController* binRetrievalSpeedControllerRight;
+	static SpeedController* binRetrievalSpeedControllerLeft;
 	static Encoder* liftEncoder;
 	static DoubleSolenoid* armsLeftArm;
 	static DoubleSolenoid* armsRightArm;
