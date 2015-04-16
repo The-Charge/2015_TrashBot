@@ -37,8 +37,10 @@ private:
 	Joystick* joystick1;
 	JoystickButton * BinRetrievalLowerBtn;
 	JoystickButton * BinRetrievalRaiseBtn;
-	JoystickButton * ReeperArmDown;
-	JoystickButton *ReeperArmUp;
+	JoystickButton * LeftReeperArmUp;
+	JoystickButton * RightReeperArmUp;
+	JoystickButton * BothReeperArmsUp;
+	JoystickButton * BothReeperArmsDown;
 
 
 
