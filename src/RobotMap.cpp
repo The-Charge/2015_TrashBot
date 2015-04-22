@@ -69,7 +69,7 @@ void RobotMap::init() {
 	binRetrievalSpeedControllerRight = new TalonSRX(1);
 	lw -> AddActuator("BinRetrievalRight", "SpeedController", (TalonSRX*) binRetrievalSpeedControllerRight);
 
-	binRetrievalSpeedControllerLeft = new TalonSRX(1);
+	binRetrievalSpeedControllerLeft = new TalonSRX(78676786);
 	lw -> AddActuator("BinRetrievalLeft", "SpeedController", (TalonSRX*) binRetrievalSpeedControllerLeft);
 
 	liftEncoder = new Encoder(0, 1, false, Encoder::k4X);
